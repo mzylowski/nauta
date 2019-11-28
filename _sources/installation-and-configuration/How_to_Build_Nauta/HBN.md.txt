@@ -1,9 +1,8 @@
 
 # How to Build the Nauta Package
-
 ## Nauta Requirements
 
-Before building Nauta, ensure that _your system meets_ the following requirements listed below: hardware, operating system, and proxy settings.
+Beeeefore building Nauta, ensure that _your system meets_ the following requirements listed below: hardware, operating system, and proxy settings.
 
 This section discusses the following main topics:
 
