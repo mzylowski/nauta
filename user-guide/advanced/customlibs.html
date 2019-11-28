@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Libraries and Dependencies &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Installing Libraries and Dependencies</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/advanced/customlibs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-libraries-and-dependencies">
+<h1>Installing Libraries and Dependencies<a class="headerlink" href="#installing-libraries-and-dependencies" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#installing-an-operating-system-library">Installing an Operating System library</a></p></li>
+<li><p><a class="reference external" href="#modifying-existing-draft-packs">Modifying Existing Draft Packs</a></p></li>
+<li><p><a class="reference external" href="#installing-operating-system-packages">Installing Operating System Packages</a></p></li>
+<li><p><a class="reference external" href="#proxy-settings">Proxy Settings</a></p></li>
+<li><p><a class="reference external" href="#example-dockerfile-modification">Example Dockerfile Modification</a></p></li>
+</ul>
+<div class="section" id="installing-an-operating-system-library">
+<h2>Installing an Operating System Library<a class="headerlink" href="#installing-an-operating-system-library" title="Permalink to this headline">¶</a></h2>
+<p>To install an Operating System library or dependency that <em>is not</em> included in standard Nauta Docker image, you <em>must</em> modify the draft pack definition. To install a pip dependency (like NumPy Python or pandas Python), refer to <code class="docutils literal notranslate"><span class="pre">experiment</span> <span class="pre">submit</span></code> command documentation.</p>
+<p><strong>Note:</strong> For NumPy Python information, refer to: <a class="reference external" href="http://www.numpy.org">NumPy.org</a>. For pandas Python information, refer to: <a class="reference external" href="https://pandas.pydata.org/">Pandas Information</a></p>
+</div>
+<div class="section" id="modifying-existing-draft-packs">
+<h2>Modifying Existing Draft Packs<a class="headerlink" href="#modifying-existing-draft-packs" title="Permalink to this headline">¶</a></h2>
+<p>The draft packs are located in the <code class="docutils literal notranslate"><span class="pre">nctl_config</span></code> folder. Navigate to <code class="docutils literal notranslate"><span class="pre">.draft/packs</span></code> folder to list existing packs.
+The default pack used by <em>nctl</em> client is <code class="docutils literal notranslate"><span class="pre">tf-training-single</span></code>. Edit the <em>Dockerfile</em> located in selected pack to make necessary changes.</p>
+<p>Example <em>Dockerfile</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">FROM</span> <span class="n">nauta</span><span class="o">/</span><span class="n">tensorflow</span><span class="p">:</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py3</span>
+    
+    <span class="n">WORKDIR</span> <span class="o">/</span><span class="n">app</span>
+
+    <span class="n">ADD</span> <span class="n">training</span><span class="o">.</span><span class="n">py</span> <span class="o">.</span>
+    
+    <span class="n">ENV</span> <span class="n">PYTHONUNBUFFERED</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-operating-system-packages">
+<h2>Installing Operating System Packages<a class="headerlink" href="#installing-operating-system-packages" title="Permalink to this headline">¶</a></h2>
+<p>The images in Nauta are based on CentOS. To install system package, add the following lines to <em>Dockerfile</em>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">RUN</span> <span class="n">yum</span> <span class="n">update</span>
+    <span class="n">RUN</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">package1</span> <span class="n">package2</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="proxy-settings">
+<h2>Proxy Settings<a class="headerlink" href="#proxy-settings" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the network configuration, it may be required to setup proxy servers.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">ARG</span> <span class="n">http_proxy</span><span class="o">=</span><span class="n">corporate</span><span class="o">-</span><span class="n">proxy</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">911</span>
+ <span class="n">ARG</span> <span class="n">https_proxy</span><span class="o">=</span><span class="n">corporate</span><span class="o">-</span><span class="n">proxy</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">912</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-dockerfile-modification">
+<h2>Example Dockerfile Modification<a class="headerlink" href="#example-dockerfile-modification" title="Permalink to this headline">¶</a></h2>
+<p>An example <em>Dockerfile</em> showing installation of additional packages is shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">FROM</span> <span class="n">nauta</span><span class="o">/</span><span class="n">tensorflow</span><span class="p">:</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py3</span>
+    
+    <span class="n">WORKDIR</span> <span class="o">/</span><span class="n">app</span>
+
+    <span class="n">ARG</span> <span class="n">http_proxy</span><span class="o">=</span><span class="n">corporate</span><span class="o">-</span><span class="n">proxy</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">911</span>
+    <span class="n">ARG</span> <span class="n">https_proxy</span><span class="o">=</span><span class="n">corporate</span><span class="o">-</span><span class="n">proxy</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="mi">912</span>
+         
+    <span class="n">RUN</span> <span class="n">yum</span> <span class="n">update</span>
+    <span class="n">RUN</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">libsndfile</span>
+    
+    <span class="n">ADD</span> <span class="n">training</span><span class="o">.</span><span class="n">py</span> <span class="o">.</span>
+    
+    <span class="n">ENV</span> <span class="n">PYTHONUNBUFFERED</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

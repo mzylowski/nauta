@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Launching Jupyter Interactive Notebook &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Launching Jupyter Interactive Notebook</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/launch_jupyter.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="launching-jupyter-interactive-notebook">
+<h1>Launching Jupyter Interactive Notebook<a class="headerlink" href="#launching-jupyter-interactive-notebook" title="Permalink to this headline">¶</a></h1>
+<p>You can use Jupyter Notebook to run and display the results of your experiments. This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#launching-jupyter-interactive-notebook">Launching Jupyter Interactive Notebook</a></p></li>
+<li><p><a class="reference external" href="#storage-and-session-data">Storage and Session Data</a></p></li>
+<li><p><a class="reference external" href="#tunneling">Tunneling</a></p></li>
+<li><p><a class="reference external" href="#canceling-a-jupyter-notebook">Canceling a Jupyter Notebook</a></p></li>
+</ul>
+<div class="section" id="id1">
+<h2>Launching Jupyter Interactive Notebook<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>This release of Nauta supports Python 3 and 2.7 for scripts.</p>
+<p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">interact</span> <span class="pre">[options]</span></code></p>
+<p>Options, include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> - The name of this Jupyter Notebook session.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename</span></code> - File with a notebook that should be opened in Jupyter notebook.</p></li>
+</ul>
+<p>For detailed command syntax information, refer to: <a class="reference external" href="experiment.md#interact-subcommand">experiment interact Subcommand</a>.</p>
+<p>Execute this command to launch Jupyter:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">interact</span></code></p>
+</div>
+<div class="section" id="storage-and-session-data">
+<h2>Storage and Session Data<a class="headerlink" href="#storage-and-session-data" title="Permalink to this headline">¶</a></h2>
+<p>Files located in the input storage are accessible through Jupyter Notebooks. Only files that are written to <code class="docutils literal notranslate"><span class="pre">/output/home/</span></code> are persistently stored. Therefore, changes made to other files, including model scripts, during the session <em>will not</em> be saved after the session is closed. Therefore, it is recommended that you save session data to the <code class="docutils literal notranslate"><span class="pre">output/experiment</span></code> folder for future use.</p>
+<p><strong>Note:</strong> Files that are accessible through the Jupyter Notebook are the same folders accessible to the user for experiments.</p>
+</div>
+<div class="section" id="tunneling">
+<h2>Tunneling<a class="headerlink" href="#tunneling" title="Permalink to this headline">¶</a></h2>
+<p>If you are using CLI through remote access, you will need to setup a X server for tunneling over SSH with port forwarding or use SSH Proxy command tunneling. After establishing a tunnel from the gateway to your local machine, you can use the URL provided by nctl.</p>
+<p>The following result displays.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Submitting</span> <span class="n">experiments</span><span class="o">.</span>
+<span class="o">|</span> <span class="n">Experiment</span>                  <span class="o">|</span> <span class="n">Parameters</span> <span class="o">|</span> <span class="n">State</span>  <span class="o">|</span> <span class="n">Message</span>   <span class="o">|</span>
+<span class="o">|-----------------------------+------------+--------+-----------|</span>
+<span class="o">|</span> <span class="n">jup</span><span class="o">-</span><span class="mi">936</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">58</span>   <span class="o">|</span>            <span class="o">|</span> <span class="n">QUEUED</span> <span class="o">|</span>           <span class="o">|</span> 
+
+<span class="n">Browser</span> <span class="n">will</span> <span class="n">start</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">few</span> <span class="n">seconds</span><span class="o">.</span> <span class="n">Please</span> <span class="n">wait</span><span class="o">...</span>
+<span class="n">Go</span> <span class="n">to</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">locahost</span><span class="p">:</span><span class="mi">28113</span>
+<span class="n">Proxy</span> <span class="n">connection</span> <span class="n">created</span><span class="o">.</span>
+<span class="n">Press</span> <span class="n">Ctrl</span><span class="o">-</span><span class="n">C</span> <span class="n">key</span> <span class="n">to</span> <span class="n">close</span> <span class="n">a</span> <span class="n">port</span> <span class="n">forwarding</span> <span class="n">process</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>Jupyter Notebook will launch in your default web browser. The following displays.</p>
+<p><img alt="../../_images/jupyter_dashbd.png" src="../../_images/jupyter_dashbd.png" /></p>
+<p>An example active Jupyter Notebook, shows a simple experiment plot.</p>
+<p><img alt="../../_images/jupyter_plot.png" src="../../_images/jupyter_plot.png" /></p>
+</div>
+<div class="section" id="canceling-a-jupyter-notebook">
+<h2>Canceling a Jupyter Notebook<a class="headerlink" href="#canceling-a-jupyter-notebook" title="Permalink to this headline">¶</a></h2>
+<p>In Nauta, running a Jupyter notebook is done through an interact session. The session will remain open such that the Jupyter notebook that is running will continue when the browser is closed. Therefore, a user <em>must</em> manually cancel the interact session, or it will continue to allocate resources.</p>
+<div class="section" id="steps-to-manage-and-cancel-interacts">
+<h3>Steps to Manage and Cancel Interacts<a class="headerlink" href="#steps-to-manage-and-cancel-interacts" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>To see all running jobs, execute: <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span> <span class="pre">--status</span> <span class="pre">RUNNING</span></code></p></li>
+<li><p>To cancel a running interact, execute: <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">cancel</span> <span class="pre">[options]</span> <span class="pre">[EXPERIMENT-NAME]</span></code></p>
+<ul class="simple">
+<li><p>EXPERIMENT-NAME is the interact name.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">--purge</span></code> option if you need to remove session from experiment list. For <em>purge</em> information, refer to: <a class="reference internal" href="getting_started.html"><span class="doc">Getting Started, Remove Experiment Section</span></a>.</p></li>
+</ul>
+</li>
+</ol>
+<p>To verify that cancellation has completed, execute: <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span> <span class="pre">--status</span> <span class="pre">RUNNING</span></code></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

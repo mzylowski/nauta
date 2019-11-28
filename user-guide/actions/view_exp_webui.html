@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Viewing Experiment Results from the Nauta Web UI &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Viewing Experiment Results from the Nauta Web UI</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/view_exp_webui.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="viewing-experiment-results-from-the-nauta-web-ui">
+<h1>Viewing Experiment Results from the Nauta Web UI<a class="headerlink" href="#viewing-experiment-results-from-the-nauta-web-ui" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#nauta-web-ui">Nauta Web UI</a></p></li>
+<li><p><a class="reference external" href="#expanding-experiment-details">Expanding Experiment Details</a></p></li>
+<li><p><a class="reference external" href="#searching-on-experiments">Searching on Experiments</a></p></li>
+<li><p><a class="reference external" href="#adding-and-deleting-columns">Adding and Deleting Columns</a></p></li>
+</ul>
+<div class="section" id="nauta-web-ui">
+<h2>Nauta Web UI<a class="headerlink" href="#nauta-web-ui" title="Permalink to this headline">¶</a></h2>
+<p>The web UI lets you explore the experiments you have submitted. To view your experiments contained the web UI, enter the following command at the command prompt:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">launch</span> <span class="pre">webui</span></code></p>
+<p>The following screen displays (this is an example only).</p>
+<p><img alt="../../_images/web_ui.png" src="../../_images/web_ui.png" /></p>
+<ul class="simple">
+<li><p><strong>Name</strong>: The left-most column lists the experiments by name.</p></li>
+<li><p><strong>Status</strong>: This column reveals experiment’s current status, one of: <code class="docutils literal notranslate"><span class="pre">QUEUED,</span> <span class="pre">RUNNING,</span> <span class="pre">COMPLETE,</span> <span class="pre">CANCELLED,</span> <span class="pre">FAILED,</span> <span class="pre">CREATING</span></code>.</p></li>
+<li><p><strong>Submission Date</strong>: This column gives the submission date in the format: MM/DD/YYYY, hour:min:second AM/PM.</p></li>
+<li><p><strong>Start Date</strong>: This column shows the experiment start date in the format: MM/DD/YYYY, hour:min:second AM/PM.  The Start Date (or time) will always be after the Submission Date (or time).</p></li>
+<li><p><strong>Duration</strong>: This column shows the duration of execution for this experiment in days, hours, minutes and seconds.</p></li>
+<li><p><strong>Type</strong>: Experiment Type can be Training, Jupyter, or Inference. Training indicates that the experiment was launched from the CLI. Jupyter indicates that the experiment was launched using Jupyter Notebook. Inference means that training is largely complete and you have begun running predictions (inference) with this model.</p></li>
+</ul>
+<p>You can perform the tasks discussed below at the Nauta web UI.</p>
+</div>
+<div class="section" id="expanding-experiment-details">
+<h2>Expanding Experiment Details<a class="headerlink" href="#expanding-experiment-details" title="Permalink to this headline">¶</a></h2>
+<p>Click <em>listed experiment name</em> to see additional details for that experiment. The following details are examples only.</p>
+<p>This screen is divided into two frames: left and right side frames.</p>
+<div class="section" id="left-side-frame">
+<h3>Left-side Frame<a class="headerlink" href="#left-side-frame" title="Permalink to this headline">¶</a></h3>
+<p>The left-side frame of the experiment details window shows Resources and Submission Date (as shown in the figure below).</p>
+<ul class="simple">
+<li><p><strong>Resources</strong> assigned to that experiment, specifically the assigned pods and their status and container information including the CPU and memory resources assigned.</p></li>
+<li><p>The <strong>Submission Date</strong> and time.</p></li>
+</ul>
+<p><img alt="Image" src="../../_images/UI_Experiment_Details_1.png" /></p>
+</div>
+</div>
+<div class="section" id="right-side-frame">
+<h2>Right-side Frame<a class="headerlink" href="#right-side-frame" title="Permalink to this headline">¶</a></h2>
+<p>The right-side frame of the experiment details window shows Start Date, End Date, Total Duration, Parameters, and Output (as shown in the figure below).</p>
+<ul class="simple">
+<li><p><strong>Start Date:</strong> The day and time this experiment was launched.</p></li>
+<li><p><strong>End Date:</strong> The day and time this experiment was launched.</p></li>
+<li><p><strong>Total Duration:</strong> The actual duration this experiment was instantiated.</p></li>
+<li><p><strong>Parameters:</strong> The experiment script file name and the log directory.</p></li>
+<li><p><strong>Output:</strong> Clickable links to download all logs and view the last 100 log entries.</p></li>
+</ul>
+<p><img alt="Image" src="../../_images/UI_Experiment_Details_2.png" /></p>
+</div>
+<div class="section" id="searching-on-experiments">
+<h2>Searching on Experiments<a class="headerlink" href="#searching-on-experiments" title="Permalink to this headline">¶</a></h2>
+<p>In the <strong>Search</strong> field at the far right of the UI <img alt="../../_images/search_lense.png" src="../../_images/search_lense.png" />, enter a string of alphanumeric characters to match the experiment name or other parameters (such as user), and list only those matching experiments. This Search function lets the user search fields in the entire list, not just the experiment name or parameters.</p>
+</div>
+<div class="section" id="adding-and-deleting-columns">
+<h2>Adding and Deleting Columns<a class="headerlink" href="#adding-and-deleting-columns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-delete-columns-button">
+<h3>ADD/DELETE COLUMNS Button<a class="headerlink" href="#add-delete-columns-button" title="Permalink to this headline">¶</a></h3>
+<p>Click <strong>ADD/DELETE COLUMNS</strong> button to open a dialogue. The columns currently in use are listed first with
+their check box checked. Scroll down to see more, available columns listed next, unchecked.</p>
+</div>
+<div class="section" id="check-uncheck-column-headings">
+<h3>Check/Uncheck Column Headings<a class="headerlink" href="#check-uncheck-column-headings" title="Permalink to this headline">¶</a></h3>
+<p>Click to check and uncheck and select the column headings you prefer. Optional column headings include parameters such as Pods, End Date, Owner, Template, Time in Queue, and so on.</p>
+</div>
+<div class="section" id="column-heading-metrics">
+<h3>Column Heading Metrics<a class="headerlink" href="#column-heading-metrics" title="Permalink to this headline">¶</a></h3>
+<p>Column headings also include metrics that have been setup using the Metrics API, for a given experiment, and you
+can select to show those metrics in this display as well.</p>
+</div>
+<div class="section" id="column-additions-and-deletions">
+<h3>Column Additions and Deletions<a class="headerlink" href="#column-additions-and-deletions" title="Permalink to this headline">¶</a></h3>
+<p>Refer to <a class="reference internal" href="view_exp_tensorbd.html"><span class="doc">Launching TensorBoard to View Experiments</span></a> for more information.</p>
+</div>
+</div>
+<div class="section" id="launching-kubernetes-dashboard">
+<h2>Launching Kubernetes Dashboard<a class="headerlink" href="#launching-kubernetes-dashboard" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Click the <strong>Hamburger Menu</strong> <img alt="../../_images/hamburger_menu.png" src="../../_images/hamburger_menu.png" /> at the far left of the UI to open a left frame.</p></li>
+<li><p>Click <strong>Resources Dashboard</strong> to open the Kubernetes resources dashboard.</p></li>
+</ul>
+<p>Refer to <a class="reference internal" href="accessing_kubernetes.html"><span class="doc">Accessing the Kubernetes Resource Dashboard</span></a> for more information.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

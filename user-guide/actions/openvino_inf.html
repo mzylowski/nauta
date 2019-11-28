@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inference on models served by OpenVINO model server &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Inference on models served by OpenVINO model server</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/openvino_inf.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="inference-on-models-served-by-openvino-model-server">
+<h1>Inference on models served by OpenVINO model server<a class="headerlink" href="#inference-on-models-served-by-openvino-model-server" title="Permalink to this headline">¶</a></h1>
+<p>To perform batch or stream inference with OVMS, a model in OpenVINO format is required.
+For this example you can obtain MNIST model converted to OVMS format following <a class="reference internal" href="model_export.html"><span class="doc">exporting models</span></a> instruction.</p>
+<div class="section" id="mount-input-directory-and-copy-ovms-compatible-model">
+<h2>Mount input directory and copy OVMS compatible model<a class="headerlink" href="#mount-input-directory-and-copy-ovms-compatible-model" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Mount Nauta input directory via NFS following <a class="reference internal" href="mount_exp_input.html"><span class="doc">mount input</span></a> instruction.</p></li>
+<li><p>Copy OVMS compatible model to the input directory.</p></li>
+</ol>
+</div>
+<div class="section" id="models-structure-in-the-input-directory">
+<h2>Models structure in the input directory<a class="headerlink" href="#models-structure-in-the-input-directory" title="Permalink to this headline">¶</a></h2>
+<p>Models should be placed and mounted in a directory structure as depicted below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>models/
+├── model1
+│   ├── 1
+│   │   ├── ir_model.bin
+│   │   └── ir_model.xml
+│   └── 2
+│       ├── ir_model.bin
+│       └── ir_model.xml
+└── model2
+    └── 1
+        ├── ir_model.bin
+        ├── ir_model.xml
+        └── mapping_config.json
+</pre></div>
+</div>
+<p>In case of MNIST model converted with <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">export</span></code> command, there will be created a directory storing one version of the model. Due to
+prediction prerequisite, model directory structure has to meet the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>models/
+└── &lt;directory from model export output&gt;
+    └── 1
+        ├── saved_model.bin
+        ├── saved_model.mapping
+        └── saved_model.xml
+</pre></div>
+</div>
+</div>
+<div class="section" id="stream-inference">
+<h2>Stream inference<a class="headerlink" href="#stream-inference" title="Permalink to this headline">¶</a></h2>
+<p>When proper model structure is prepared, run model server instance with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">launch</span> <span class="o">-</span><span class="n">n</span> <span class="n">ovmsexample</span> <span class="o">--</span><span class="n">runtime</span> <span class="n">ovms</span> <span class="o">--</span><span class="n">model</span><span class="o">-</span><span class="n">location</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">mnist</span>
+</pre></div>
+</div>
+<p>When <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predictl</span> <span class="pre">list</span></code> reports our prediction as running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Prediction</span> <span class="n">instance</span>   <span class="o">|</span> <span class="n">Parameters</span>   <span class="o">|</span> <span class="n">Submission</span> <span class="n">date</span>        <span class="o">|</span> <span class="n">Start</span> <span class="n">date</span>             <span class="o">|</span> <span class="n">Duration</span>      <span class="o">|</span> <span class="n">Owner</span>    <span class="o">|</span> <span class="n">Status</span>   <span class="o">|</span> <span class="n">Template</span> <span class="n">name</span>             <span class="o">|</span> <span class="n">Template</span> <span class="n">version</span>   <span class="o">|</span>
+<span class="o">|-----------------------+--------------+------------------------+------------------------+---------------+----------+----------+---------------------------+--------------------|</span>
+<span class="o">|</span> <span class="n">ovmsexample</span>           <span class="o">|</span>              <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">29</span> <span class="mi">03</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">08</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">29</span> <span class="mi">03</span><span class="p">:</span><span class="mi">01</span><span class="p">:</span><span class="mi">12</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">0</span><span class="n">d</span> <span class="mi">0</span><span class="n">h</span> <span class="mi">26</span><span class="n">m</span> <span class="mi">13</span><span class="n">s</span> <span class="o">|</span> <span class="n">mzylowsk</span> <span class="o">|</span> <span class="n">RUNNING</span>  <span class="o">|</span> <span class="n">openvino</span><span class="o">-</span><span class="n">inference</span><span class="o">-</span><span class="n">stream</span> <span class="o">|</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>              <span class="o">|</span>
+</pre></div>
+</div>
+<p>Stream inference can be performed with command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">stream</span> <span class="o">--</span><span class="n">name</span> <span class="n">ovmsexample</span> <span class="o">--</span><span class="n">data</span> <span class="nb">input</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Example content of input.json file can be found in examples of nctl (&lt;nctl_directory&gt;/examples/ovms_inference).</p>
+<p>For input.json delivered in example result of stream inference will be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;predictions&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mf">0.0006329981843009591</span><span class="p">,</span> <span class="mf">1.111995175051561e-06</span><span class="p">,</span> <span class="mf">0.00018445802561473101</span><span class="p">,</span> <span class="mf">0.08759918063879013</span><span class="p">,</span> <span class="mf">1.9286260055650928e-07</span><span class="p">,</span> <span class="mf">0.9085237383842468</span><span class="p">,</span> <span class="mf">2.53505368164042e-05</span><span class="p">,</span> <span class="mf">0.0012352498015388846</span><span class="p">,</span> <span class="mf">0.0017150170169770718</span><span class="p">,</span> <span class="mf">8.265616634162143e-05</span><span class="p">]]}</span>
+</pre></div>
+</div>
+<p>Output of the prediction, in case of MNIST digit recognition model, is a vector of 10 elements. Index at which this vector has highest value, represents predicted class. In our case, highest value was reported at index 5, which corresponds to class of ‘five’ digits.</p>
+<p>Similar JSON files can be generated with python script in &lt;nctl_directory&gt;/examples/ovms_inference:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">nctl_directory</span><span class="o">&gt;/</span><span class="n">examples</span><span class="o">/</span><span class="n">ovms_inference</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv</span>
+<span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>And when venv is prepared invoke:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">generate_json</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">image_id</span> <span class="o">&lt;</span><span class="n">IMAGE</span> <span class="n">ID</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">IMAGE</span> <span class="pre">ID</span></code> is a argument that determine with picture from MNIST will be used.</p>
+</div>
+<div class="section" id="batch-prediction">
+<h2>Batch prediction<a class="headerlink" href="#batch-prediction" title="Permalink to this headline">¶</a></h2>
+<p>To perform batch prediction you have to generate proper protobuffers for inference.
+This step is similar to <a class="reference external" href="batch_inf_example.md#mnist-data-preprocessing">MNIST Data Preprocessing</a>, but with one difference.
+During model conversion to OV format, some information about model signatures is missing. To perform prediction on
+the converted MNIST model, one additional parameter has to be used with <code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mnist_converter_pb</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">model_input_name</span><span class="o">=</span><span class="s2">&quot;x/placeholder_port_0&quot;</span>
+</pre></div>
+</div>
+<p>After file generation, move directory with .pb files to the <code class="docutils literal notranslate"><span class="pre">/input</span></code> mount point.</p>
+<p>When all files are prepared, schedule prediction with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">batch</span> <span class="o">-</span><span class="n">n</span> <span class="n">ovmsbatch</span> <span class="o">-</span><span class="n">rt</span> <span class="n">ovms</span> <span class="o">--</span><span class="n">model</span><span class="o">-</span><span class="n">location</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">mnist</span> <span class="o">--</span><span class="n">data</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">ovms_inference</span>
+</pre></div>
+</div>
+<p>Command above assumes that pb files are stored in <code class="docutils literal notranslate"><span class="pre">ovms_inference</span></code> directory in the <code class="docutils literal notranslate"><span class="pre">/input</span></code> shared folder.</p>
+<p>When batch prediction hits the <code class="docutils literal notranslate"><span class="pre">FINISHED</span></code> state:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Prediction</span> <span class="n">instance</span>         <span class="o">|</span> <span class="n">Parameters</span>   <span class="o">|</span> <span class="n">Submission</span> <span class="n">date</span>        <span class="o">|</span> <span class="n">Start</span> <span class="n">date</span>             <span class="o">|</span> <span class="n">Duration</span>     <span class="o">|</span> <span class="n">Owner</span>    <span class="o">|</span> <span class="n">Status</span>   <span class="o">|</span> <span class="n">Template</span> <span class="n">name</span>            <span class="o">|</span> <span class="n">Template</span> <span class="n">version</span>   <span class="o">|</span>
+<span class="o">|-----------------------------+--------------+------------------------+------------------------+--------------+----------+----------+--------------------------+--------------------|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="mi">526</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">34</span><span class="o">-</span><span class="mi">07</span> <span class="o">|</span>              <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">30</span> <span class="mi">12</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">35</span> <span class="n">AM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">30</span> <span class="mi">12</span><span class="p">:</span><span class="mi">34</span><span class="p">:</span><span class="mi">45</span> <span class="n">AM</span> <span class="o">|</span> <span class="mi">0</span><span class="n">d</span> <span class="mi">0</span><span class="n">h</span> <span class="mi">0</span><span class="n">m</span> <span class="mi">17</span><span class="n">s</span> <span class="o">|</span> <span class="n">mzylowsk</span> <span class="o">|</span> <span class="n">COMPLETE</span> <span class="o">|</span> <span class="n">openvino</span><span class="o">-</span><span class="n">inference</span><span class="o">-</span><span class="n">batch</span> <span class="o">|</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>              <span class="o">|</span>
+</pre></div>
+</div>
+<p>Results are available in the <code class="docutils literal notranslate"><span class="pre">/output</span></code> mount point (check <a class="reference internal" href="mount_exp_output.html"><span class="doc">Mount output instruction</span></a>).</p>
+</div>
+<div class="section" id="ovms-prediction-with-local-model">
+<h2>OVMS prediction with local model:<a class="headerlink" href="#ovms-prediction-with-local-model" title="Permalink to this headline">¶</a></h2>
+<p>On Nauta platform models also can be forwarded without <code class="docutils literal notranslate"><span class="pre">/input</span></code> mount. This can be performed with <code class="docutils literal notranslate"><span class="pre">--local-model-location</span></code> option.
+For example, scheduling stream prediction can be possible with command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">launch</span> <span class="o">-</span><span class="n">n</span> <span class="n">localovms</span> <span class="o">--</span><span class="n">runtime</span> <span class="n">ovms</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">model</span><span class="o">-</span><span class="n">location</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">mnist</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Above command assumes MNIST in OV format is stored in /tmp/models/mnist.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/getting_started.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>This section provides brief examples for performing some of the most essential and valuable
+tasks supported by Nauta.</p>
+<p><strong>Note:</strong> Several commands and training scripts in this section require access to the internet to download data, scripts, and so on.</p>
+<p>The section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#verifying-installation">Verifying Installation</a></p></li>
+<li><p><a class="reference external" href="#overview-of-nctl-commands">Overview of nctl Commands</a></p></li>
+<li><p><a class="reference external" href="#example-experiments">Example Experiments</a></p></li>
+<li><p><a class="reference external" href="#adding-experiment-metrics">Adding Experiment Metrics</a></p></li>
+<li><p><a class="reference external" href="#viewing-experiment-results-from-the-web-ui">Viewing Experiment Results from the Web UI</a></p></li>
+<li><p><a class="reference external" href="#launching-kubernetes-dashboard">Launching Kubernetes Dashboard</a></p></li>
+<li><p><a class="reference external" href="#launching-tensorboard">Launching TensorBoard</a></p></li>
+<li><p><a class="reference external" href="#inference">Inference</a></p></li>
+<li><p><a class="reference external" href="#overview-of-nctl-commands">Overview of nctl Commands</a></p></li>
+<li><p><a class="reference external" href="#viewing-experiment-output-folder">Viewing Experiment Output Folder</a></p></li>
+<li><p><a class="reference external" href="#removing-experiments">Removing Experiments</a></p></li>
+</ul>
+<div class="section" id="verifying-installation">
+<h2>Verifying Installation<a class="headerlink" href="#verifying-installation" title="Permalink to this headline">¶</a></h2>
+<p>Check that the required software packages are available in terminal by PATH and verified that the correct version is used.</p>
+<div class="section" id="proxy-environment-variables">
+<h3>Proxy Environment Variables<a class="headerlink" href="#proxy-environment-variables" title="Permalink to this headline">¶</a></h3>
+<p>If you are behind a proxy, remember to set your:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">HTTP_PROXY</span></code>, <code class="docutils literal notranslate"><span class="pre">HTTPS_PROXY</span></code> and <code class="docutils literal notranslate"><span class="pre">NO_PROXY</span></code> environment variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">http_proxy</span></code>, <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> and <code class="docutils literal notranslate"><span class="pre">no_proxy</span></code> environment variables</p></li>
+</ul>
+</div>
+<div class="section" id="confirm-installation">
+<h3>Confirm Installation<a class="headerlink" href="#confirm-installation" title="Permalink to this headline">¶</a></h3>
+<p>To verify your installation has completed, execute the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">verify</span></code></p>
+<p>If any installation issues are found, the command returns information about the cause: which application should be installed and in which version. This command also checks if the CLI can connect to Nauta; and, if port forwarding to Nauta is working correctly. If no issues are found, a message indicates checks were successful. The following examples are the results of this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="n">OS</span> <span class="ow">is</span> <span class="n">supported</span><span class="o">.</span>
+<span class="n">kubectl</span> <span class="n">verified</span> <span class="n">successfully</span><span class="o">.</span>
+<span class="n">kubectl</span> <span class="n">server</span> <span class="n">verified</span> <span class="n">successfully</span><span class="o">.</span>
+<span class="n">helm</span> <span class="n">client</span> <span class="n">verified</span> <span class="n">successfully</span><span class="o">.</span>
+<span class="n">helm</span> <span class="n">server</span> <span class="n">verified</span> <span class="n">successfully</span><span class="o">.</span>
+<span class="n">git</span> <span class="n">verified</span> <span class="n">successfully</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="overview-of-nctl-commands">
+<h2>Overview of nctl Commands<a class="headerlink" href="#overview-of-nctl-commands" title="Permalink to this headline">¶</a></h2>
+<p>Each <code class="docutils literal notranslate"><span class="pre">nctl</span></code> command has at least three options:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-v,</span> <span class="pre">--verbose</span></code> - Set verbosity level:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code> for INFO - Basic logs on INFO/EXCEPTION/ERROR levels are displayed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-vv</span></code> for DEBUG - Detailed logs on INFO/DEBUG/EXCEPTION/ERROR levels are displayed.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code> - The application displays the usage and options available for a specific command or subcommand.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f,</span> <span class="pre">--force</span></code> - Ignore (most) confirmation prompts during command execution.</p></li>
+</ol>
+<div class="section" id="accessing-help">
+<h3>Accessing Help<a class="headerlink" href="#accessing-help" title="Permalink to this headline">¶</a></h3>
+<p>To access help for any command, use the <code class="docutils literal notranslate"><span class="pre">--help</span></code> or <code class="docutils literal notranslate"><span class="pre">-h</span></code> parameters. The following command provides a list and brief description of all nctl commands.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">--help</span></code></p>
+<p>The results are shown below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span> <span class="n">nctl</span> <span class="n">COMMAND</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="p">[</span><span class="n">args</span><span class="p">]</span><span class="o">...</span>
+
+  <span class="n">Nauta</span> <span class="n">Client</span>
+
+ <span class="n">Displays</span> <span class="n">additional</span> <span class="n">help</span> <span class="n">information</span> <span class="n">when</span> <span class="n">the</span> <span class="o">-</span><span class="n">h</span> <span class="ow">or</span> <span class="o">--</span><span class="n">help</span> <span class="n">COMMAND</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span>
+
+<span class="n">Options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>  <span class="n">Displays</span> <span class="n">help</span> <span class="n">messaging</span> <span class="n">information</span><span class="o">.</span>
+
+<span class="n">Commands</span><span class="p">:</span>
+  <span class="n">config</span><span class="p">,</span> <span class="n">cfg</span>      <span class="n">Set</span> <span class="n">limits</span> <span class="ow">and</span> <span class="n">requested</span> <span class="n">resources</span> <span class="ow">in</span> <span class="n">templates</span><span class="o">.</span>          
+  <span class="n">experiment</span><span class="p">,</span> <span class="n">exp</span>  <span class="n">Start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="ow">or</span> <span class="n">manage</span> <span class="n">training</span> <span class="n">jobs</span><span class="o">.</span>   
+  <span class="n">launch</span><span class="p">,</span> <span class="n">l</span>        <span class="n">Launch</span> <span class="n">the</span> <span class="n">web</span> <span class="n">user</span><span class="o">-</span><span class="n">interface</span> <span class="ow">or</span> <span class="n">TensorBoard</span><span class="o">.</span> <span class="n">Runs</span> <span class="k">as</span> <span class="n">a</span> <span class="n">process</span> 
+                   <span class="ow">in</span> <span class="n">the</span> <span class="n">system</span> <span class="n">console</span> <span class="n">until</span> <span class="n">the</span> <span class="n">user</span> <span class="n">stops</span> <span class="n">the</span> <span class="n">process</span><span class="o">.</span> 
+                   <span class="n">To</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">background</span><span class="p">,</span> <span class="n">add</span> <span class="s1">&#39;&amp;&#39;</span> <span class="n">at</span> <span class="n">the</span> <span class="n">end</span> <span class="n">of</span> <span class="n">the</span> <span class="n">line</span><span class="o">.</span>
+  <span class="n">mount</span><span class="p">,</span> <span class="n">m</span>         <span class="n">Displays</span> <span class="n">a</span> <span class="n">command</span> <span class="n">to</span> <span class="n">mount</span> <span class="n">folders</span> <span class="n">on</span> <span class="n">a</span> <span class="n">local</span> <span class="n">machine</span><span class="o">.</span>
+  <span class="n">predict</span><span class="p">,</span> <span class="n">p</span>       <span class="n">Start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="ow">and</span> <span class="n">manage</span> <span class="n">prediction</span> <span class="n">jobs</span> <span class="ow">and</span> <span class="n">instances</span><span class="o">.</span>
+  <span class="n">user</span><span class="p">,</span> <span class="n">u</span>          <span class="n">Create</span><span class="p">,</span> <span class="n">delete</span><span class="p">,</span> <span class="ow">or</span> <span class="nb">list</span> <span class="n">users</span> <span class="n">of</span> <span class="n">the</span> <span class="n">platform</span><span class="o">.</span> 
+                   <span class="n">Can</span> <span class="n">only</span> <span class="n">be</span> <span class="n">run</span> <span class="n">by</span> <span class="n">a</span> <span class="n">platform</span> <span class="n">administrator</span><span class="o">.</span>
+  <span class="n">verify</span><span class="p">,</span> <span class="n">ver</span>      <span class="n">Verifies</span> <span class="n">whether</span> <span class="nb">all</span> <span class="n">required</span> <span class="n">external</span> <span class="n">components</span> <span class="n">contain</span> 
+                   <span class="n">the</span> <span class="n">proper</span> <span class="n">versions</span> <span class="n">installed</span><span class="o">.</span>
+  <span class="n">version</span><span class="p">,</span> <span class="n">v</span>       <span class="n">Displays</span> <span class="n">the</span> <span class="n">version</span> <span class="n">of</span> <span class="n">the</span> <span class="n">installed</span> <span class="n">nctl</span> <span class="n">application</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-experiments">
+<h2>Example Experiments<a class="headerlink" href="#example-experiments" title="Permalink to this headline">¶</a></h2>
+<p>The Nauta installation includes sample training scripts and utility scripts, contained in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder, that can be run to demonstrate how to use Nauta. This section describes how to use these scripts.</p>
+<div class="section" id="examples-folder-content">
+<h3>Examples Folder Content<a class="headerlink" href="#examples-folder-content" title="Permalink to this headline">¶</a></h3>
+<p>The examples folder in the nctl installation contains these following experiment scripts:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mnist_single_node.py</span></code> - Training of digit classifier in single node setting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mnist_multinode.py</span></code> - Training of digit classifier in distributed TensorFlow setting</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mnist_horovod.py</span></code> - Training of digit classifier in Horovod</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mnist_saved_model.py</span></code> - Training of digit classifier with saving the model at the end (requires mnist_input_data.py file)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mnist_tensorboard.py</span></code> - Training of digit classifier which displays summaries in TensorBoard (requires at least 2Gi of memory)</p></li>
+</ul>
+</div>
+<div class="section" id="utility-scripts">
+<h3>Utility Scripts<a class="headerlink" href="#utility-scripts" title="Permalink to this headline">¶</a></h3>
+<p>There are two utility scripts, these are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">mnist_checker.py</span></code></p>
+<p>These utility scripts used for inference process and model verification.</p>
+<p><strong>Note:</strong> Experiment scripts <em>must be</em> written in Python.</p>
+</div>
+</div>
+<div class="section" id="submitting-an-experiment">
+<h2>Submitting an Experiment<a class="headerlink" href="#submitting-an-experiment" title="Permalink to this headline">¶</a></h2>
+<p>Launch training experiments with Nauta using the following:</p>
+<p><strong>Syntax</strong>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">[options]</span> <span class="pre">SCRIPT-LOCATION</span> <span class="pre">[--</span> <span class="pre">script-parameters]</span></code></p>
+<p><strong>Where:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SCRIPT-LOCATION</span></code>: The path and name of the Python script used to perform this experiment.</p></li>
+</ul>
+<p>To submit the example experiments, use the following:</p>
+<div class="section" id="single-node-training">
+<h3>Single Node Training<a class="headerlink" href="#single-node-training" title="Permalink to this headline">¶</a></h3>
+<p>For single node training (template parameter in this case is optional)</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">-t</span> <span class="pre">tf-training-single</span> <span class="pre">examples/mnist_single_node.py</span> <span class="pre">--name</span> <span class="pre">single</span></code></p>
+</div>
+<div class="section" id="multinode-training">
+<h3>Multinode Training<a class="headerlink" href="#multinode-training" title="Permalink to this headline">¶</a></h3>
+<p>For multinode training:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">-t</span> <span class="pre">tf-training-multi</span> <span class="pre">examples/mnist_multinode.py</span> <span class="pre">--name</span> <span class="pre">multinode</span></code></p>
+</div>
+<div class="section" id="horovod-training">
+<h3>Horovod Training<a class="headerlink" href="#horovod-training" title="Permalink to this headline">¶</a></h3>
+<p>For Horovod training:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">-t</span> <span class="pre">tf-training-horovod</span> <span class="pre">examples/mnist_horovod.py</span> <span class="pre">--name</span> <span class="pre">horovod</span> </code></p>
+<p>The included example scripts <em>do not</em> require an external data source. The scripts automatically download the MNIST dataset. Templates referenced here have set CPU and Memory requirements. The list of available templates can be obtained by issuing <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">template</span> <span class="pre">list</span></code> command.</p>
+<p><strong>Note:</strong> To run TensorBoard, TensorBoard data <em>must be</em> written to a folder in the directory <code class="docutils literal notranslate"><span class="pre">/mnt/output/experiment</span></code>. This example script satisfies this requirement; however, your scripts <em>must</em> meet the same requirement.</p>
+<p>The following example shows how to submit a MNIST experiment and write the TensorBoard data to a folder in your NAUTA output folder.</p>
+<p>Enter the following command to run this example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">-t</span> <span class="pre">tf-training-single</span> <span class="pre">examples/mnist_single_node.py</span> <span class="pre">--name</span> <span class="pre">single</span></code></p>
+</div>
+<div class="section" id="result-of-this-command">
+<h3>Result of this Command<a class="headerlink" href="#result-of-this-command" title="Permalink to this headline">¶</a></h3>
+<p>The execution of the submit command may take a few minutes the first time. When the experiment submission is complete, the following result is displayed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">Submitting</span> <span class="n">experiments</span><span class="o">.</span>
+<span class="o">|</span> <span class="n">Experiment</span>   <span class="o">|</span> <span class="n">Parameters</span>           <span class="o">|</span> <span class="n">State</span>   <span class="o">|</span> <span class="n">Message</span>   <span class="o">|</span>
+<span class="o">|--------------+----------------------+---------+-----------|</span>
+<span class="o">|</span> <span class="n">single</span>       <span class="o">|</span> <span class="n">mnist_single_node</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">QUEUED</span>  <span class="o">|</span>           <span class="o">|</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="viewing-experiment-status">
+<h3>Viewing Experiment Status<a class="headerlink" href="#viewing-experiment-status" title="Permalink to this headline">¶</a></h3>
+<p>Use the following command to view the status of all your experiments:</p>
+<p><strong>Syntax</strong>: <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span> <span class="pre">[options]</span></code></p>
+<p>Execute this command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span> <span class="pre">--brief</span></code></p>
+<p>As shown below, an experiment’s status displays. This is an example only. The <code class="docutils literal notranslate"><span class="pre">--brief</span></code> option returns a short version of results, as shown.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">Submitting</span> <span class="n">experiments</span><span class="o">.</span>
+<span class="o">|</span> <span class="n">Experiment</span>   <span class="o">|</span> <span class="n">Parameters</span>           <span class="o">|</span> <span class="n">State</span>   <span class="o">|</span> <span class="n">Message</span>   <span class="o">|</span>
+<span class="o">|--------------+----------------------+---------+-----------|</span>
+<span class="o">|</span> <span class="n">single</span>       <span class="o">|</span> <span class="n">mnist_single_node</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">QUEUED</span>  <span class="o">|</span>           <span class="o">|</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="o">|</span> <span class="n">Experiment</span>                          <span class="o">|</span> <span class="n">Submission</span> <span class="n">date</span>        <span class="o">|</span> <span class="n">Owner</span> <span class="o">|</span> <span class="n">State</span>     <span class="o">|</span>
+<span class="o">|--------------+----------------------+---------+----------------------------------|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">tb</span>                <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">04</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">58</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">QUEUED</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span>                            <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">05</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">39</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">COMPLETE</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span>                        <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">05</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">59</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">COMPLETE</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">test</span><span class="o">-</span><span class="n">experiment</span>                     <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">06</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">39</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">QUEUED</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">single</span><span class="o">-</span><span class="n">experiment</span>                   <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">01</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">59</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">QUEUED</span>   <span class="o">|</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Where mnist-tb is shown, this indicates <em>the name</em> of the <em>experiment</em>.</p>
+</div>
+<div class="section" id="monitoring-training">
+<h3>Monitoring Training<a class="headerlink" href="#monitoring-training" title="Permalink to this headline">¶</a></h3>
+<p>There are four ways to monitor training in Nauta, all which are discussed in the following sections.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#viewing-experiment-logs">Viewing Experiment Logs</a></p></li>
+<li><p><a class="reference external" href="#adding-experiment-metrics">Adding Experiment Metrics</a></p></li>
+<li><p><a class="reference external" href="#viewing-experiment-results-from-the-web-ui">Viewing Experiment Results from the Web UI</a></p></li>
+<li><p><a class="reference external" href="#launching-tensorboard">Launching TensorBoard</a></p></li>
+</ul>
+</div>
+<div class="section" id="viewing-experiment-logs">
+<h3>Viewing Experiment Logs<a class="headerlink" href="#viewing-experiment-logs" title="Permalink to this headline">¶</a></h3>
+<p>To view the experiment logs, execute the following command.</p>
+<p><strong>Syntax</strong>: <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">logs</span> <span class="pre">[options]</span> <span class="pre">EXPERIMENT-NAME</span></code></p>
+<p>Execute this command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">logs</span> <span class="pre">single</span></code></p>
+<p>As shown below, a log displays the example results.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">38</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">2.3015756607055664</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.078125</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">44</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.13010963797569275</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.921875</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">49</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">200</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.07017017900943756</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.984375</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">55</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">300</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.08880224078893661</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.984375</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">400</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.15115690231323242</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.953125</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">07</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Validation</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.980400025844574</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Where mnist-tb is shown in the experiment logs, this indicates <em>the name</em> of the <em>experiment</em>.</p>
+</div>
+</div>
+<div class="section" id="adding-experiment-metrics">
+<h2>Adding Experiment Metrics<a class="headerlink" href="#adding-experiment-metrics" title="Permalink to this headline">¶</a></h2>
+<p>Experiments launched in Nauta can output additional kinds of metrics using the <em>publish function</em> from the experiment metrics API. To see an example of metrics published with the single experiment executed in the above example, execute the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span></code></p>
+<p>As shown in the example, an example experiment list is shown (scroll right to see full contents).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="o">|</span> <span class="n">Experiment</span>   <span class="o">|</span> <span class="n">Parameters</span>           <span class="o">|</span> <span class="n">Metrics</span>                     <span class="o">|</span> <span class="n">Submission</span> <span class="n">date</span>        <span class="o">|</span> <span class="n">Start</span> <span class="n">date</span>             <span class="o">|</span> <span class="n">End</span> <span class="n">date</span>               <span class="o">|</span> <span class="n">Owner</span>   <span class="o">|</span> <span class="n">State</span>    <span class="o">|</span> <span class="n">Template</span> <span class="n">name</span>      <span class="o">|</span>
+<span class="o">|--------------+----------------------+-----------------------------+------------------------+------------------------+------------------------+---------+----------+--------------------|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span>     <span class="o">|</span> <span class="n">mnist_single_node</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span>                             <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">15</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">20</span> <span class="n">PM</span> <span class="o">|</span>                        <span class="o">|</span> <span class="n">user1</span>   <span class="o">|</span> <span class="n">RUNNING</span>  <span class="o">|</span> <span class="n">tf</span><span class="o">-</span><span class="n">training</span><span class="o">-</span><span class="n">single</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">single</span>       <span class="o">|</span> <span class="n">mnist_single_node</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.96875</span>           <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">03</span><span class="p">:</span><span class="mi">12</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">04</span><span class="p">:</span><span class="mi">32</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">05</span><span class="p">:</span><span class="mi">15</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span>   <span class="o">|</span> <span class="n">FAILED</span>   <span class="o">|</span> <span class="n">tf</span><span class="o">-</span><span class="n">training</span><span class="o">-</span><span class="n">single</span> <span class="o">|</span>
+<span class="o">|</span>              <span class="o">|</span>                      <span class="o">|</span> <span class="n">global_step</span><span class="p">:</span> <span class="mi">499</span>            <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>              <span class="o">|</span>                      <span class="o">|</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.08342029</span>            <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>              <span class="o">|</span>                      <span class="o">|</span> <span class="n">validation_accuracy</span><span class="p">:</span> <span class="mf">0.9818</span> <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span> <span class="n">single2</span>      <span class="o">|</span> <span class="n">mnist_single_node</span><span class="o">.</span><span class="n">py</span> <span class="o">|</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.953125</span>          <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">19</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mi">24</span> <span class="n">PM</span> <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="mi">05</span><span class="p">:</span><span class="mi">07</span><span class="p">:</span><span class="mi">05</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span>   <span class="o">|</span> <span class="n">COMPLETE</span> <span class="o">|</span> <span class="n">tf</span><span class="o">-</span><span class="n">training</span><span class="o">-</span><span class="n">single</span> <span class="o">|</span>
+<span class="o">|</span>              <span class="o">|</span>                      <span class="o">|</span> <span class="n">global_step</span><span class="p">:</span> <span class="mi">499</span>            <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>              <span class="o">|</span>                      <span class="o">|</span> <span class="n">loss</span><span class="p">:</span> <span class="mf">0.078533165</span>           <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>              <span class="o">|</span>                      <span class="o">|</span> <span class="n">validation_accuracy</span><span class="p">:</span> <span class="mf">0.9838</span> <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>                        <span class="o">|</span>         <span class="o">|</span>          <span class="o">|</span>                    <span class="o">|</span>
+</pre></div>
+</div>
+<div class="section" id="adding-experiment-metrics-instructions">
+<h3>Adding Experiment Metrics: Instructions<a class="headerlink" href="#adding-experiment-metrics-instructions" title="Permalink to this headline">¶</a></h3>
+<p>To add metrics to an experiment file you have created, you need to edit the experiment file to use the <code class="docutils literal notranslate"><span class="pre">experiment_metrics.api</span></code> and then publish the accuracy in your experiment file. Execute the following steps:</p>
+<ol class="simple">
+<li><p>Add the metrics library API with the following entry in your experiment file:
+<code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">experiment_metrics.api</span> <span class="pre">import</span> <span class="pre">publish</span></code></p></li>
+<li><p>Add metrics for publishing the last step’s accuracy by adding this code in the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">feed_dict</span></code> definition after the for loops:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">metrics</span><span class="p">[</span><span class="s2">&quot;accuracy_step_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span>
+<span class="n">publish</span><span class="p">(</span><span class="n">metrics</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol>
+<li><p>Save the changes.</p></li>
+<li><p>Submit the experiment again, but with a different name.</p></li>
+<li><p>The published metrics can now be viewed.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span></code></p>
+</li>
+</ol>
+</div>
+<div class="section" id="saving-metrics-for-multinode-experiments">
+<h3>Saving Metrics for Multinode Experiments<a class="headerlink" href="#saving-metrics-for-multinode-experiments" title="Permalink to this headline">¶</a></h3>
+<p>Storing at the same time two (or more) metrics with the same key from two different nodes may lead to errors (such as losing  some logs) due to conflicting names. To avoid this, adding metrics for multinode experiments should be done using one of the two following methods:</p>
+</div>
+<div class="section" id="method-1">
+<h3>Method 1<a class="headerlink" href="#method-1" title="Permalink to this headline">¶</a></h3>
+<p>The key of a certain metric should also contain a node identificator from which this metric comes. Creation of such identificator can be done in the following ways:</p>
+<ul class="simple">
+<li><p>For Horovod multinode training jobs, the result of the <code class="docutils literal notranslate"><span class="pre">rank()</span></code> function provided by the <code class="docutils literal notranslate"><span class="pre">horovod</span></code> package can be used
+as a node’s identificator.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">tfjob</span></code> multinode training jobs, a user can take all necessary info from the TF_CONFIG environment variable. An example piece of a code creating such identificator, is:</p></li>
+</ul>
+</div>
+<div class="section" id="node-identificator-example">
+<h3>Node Identificator Example<a class="headerlink" href="#node-identificator-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```
+tf_config = os.environ.get(&#39;TF_CONFIG&#39;)
+if not tf_config:
+    raise RuntimeError(&#39;TF_CONFIG not set!&#39;)
+
+tf_config_json = json.loads(tf_config)
+
+job_name = tf_config_json.get(&#39;task&#39;, {}).get(&#39;type&#39;)
+task_index = tf_config_json.get(&#39;task&#39;, {}).get(&#39;index&#39;)
+# final node identificator `node_id = &#39;-&#39;.join(job_name,task_index)`
+```
+</pre></div>
+</div>
+</div>
+<div class="section" id="method-2">
+<h3>Method 2<a class="headerlink" href="#method-2" title="Permalink to this headline">¶</a></h3>
+<p>Only one node should store metrics. Deciding which node should store metrics can be done in the following ways:</p>
+<ul class="simple">
+<li><p>For <code class="docutils literal notranslate"><span class="pre">horovod</span></code> multinode training jobs, the horovod python library provides the <code class="docutils literal notranslate"><span class="pre">rank()</span></code> function that returns a number
+of a current worker. <em>Master</em> is marked with the number 0, so only a pod with this number should store logs.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">tfjob</span></code> multinode training jobs, because there is no dedicated master node, a user should choose which worker should be responsible for storing metrics. The identificator of a current worker can be obtained as described in <em><a class="reference external" href="#method-1">Method 1</a></em>. A user should choose one of such identificators and store logs only from a node having this chosen ID.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="viewing-experiment-results-from-the-web-ui">
+<h2>Viewing Experiment Results from the Web UI<a class="headerlink" href="#viewing-experiment-results-from-the-web-ui" title="Permalink to this headline">¶</a></h2>
+<p>The web UI lets you explore the experiments you have submitted. To view your experiments at the web UI, enter the following command at the command prompt:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">launch</span> <span class="pre">webui</span></code></p>
+<p><strong>Note:</strong> If you are using CLI through remote access, you will need to setup an X server for tunneling over SSH with port forwarding or use SSH Proxy command tunneling. After establishing a tunnel from the gateway to your local machine, you can use the URL provided by nctl.</p>
+<p>An example is shown in the screen below.</p>
+<p><img alt="../../_images/web_ui.png" src="../../_images/web_ui.png" /></p>
+<ul class="simple">
+<li><p><strong>Name:</strong> The left-most column lists the experiments by name.</p></li>
+<li><p><strong>Status:</strong> This column reveals experiment’s current status, one of: <code class="docutils literal notranslate"><span class="pre">QUEUED,</span> <span class="pre">RUNNING,</span> <span class="pre">COMPLETE,</span> <span class="pre">CANCELLED,</span> <span class="pre">FAILED,</span> <span class="pre">CREATING</span></code>.</p></li>
+<li><p><strong>Submission Date:</strong> This column gives the submission date in the format: MM/DD/YYYY, hour:min:second AM/PM.</p></li>
+<li><p><strong>Start Date:</strong> This column shows the experiment start date in the format: MM/DD/YYYY, hour:min:second AM/PM.</p></li>
+<li><p><strong>Duration:</strong> This column shows the duration of execution for this experiment in days, hours, minutes and seconds.</p></li>
+<li><p><strong>Type:</strong> Experiment Type can be Training, Jupyter, or Inference. Training indicates that the experiment was launched from the CLI. Jupyter indicates that the experiment was launched using Jupyter Notebook. Inference means that training is largely complete and you have begun running predictions (Inference) with this model.</p></li>
+</ul>
+<p>You can perform the tasks discussed below in the web UI.</p>
+<div class="section" id="expand-experiment-details">
+<h3>Expand Experiment Details<a class="headerlink" href="#expand-experiment-details" title="Permalink to this headline">¶</a></h3>
+<p>Click <em>listed experiment name</em> to see additional details for that experiment. The following details are examples only.
+This screen is divided into two frames: left-side and right-side frames.</p>
+</div>
+<div class="section" id="left-most-frame">
+<h3>Left-most Frame<a class="headerlink" href="#left-most-frame" title="Permalink to this headline">¶</a></h3>
+<p>The left-side frame of the experiment shows the resources and submission date and time (as shown in the figure below).</p>
+<ul class="simple">
+<li><p><strong>Resources</strong> Assigned to that experiment, specifically the assigned pods and their status and container information including the CPU and memory resources assigned.</p></li>
+<li><p>The <strong>Submission Date</strong> and time.</p></li>
+</ul>
+<p><img alt="Image" src="../../_images/UI_Experiment_Details_1.png" /></p>
+</div>
+<div class="section" id="right-side-frame">
+<h3>Right-side Frame<a class="headerlink" href="#right-side-frame" title="Permalink to this headline">¶</a></h3>
+<p>The right-side frame of the experiment details windows shows (as shown in the figure below).</p>
+<ul class="simple">
+<li><p><strong>Start Date:</strong> The day and time this experiment was launched.</p></li>
+<li><p><strong>End date:</strong> The day and time this experiment was launched.</p></li>
+<li><p><strong>Total Duration:</strong> The actual duration this experiment was instantiated.</p></li>
+<li><p><strong>Parameters:</strong> The experiment script file name and the log directory.</p></li>
+<li><p><strong>Output:</strong> Clickable links to download all logs and view the last 100 log entries.</p></li>
+</ul>
+<p><img alt="Image" src="../../_images/UI_Experiment_Details_2.png" /></p>
+</div>
+<div class="section" id="searching-on-experiments">
+<h3>Searching on Experiments<a class="headerlink" href="#searching-on-experiments" title="Permalink to this headline">¶</a></h3>
+<p>In the <strong>Search</strong> field at the far right of the UI <img alt="../../_images/search_lense.png" src="../../_images/search_lense.png" />, enter a string of alphanumeric characters to match the experiment name or other parameters (such as user), and list only those matching experiments. This Search function lets the user search fields in the entire list, not just the experiment name or parameters.</p>
+</div>
+<div class="section" id="adding-deleting-columns">
+<h3>Adding/Deleting Columns<a class="headerlink" href="#adding-deleting-columns" title="Permalink to this headline">¶</a></h3>
+<p>Click <strong>ADD/DELETE COLUMNS</strong> to open a dialogue. Here, the columns currently in use are listed first with
+their check box checked. Scroll down to see more, available columns listed next, unchecked. Click to check and
+uncheck and select the column headings you prefer. Optional column headings include parameters such as Pods,
+End Date, Owner, Template, Time in Queue, and so on.</p>
+<p>Column headings also include metrics that have been setup using the Metrics API, for a given experiment, and you
+can select to show those metrics in this display as well.</p>
+<p>Column additions and deletions you make are retained between logins.</p>
+<p>Refer to <a class="reference internal" href="view_exp_tensorbd.html"><span class="doc">Launching TensorBoard to View Experiments</span></a> for more information.</p>
+</div>
+</div>
+<div class="section" id="launching-kubernetes-dashboard">
+<h2>Launching Kubernetes Dashboard<a class="headerlink" href="#launching-kubernetes-dashboard" title="Permalink to this headline">¶</a></h2>
+<p>Click the <strong>Hamburger Menu</strong> <img alt="../../_images/hamburger_menu.png" src="../../_images/hamburger_menu.png" /> at the far left of the UI to open a left frame. Click <strong>Resources Dashboard</strong> to open the Kubernetes resources dashboard. Refer to <a class="reference internal" href="accessing_kubernetes.html"><span class="doc">Accessing the Kubernetes Resource Dashboard</span></a> for more information.</p>
+</div>
+<div class="section" id="launching-tensorboard">
+<h2>Launching TensorBoard<a class="headerlink" href="#launching-tensorboard" title="Permalink to this headline">¶</a></h2>
+<p>Generally, every file that the training script outputs to <code class="docutils literal notranslate"><span class="pre">/mnt/output/experiment</span></code> (accessed from the perspective of training script launched in Nauta) is accessible from the outside after mounting the output directory with command provided by <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code>.</p>
+<p>Use the following command to launch TensorBoard and to view graphs of this model’s results. (Refer to <a class="reference internal" href="working_with_datasets.html"><span class="doc">Working with Datasets</span></a> for more information.)</p>
+<p>When training scripts output Tensorflow summaries to <code class="docutils literal notranslate"><span class="pre">/mnt/output/experiment</span></code>, they can be automatically picked up by TensorBoard instance launched with command:</p>
+<p><strong>Syntax:</strong> nctl launch tensorboard [options] EXPERIMENT-NAME</p>
+<p>Execute this command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">launch</span> <span class="pre">tensorboard</span> <span class="pre">single</span></code></p>
+<p><strong>Note:</strong> If you are using CLI through remote access, you will need to setup a X server for tunneling over SSH with port forwarding or use SSH Proxy command tunneling. After establishing a tunnel from the gateway to your local machine, you can use the URL provided by nctl.</p>
+<p>The following message displays.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">Tensorboard</span> <span class="n">to</span> <span class="n">run</span><span class="o">...</span> 
+<span class="n">Go</span> <span class="n">to</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span> <span class="mi">58218</span>
+<span class="n">Proxy</span> <span class="n">connection</span> <span class="n">created</span><span class="o">.</span>
+<span class="n">Press</span> <span class="n">Ctrl</span><span class="o">-</span><span class="n">C</span> <span class="n">key</span> <span class="n">to</span> <span class="n">close</span> <span class="n">a</span> <span class="n">port</span> <span class="n">forwarding</span> <span class="n">process</span><span class="o">...</span>
+</pre></div>
+</div>
+<p>The following figure shows the browser display of TensorBoard dashboard with the experiment’s results.</p>
+<p><img alt="Image" src="../../_images/tensorboard.png" /></p>
+</div>
+<div class="section" id="inference">
+<h2>Inference<a class="headerlink" href="#inference" title="Permalink to this headline">¶</a></h2>
+<p>To perform inference testing (using predict batch command in this example) you need to:</p>
+<ol class="simple">
+<li><p>Prepare the data for model input.</p></li>
+<li><p>Acquire a trained model.</p></li>
+<li><p>Run a prediction instance with trained model on this data.</p></li>
+</ol>
+<div class="section" id="data-preparation">
+<h3>Data Preparation<a class="headerlink" href="#data-preparation" title="Permalink to this headline">¶</a></h3>
+<p>The example <code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code> script located in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> folder can be used for data preparation. This script prepares the sample of MNIST test set and converts it to <code class="docutils literal notranslate"><span class="pre">protobuf</span></code> requests acceptable by the served model. This script is run locally and requires <code class="docutils literal notranslate"><span class="pre">tensorflow</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, and <code class="docutils literal notranslate"><span class="pre">tensorflow_serving</span></code> modules. The <code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code> script takes two input parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--work_dir</span></code> which defaults to <code class="docutils literal notranslate"><span class="pre">/tmp/mnist_test</span></code>. It is a path to directory used as <code class="docutils literal notranslate"><span class="pre">workdir</span></code> by this script and <code class="docutils literal notranslate"><span class="pre">mnist_checker.py</span></code>. Downloaded MNIST dataset will be stored there, as well as converted test set sample and labels cached for them.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--num_tests</span></code> which defaults to 100. It is a number of examples from test set that is converted. The max value is 10000.</p></li>
+</ul>
+<p>Running  the command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/mnist_converter_pb.py</span></code></p>
+<p>Creates <code class="docutils literal notranslate"><span class="pre">/tmp/mnist_test/conversion_out</span> <span class="pre">folder</span></code>, fill it with 100 <code class="docutils literal notranslate"><span class="pre">protobuf</span></code> requests, and cache labels for these requests in <code class="docutils literal notranslate"><span class="pre">/tmp/mnist_test/labels.npy</span></code> file.</p>
+</div>
+<div class="section" id="trained-model">
+<h3>Trained Model<a class="headerlink" href="#trained-model" title="Permalink to this headline">¶</a></h3>
+<p>Servable models (as with other training artifacts) can be saved by a training script. As previously mentioned, to access these you have to use the command provided by the <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code> command and mount output storage locally. Example scripts all save servable models in their models subdirectory. To use models like this for inference, you will have to mount input storage too, because models have to be accessible from inside of the cluster.</p>
+<p>For the single experiment example, execute these commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">single</span>
+<span class="n">mkdir</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">output</span>
+<span class="o">...</span> <span class="n">mount</span> <span class="n">command</span> <span class="n">provided</span> <span class="k">with</span> <span class="n">nctl</span> <span class="n">mount</span> <span class="n">used</span> <span class="n">to</span> <span class="n">mount</span> <span class="n">output</span> <span class="n">storage</span> <span class="n">to</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">output</span>
+<span class="o">...</span> <span class="n">mount</span> <span class="n">command</span> <span class="n">provided</span> <span class="k">with</span> <span class="n">nctl</span> <span class="n">mount</span> <span class="n">used</span> <span class="n">to</span> <span class="n">mount</span> <span class="nb">input</span> <span class="n">storage</span> <span class="n">to</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">single</span><span class="o">/</span><span class="n">models</span><span class="o">/*</span> <span class="o">-</span><span class="n">Rf</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">single</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>After these steps <code class="docutils literal notranslate"><span class="pre">/mnt/input/single</span></code> should contain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">single</span><span class="o">/</span><span class="p">:</span>
+<span class="mi">00001</span>
+<span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">single</span><span class="o">/</span><span class="mi">00001</span><span class="p">:</span>
+<span class="n">saved_model</span><span class="o">.</span><span class="n">pb</span>  <span class="n">variables</span>
+<span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">single</span><span class="o">/</span><span class="mi">00001</span><span class="o">/</span><span class="n">variables</span><span class="p">:</span>
+<span class="n">variables</span><span class="o">.</span><span class="n">data</span><span class="o">-</span><span class="mi">00000</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="mi">00001</span>  <span class="n">variables</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-prediction-instance">
+<h3>Running Prediction Instance<a class="headerlink" href="#running-prediction-instance" title="Permalink to this headline">¶</a></h3>
+<p>The following provides a brief example of running inference using the batch command. For more information, refer to <a class="reference internal" href="inference_testing.html"><span class="doc">Evaluating Experiments with Inference Testing</span></a></p>
+<p>Before running the <code class="docutils literal notranslate"><span class="pre">batch</span></code> command, you need to copy <code class="docutils literal notranslate"><span class="pre">protobuf</span></code> requests to input storage, because  they need to be accessed by the prediction instance too.</p>
+<p>Execute these commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">data</span>
+<span class="n">cp</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">mnist_test</span><span class="o">/</span><span class="n">conversion_out</span><span class="o">/*</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>Enter the next command to create a prediction instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">batch</span> <span class="pre">-m</span> <span class="pre">/mnt/input/home/single</span> <span class="pre">-d</span> <span class="pre">/mnt/input/home/data</span> <span class="pre">--model-name</span> <span class="pre">mnist</span> <span class="pre">--name</span> <span class="pre">single-predict</span></code></p>
+<p>The following are the example results of this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="o">|</span> <span class="n">Prediction</span> <span class="n">Instance</span>   <span class="o">|</span> <span class="n">Model</span> <span class="n">location</span>        <span class="o">|</span> <span class="n">State</span>     <span class="o">|</span>
+<span class="o">|--------------+----------------------+---------+-----------|</span>
+<span class="o">|</span> <span class="n">single</span><span class="o">-</span><span class="n">predict</span>        <span class="o">|</span> <span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">single</span> <span class="o">|</span> <span class="n">QUEUED</span>    <span class="o">|</span>
+</pre></div>
+</div>
+<p>Notice the additional <strong>home</strong> directory in path to both model and input data. This is how the path looks from the perspective of the prediction instance. The <code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code> creates requests to the MNIST model. <code class="docutils literal notranslate"><span class="pre">--model-name</span> <span class="pre">mnist</span></code> is where this MNIST name is given to the prediction instance.</p>
+<p><strong>Note:</strong> Refer to <a class="reference internal" href="predict.html"><span class="doc">predict Command</span></a> for <em>predict</em> command information.</p>
+</div>
+<div class="section" id="prediction-instance-complete">
+<h3>Prediction Instance Complete<a class="headerlink" href="#prediction-instance-complete" title="Permalink to this headline">¶</a></h3>
+<p>After the prediction instance completes (can be checked using the <code class="docutils literal notranslate"><span class="pre">predict</span> <span class="pre">list</span></code> command), you can collect instance responses from output storage. In the example, it contains 100 <code class="docutils literal notranslate"><span class="pre">protobuf</span></code> responses. These can be validated in our case using <code class="docutils literal notranslate"><span class="pre">mnist_checker.py</span></code>.</p>
+<p>Running the following command locally will display the error rate calculated for this model and this sample of the test set:</p>
+<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/mnist_checker.py</span> <span class="pre">--input_dir</span> <span class="pre">~/mnt/output/single-predict</span></code></p>
+</div>
+</div>
+<div class="section" id="viewing-experiment-output-folder">
+<h2>Viewing Experiment Output Folder<a class="headerlink" href="#viewing-experiment-output-folder" title="Permalink to this headline">¶</a></h2>
+<p>You can use the following steps to mount the output folder and view TensorBoard data files. Mount a folder to your Nauta namespace output directory:</p>
+<ol>
+<li><p><strong>macOS/Ubuntu:</strong> Mount your <code class="docutils literal notranslate"><span class="pre">NAUTA</span></code> output directory to a local folder. Create a folder for mounting named <code class="docutils literal notranslate"><span class="pre">my_output_folder</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">my_output_folder</span></code></p>
+</li>
+<li><p>To see the correct mount options and command, execute:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code></p>
+</li>
+<li><p>Use the mounting command that was displayed to mount Nauta storage to your local machine. The following are examples of mounting the local folder to the Nauta output folder for each OS:</p>
+<ul class="simple">
+<li><p><strong>macOS:</strong> <code class="docutils literal notranslate"><span class="pre">mount_mbfs</span> <span class="pre">//'USERNAME:PASSWORD'&#64;CLUSTER-URL/output</span> <span class="pre">my_output_folder</span></code></p></li>
+<li><p><strong>Ubuntu:</strong> <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">mount.cifs</span> <span class="pre">-o</span> <span class="pre">username=USERNAME,password=PASSWORD,rw,uid=1000</span> <span class="pre">\</span> <span class="pre">//CLUSTER-URL/output</span> <span class="pre">my_output_folder</span></code></p></li>
+</ul>
+</li>
+<li><p>Navigate to the mounted location.</p>
+<ul class="simple">
+<li><p><strong>MacOS/Ubuntu only:</strong> Navigate to my_output_folder</p></li>
+</ul>
+</li>
+<li><p>See the saved event file by navigating to <code class="docutils literal notranslate"><span class="pre">mnist-single-node/tensorboard.</span></code> Example file: <code class="docutils literal notranslate"><span class="pre">events.out.tfevents.1542752172.mnist-single-node-master-0</span></code></p></li>
+<li><p>Unmount Nauta Storage using one of the below commands:</p>
+<ul class="simple">
+<li><p><strong>macOS:</strong> <code class="docutils literal notranslate"><span class="pre">umount</span> <span class="pre">output</span> <span class="pre">my_output_folder</span></code></p></li>
+<li><p><strong>Ubuntu:</strong> <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">umount</span> <span class="pre">my_output_folder</span></code></p></li>
+</ul>
+</li>
+</ol>
+<p>To unmount previously mounted Nauta input storage from a local folder/machine refer to <a class="reference internal" href="unmount.html"><span class="doc">Unmounting Experiment Input to Storage</span></a>.</p>
+<p>For more information on mounting, refer to <a class="reference internal" href="working_with_datasets.html"><span class="doc">Working with Datasets</span></a>. To unmount previously mounted Nauta input storage from a local folder/machine refer to <a class="reference internal" href="unmount.html"><span class="doc">Unmounting Experiment Input to Storage</span></a> for more information).</p>
+</div>
+<div class="section" id="removing-experiments">
+<h2>Removing Experiments<a class="headerlink" href="#removing-experiments" title="Permalink to this headline">¶</a></h2>
+<p>An experiment that has been completed and is no longer needed can be removed from the experiment list using the <code class="docutils literal notranslate"><span class="pre">cancel</span></code> command and its <code class="docutils literal notranslate"><span class="pre">--purge</span></code> option.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">--purge</span></code> option <em>is not</em> set in <code class="docutils literal notranslate"><span class="pre">cancel</span></code> command, the experiment will only change status to CANCELLED.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">--purge</span></code> option is set in <code class="docutils literal notranslate"><span class="pre">cancel</span></code> command, experiment objects and logs will be irreversibly removed (the experiment’s artifacts will remain in the Nauta storage output folder).</p></li>
+</ul>
+<p><strong>Note:</strong> For –purge information, refer to <a class="reference internal" href="delete_user.html"><span class="doc">Deleting a User Account</span></a>.</p>
+<p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">cancel</span> <span class="pre">[options]</span> <span class="pre">EXPERIMENT-NAME</span></code></p>
+<p>Enter this command, substituting your experiment name:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">cancel</span> <span class="pre">–-purge</span> <span class="pre">&lt;your_experiment&gt;</span></code></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

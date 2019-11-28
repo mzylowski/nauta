@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Inventory Configuration &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Inventory Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/installation-and-configuration/Inventory_Tasks/IT.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="inventory-configuration">
+<h1>Inventory Configuration<a class="headerlink" href="#inventory-configuration" title="Permalink to this headline">¶</a></h1>
+<p>Nauta uses Ansible (refer to <a class="reference external" href="https://en.wikipedia.org/wiki/Ansible_(software)">Ansible Overview</a>) for certain provisioning tasks during installation. You <em>must</em> create (or modify) an Ansible inventory file to match your hardware configuration. Nauta will look for your inventory file at the location defined in the <code class="docutils literal notranslate"><span class="pre">ENV_INVENTORY</span></code> environment variable (see <a class="reference internal" href="../Installation_Process/IP.html"><span class="doc">Installation Process</span></a> for more information).</p>
+<p>Your Nauta cluster will contain one Master node and one or more Worker nodes. Each of these nodes <em>must be</em> specified in the Inventory file. For Configuration file information, see <a class="reference internal" href="../Configuration_Tasks_Variables/CTV.html"><span class="doc">Configuration File</span></a> for more information.</p>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#inventory-configuration-file-example">Inventory File Configuration Example</a></p></li>
+<li><p><a class="reference external" href="#inventory-file-structure">Inventory File Structure</a></p></li>
+<li><p><a class="reference external" href="#per-node-inventory-variables">Per-node Inventory Variables</a></p></li>
+</ul>
+<div class="section" id="inventory-configuration-file-example">
+<h2>Inventory Configuration File Example<a class="headerlink" href="#inventory-configuration-file-example" title="Permalink to this headline">¶</a></h2>
+<p>Below is an example of Inventory file and shows one Master Node and five Worker nodes. Your configuration may differ from the example shown. However, you can copy and modify the information to create your own Ansible inventory file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">master</span><span class="p">]</span> 
+<span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mi">100</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">root</span> <span class="n">ansible_ssh_pass</span><span class="o">=</span><span class="n">YourPassword</span> <span class="n">internal_interface</span><span class="o">=</span><span class="n">em2</span> <span class="n">external_interface</span><span class="o">=</span><span class="n">em3</span> <span class="n">local_data_device</span><span class="o">=/</span><span class="n">dev</span><span class="o">/</span><span class="n">sdb1</span>
+
+<span class="p">[</span><span class="n">worker</span><span class="p">]</span> 
+<span class="n">worker</span><span class="o">-</span><span class="mi">0</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">100.61</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">root</span> <span class="n">ansible_ssh_pass</span><span class="o">=</span><span class="n">YourPassword</span> <span class="n">internal_interface</span><span class="o">=</span><span class="n">p3p1</span> <span class="n">external_interface</span><span class="o">=</span><span class="n">em1</span>
+<span class="n">worker</span><span class="o">-</span><span class="mi">1</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">100.55</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">root</span> <span class="n">ansible_ssh_pass</span><span class="o">=</span><span class="n">YourPassword</span> <span class="n">internal_interface</span><span class="o">=</span><span class="n">p3p1</span> <span class="n">external_interface</span><span class="o">=</span><span class="n">em1</span>
+<span class="n">worker</span><span class="o">-</span><span class="mi">3</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">100.106</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">root</span> <span class="n">ansible_ssh_</span> <span class="k">pass</span><span class="o">=</span><span class="n">YourPassword</span> <span class="n">internal_interface</span><span class="o">=</span><span class="n">p3p1</span> <span class="n">external_interface</span><span class="o">=</span><span class="n">em1</span>
+<span class="n">worker</span><span class="o">-</span><span class="mi">4</span> <span class="n">ansible_ssh_host</span><span class="o">=</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">100.107</span> <span class="n">ansible_ssh_user</span><span class="o">=</span><span class="n">root</span> <span class="n">ansible_ssh_</span> <span class="k">pass</span><span class="o">=</span><span class="n">YourPassword</span> <span class="n">internal_interface</span><span class="o">=</span><span class="n">p3p1</span> <span class="n">external_interface</span><span class="o">=</span><span class="n">em1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="inventory-file-structure">
+<h2>Inventory File Structure<a class="headerlink" href="#inventory-file-structure" title="Permalink to this headline">¶</a></h2>
+<p>The file contains two sections:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[master]</span></code> Contains a description of a master node. This section <em>must</em> contain exactly one row.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[worker]</span></code> Contains descriptions of workers. Each worker is described in one row. In this section, it can have one or many rows depending on a structure of a cluster.</p></li>
+</ol>
+<p>Each row describes a server (playing either the role of <em>Master</em> or <em>Worker</em> depending on which section the row is in). For each server, the Inventory file <em>must</em> define a series of values that tells Nauta where to find the server, how to log into it, and so on.</p>
+<p>The format for each row is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">SERVER_NAME</span><span class="p">]</span> <span class="p">[</span><span class="n">VAR_NAME1</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">VAR_VALUE1</span><span class="p">]</span> <span class="p">[</span><span class="n">VAR_NAME2</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">VAR_VALUE2</span><span class="p">]</span> <span class="p">[</span><span class="n">VAR_NAME3</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">VAR_VALUE3</span><span class="p">]</span><span class="o">...</span>
+</pre></div>
+</div>
+<div class="section" id="standard-hosting-name-rules">
+<h3>Standard Hosting Name Rules<a class="headerlink" href="#standard-hosting-name-rules" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SERVER_NAME</span></code> <em>must</em> conform to standard host naming rules and each element of the hostname must be from 1 to 63 characters long. The entire hostname, including the dots <em>must not</em> exceed 253 characters long.</p>
+<p>Valid characters for hostnames are ASCII(7) letters from a to z (lowercase), the digits from 0 to 9, and a hyphen. However, <strong>do not</strong>  start a hostname with a <strong>hyphen</strong>.</p>
+</div>
+</div>
+<div class="section" id="per-node-inventory-variables">
+<h2>Per-node Inventory Variables<a class="headerlink" href="#per-node-inventory-variables" title="Permalink to this headline">¶</a></h2>
+<p>The table below lists all the variables understood by Nauta’s inventory system. Some variables are required for all servers in the inventory, some are only required for some, and some variables are entirely optional.</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+<th>Req?</th>
+<th>Type</th>
+<th>Default</th>
+<th>Used When</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ansible_ssh_user</td>
+<td>The user name <em>must be</em> the same for master and worker nodes. <br><br> <strong>Note:</strong> If an Administrator decides to choose something other than root for Ansible SSH user, the user <em>must be</em> configured in sudoers file with NOPASSWD option. <br><br> Refer to the official <a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">Ansible Inventory Documentation</a> for more information.</td>
+<td>Yes</td>
+<td>string</td>
+<td>none</td>
+<td>always</td>
+<td>username</td>
+</tr>
+<tr>
+<td>ansible_ssh_pass</td>
+<td>The SSH password to use.</td>
+<td>Yes</td>
+<td>string</td>
+<td>none</td>
+<td>always</td>
+<td>Password</td>
+</tr>
+<tr>
+<td>ansible_ssh_host</td>
+<td>The name (DNS name) or IP Address of the host to connect to.</td>
+<td>Yes</td>
+<td>IPaddr</td>
+<td>none</td>
+<td>always</td>
+<td>IP Address</td>
+</tr>
+<tr>
+<td>ansible_ssh_port</td>
+<td>The SSH port number, if not defined 22 is used.</td>
+<td>No</td>
+<td>int</td>
+<td>22</td>
+<td>not using 22</td>
+<td>Port Address</td>
+</tr>
+<tr>
+<td>ansible_ssh_private_key_file</td>
+<td>This is a Private Key file used by SSH.</td>
+<td>No</td>
+<td>string</td>
+<td>none</td>
+<td>using a keyfile</td>
+<td>filename</td>
+</tr>
+<tr>
+<td>internal_interface</td>
+<td>This is used for internal communication between Kubernetes processes and pods. All interfaces (both external and internal) are Ethernet interfaces.</td>
+<td>Yes</td>
+<td>string</td>
+<td>none</td>
+<td>always used for both for master and worker nodes</td>
+<td>Interface name</td>
+</tr>
+<tr>
+<td>local_data_device</td>
+<td>This device is used for Nauta internal data and NFS data in case of local NFS.</td>
+<td>Yes</td>
+<td>string</td>
+<td>none</td>
+<td>used with master nodes</td>
+<td>Path to block device</td>
+</tr>
+<tr>
+<td>local_device</td>
+<td>This device is used for Nauta internal data and NFS data in case of local NFS.</td>
+<td>Yes</td>
+<td>string</td>
+<td>none</td>
+<td>used with master nodes</td>
+<td>Path to block device</td>
+</tr>
+<tr>
+<td>local_data_path</td>
+<td>This is used as the mountpoint for <code>local_data_device</code></td>
+<td>No</td>
+<td>string</td>
+<td>none</td>
+<td>used with master nodes</td>
+<td>Absolute path where data is located in file system</td>
+</tr>
+<tr>
+<td>external_interface</td>
+<td>This is used for external network communication, like downloading docker images or datasets from the Internet.</td>
+<td>Yes</td>
+<td>string</td>
+<td>none</td>
+<td>always used for both for master and worker nodes</td>
+<td>Interface name</td>
+</tr>
+</tbody>
+</table><p>Please note that it is recommended to use separate interfaces as values of <code class="docutils literal notranslate"><span class="pre">internal_interface</span></code> and <code class="docutils literal notranslate"><span class="pre">external_interface</span></code>,
+but configuration with single interface acting as both local and external interface will also work.
+If you use separate interfaces for internal/external communication, we recommend <code class="docutils literal notranslate"><span class="pre">local_interface</span></code> to be a SFP+ or fiber network.</p>
+</div>
+<div class="section" id="next-steps-configuration-tasks">
+<h2>Next Steps: Configuration Tasks<a class="headerlink" href="#next-steps-configuration-tasks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../Configuration_Tasks_Variables/CTV.html"><span class="doc">Configuring Nauta - Proxies, File System and Network</span></a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

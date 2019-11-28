@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Streaming Inference Example &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Streaming Inference Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/streaming_inference.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="streaming-inference-example">
+<h1>Streaming Inference Example<a class="headerlink" href="#streaming-inference-example" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#example-flow">Example Flow</a></p></li>
+<li><p><a class="reference external" href="#tensorflow-serving-basic-example">TensorFlow Serving Basic Example</a></p></li>
+<li><p><a class="reference external" href="#using-a-streaming-inference-instance">Using a Streaming Inference Instance</a></p></li>
+<li><p><a class="reference external" href="#streaming-inference-with-tensorflow-serving-rest-api">Streaming Inference with TensorFlow Serving REST API</a></p></li>
+<li><p><a class="reference external" href="#accessing-the-rest-api-with-curl">Accessing the REST API with curl</a></p></li>
+<li><p><a class="reference external" href="#using-port-forwarding">Using Port Forwarding</a></p></li>
+<li><p><a class="reference external" href="#example-of-accessing-rest-api-using-curl">Example of Accessing REST API Using curl</a></p></li>
+<li><p><a class="reference external" href="#streaming-inference-with-tensorflow-serving-grpc-api">Streaming Inference with TensorFlow Serving gRPC API</a></p></li>
+<li><p><a class="reference external" href="#useful-external-references">Useful External References</a></p></li>
+</ul>
+<div class="section" id="example-flow">
+<h2>Example Flow<a class="headerlink" href="#example-flow" title="Permalink to this headline">¶</a></h2>
+<p>A basic task flow is used in this example.</p>
+<ol class="simple">
+<li><p>The user has saved a trained TensorFlow Serving compatible model.</p></li>
+<li><p>The user will be sending data for inference in JSON format, or in binary format using gRPC API.</p></li>
+<li><p>The user runs <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">launch</span></code> command.</p></li>
+<li><p>The user sends inference data using the <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">stream</span></code> command, TensorFlow Serving REST API or TensorFlow Serving gRPC API.</p></li>
+</ol>
+</div>
+<div class="section" id="tensorflow-serving-basic-example">
+<h2>TensorFlow Serving Basic Example<a class="headerlink" href="#tensorflow-serving-basic-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="launching-a-streaming-inference-instance">
+<h3>Launching a Streaming Inference Instance<a class="headerlink" href="#launching-a-streaming-inference-instance" title="Permalink to this headline">¶</a></h3>
+<p>Basic models for testing TensorFlow Serving are included in the following GitHub <a class="reference external" href="https://github.com/tensorflow/serving">TensorFlow Serving Repository</a>. This example will use the <code class="docutils literal notranslate"><span class="pre">saved_model_half_plus_two_cpu</span></code> model for showing streaming prediction capabilities.</p>
+<p>To use that model for streaming inference, perform the following steps:</p>
+<ol>
+<li><p>Clone the <a class="reference external" href="https://github.com/tensorflow/serving">TensorFlow Serving Repository</a> by executing the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/tensorflow/serving</span></code></p>
+</li>
+<li><p>Perform step 3 or step 4 below, based on preference.</p></li>
+<li><p>Execute the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">launch</span> <span class="o">--</span><span class="n">local</span><span class="o">-</span><span class="n">model</span><span class="o">-</span><span class="n">location</span> <span class="o">&lt;</span><span class="n">directory</span> <span class="n">where</span> <span class="n">you</span> <span class="n">have</span> <span class="n">cloned</span> <span class="n">Tensorflow</span>
+<span class="n">Serving</span><span class="o">&gt;/</span><span class="n">serving</span><span class="o">/</span><span class="n">tensorflow_serving</span><span class="o">/</span><span class="n">servables</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">testdata</span><span class="o">/</span><span class="n">saved_model_half_plus_two_cpu</span> 
+</pre></div>
+</div>
+</li>
+<li><p>Alternatively to step 3, you may want to save a trained model on input share, so it can be reused by other experiments/prediction instances. To do this, run these commands:</p>
+<p>a. Use the mount command to mount Nauta input folder to local machine.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code></p>
+<p>b. Run the resulting command printed by <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code> (in this example, assuming that you will mount <code class="docutils literal notranslate"><span class="pre">/mnt/input</span></code> share described in <code class="docutils literal notranslate"><span class="pre">nctl</span></code> command output). After executing the command printed by the <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code> command, you will be able to access input share on your local file system.</p>
+<p>c. Copy the <em>saved_model_half_plus_two_cpu</em> model to input share (scroll right to see full contents):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cp -r &lt;directory where you have cloned Tensorflow Serving&gt;/serving/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_two_cpu &lt;directory where you have  mounted /mnt/input share&gt;`
+</pre></div>
+</div>
+<p>d. Execute the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">launch</span> <span class="o">--</span><span class="n">model</span><span class="o">-</span><span class="n">location</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">saved_model_half_plus_two_cpu</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Note:</strong>: <code class="docutils literal notranslate"><span class="pre">--model-name</span></code> can be passed optionally to <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">launch</span></code> command. If not provided, it assumes that model name is equal to the last directory in model location:</p>
+<p><code class="docutils literal notranslate"><span class="pre">/mnt/input/home/trained_mnist_model</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">trained_mnist_model</span></code></p>
+</div>
+</div>
+<div class="section" id="using-a-streaming-inference-instance">
+<h2>Using a Streaming Inference Instance<a class="headerlink" href="#using-a-streaming-inference-instance" title="Permalink to this headline">¶</a></h2>
+<p>After running the <code class="docutils literal notranslate"><span class="pre">predict</span> <span class="pre">launch</span></code> command, <code class="docutils literal notranslate"><span class="pre">nctl</span></code> will create a streaming inference instance that can be used in multiple ways, as described below.</p>
+<div class="section" id="streaming-inference-with-nctl-predict-stream-command">
+<h3>Streaming Inference With nctl predict stream Command<a class="headerlink" href="#streaming-inference-with-nctl-predict-stream-command" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">stream</span></code> command allows performing inference on input data stored in JSON format. This method is convenient for manually testing a trained model and provides a simple way to get inference results. For <code class="docutils literal notranslate"><span class="pre">saved_model_half_plus_two_cpu</span></code>, write the following input data and save it in <code class="docutils literal notranslate"><span class="pre">inference-data.json</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;instances&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>The model named <code class="docutils literal notranslate"><span class="pre">saved_model_half_plus_two_cpu</span></code> is a quite simple model: for given <code class="docutils literal notranslate"><span class="pre">x</span></code> input value it predicts result of <code class="docutils literal notranslate"><span class="pre">x/2</span> <span class="pre">+2</span></code> operation. Having passed the following inputs to the model: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, <code class="docutils literal notranslate"><span class="pre">2.0</span></code>, and <code class="docutils literal notranslate"><span class="pre">5.0</span></code>, and so expected predictions results are <code class="docutils literal notranslate"><span class="pre">2.5</span></code>, <code class="docutils literal notranslate"><span class="pre">3.0</span></code>, and <code class="docutils literal notranslate"><span class="pre">4.5</span></code>.</p>
+<p>To use that data for prediction, check the name of running prediction instance with <code class="docutils literal notranslate"><span class="pre">saved_model_half_plus_two_cpu</span></code> model (the name will be displayed after <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">launch</span></code> command executes; you can also use <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">list</span></code> command for listing running prediction instances). Then run following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">stream</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">prediction</span> <span class="n">instance</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">data</span> <span class="n">inference</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>The following results will be produced:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;predictions&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>TensorFlow Serving exposes three different method verbs for getting inference results. Selecting the proper method verb depends on model used and the expected results. Refer to <a class="reference external" href="https://www.tensorflow.org/serving/api_rest">RESTful API</a> for more detailed information. These method verbs are:</p>
+<ul class="simple">
+<li><p>classify</p></li>
+<li><p>regress</p></li>
+<li><p>predict</p></li>
+</ul>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">stream</span></code> will use <code class="docutils literal notranslate"><span class="pre">predict</span></code> method verb. You can change it by passing <code class="docutils literal notranslate"><span class="pre">--method-verb</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">stream</span></code> command, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">stream</span> <span class="o">--</span><span class="n">name</span> <span class="o">&lt;</span><span class="n">prediction</span> <span class="n">instance</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">data</span> <span class="n">inference</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">json</span> <span class="o">--</span><span class="n">method</span><span class="o">-</span><span class="n">verb</span> <span class="n">classify</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="streaming-inference-with-tensorflow-serving-rest-api">
+<h2>Streaming Inference with TensorFlow Serving REST API<a class="headerlink" href="#streaming-inference-with-tensorflow-serving-rest-api" title="Permalink to this headline">¶</a></h2>
+<p>Another way to interact with a running prediction instance is to use TensorFlow Serving REST API. This approach could be useful for more sophisticated use cases, like integrating data-collection scripts/applications with prediction instances.</p>
+<p>The URL and authorization header for accessing TensorFlow Serving REST API will be shown after a prediction instance is submitted, as in the following example (scroll right to see full contents).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Prediction</span> <span class="n">instance</span> <span class="n">URL</span> <span class="p">(</span><span class="n">append</span> <span class="n">method</span> <span class="n">verb</span> <span class="n">manually</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="p">:</span><span class="n">predict</span><span class="p">):</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">8443</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">namespaces</span><span class="o">/</span><span class="n">jdoe</span><span class="o">/</span><span class="n">services</span><span class="o">/</span><span class="n">saved</span><span class="o">-</span><span class="n">mode</span><span class="o">-</span><span class="mi">621</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">34</span><span class="p">:</span><span class="n">rest</span><span class="o">-</span><span class="n">port</span><span class="o">/</span><span class="n">proxy</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">saved_model_half_plus_two_cpu</span>
+
+<span class="n">Authorize</span> <span class="k">with</span> <span class="n">following</span> <span class="n">header</span><span class="p">:</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> 
+<span class="mi">1234567890</span><span class="n">abcdefghijklmnopqrstuvxyz</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-the-rest-api-with-curl">
+<h2>Accessing the REST API with curl<a class="headerlink" href="#accessing-the-rest-api-with-curl" title="Permalink to this headline">¶</a></h2>
+<p>The example shows Accessing REST API using curl, with the following command (scroll right for more details):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">k</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">d</span> <span class="nd">@inference</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">json</span> <span class="o">-</span><span class="n">H</span> <span class="s1">&#39;Authorization: Bearer &lt;authorization token data&gt;&#39;</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8501</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">models</span><span class="o">/&lt;</span><span class="n">model_name</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">saved_model_half_plus_two_cpu</span><span class="o">&gt;</span><span class="p">:</span><span class="n">predict</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-port-forwarding">
+<h2>Using Port Forwarding<a class="headerlink" href="#using-port-forwarding" title="Permalink to this headline">¶</a></h2>
+<p>Alternatively, the Kubernetes port forwarding mechanism may be used. Create a port forwarding tunnel to the prediction instance with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">service</span><span class="o">/&lt;</span><span class="n">prediction</span> <span class="n">instance</span> <span class="n">name</span><span class="o">&gt;</span> <span class="p">:</span><span class="mi">8501</span>
+</pre></div>
+</div>
+<p>Or if you want to start a port forwarding tunnel in the background:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">service</span><span class="o">/&lt;</span><span class="n">prediction</span> <span class="n">instance</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">some</span> <span class="n">local</span> <span class="n">port</span> <span class="n">number</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">8501</span> <span class="o">&amp;</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> The local port number of tunnel you entered above, it will be produced by <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">port-forward</span></code> if you <em>do not</em> explicitly specify it.</p>
+<p>You can now access REST API on the following URL (scroll right to see full contents):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="o">&lt;</span><span class="n">local</span> <span class="n">tunnel</span> <span class="n">port</span> <span class="n">number</span><span class="o">&gt;/</span><span class="n">v1</span><span class="o">/</span><span class="n">models</span><span class="o">/&lt;</span><span class="n">model_name</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">saved_model_half_plus_two_cpu</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">method</span> <span class="n">verb</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-of-accessing-rest-api-using-curl">
+<h2>Example of Accessing REST API Using curl<a class="headerlink" href="#example-of-accessing-rest-api-using-curl" title="Permalink to this headline">¶</a></h2>
+<p>Scroll right to see full contents.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">d</span> <span class="nd">@inference</span><span class="o">-</span><span class="n">data</span><span class="o">.</span><span class="n">json</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">8501</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">models</span><span class="o">/&lt;</span><span class="n">model_name</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">saved_model_half_plus_two_cpu</span><span class="o">&gt;</span><span class="p">:</span><span class="n">predict</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="streaming-inference-with-tensorflow-serving-grpc-api">
+<h2>Streaming Inference with TensorFlow Serving gRPC API<a class="headerlink" href="#streaming-inference-with-tensorflow-serving-grpc-api" title="Permalink to this headline">¶</a></h2>
+<p>Another way to interact with running prediction instance is to use TensorFlow Serving gRPC. This approach may be useful for more sophisticated use cases, such as integrating data collecting scripts/applications with prediction instances. It should provide better performance than REST API.</p>
+<p>To access TensorFlow Serving gRPC API of running prediction instance, the Kubernetes port forwarding mechanism <em>must be</em> used. Create a port forwarding tunnel to a prediction instance with following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">service</span><span class="o">/&lt;</span><span class="n">prediction</span> <span class="n">instance</span> <span class="n">name</span><span class="o">&gt;</span> <span class="p">:</span><span class="mi">8500</span>
+</pre></div>
+</div>
+<p>Or if you want to start port forwarding tunnel in background:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kubectl</span> <span class="n">port</span><span class="o">-</span><span class="n">forward</span> <span class="n">service</span><span class="o">/&lt;</span><span class="n">prediction</span> <span class="n">instance</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">some</span> <span class="n">local</span> <span class="n">port</span> <span class="n">number</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">8500</span> <span class="o">&amp;</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> The local port number of the tunnel you entered above, it will be produced by <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">port-forward</span></code> if you <em>do not</em> explicitly specify it.</p>
+<p>You can access the gRPC API by using a dedicated client gRPC client (such as the following GitHub Python script: <a class="reference external" href="https://github.com/tensorflow/serving/blob/master/tensorflow_serving/example/mnist_client.py">mnist_client.py</a>). Alternatively, use gRPC CLI client of your choice (such as: <a class="reference external" href="https://en.wikipedia.org/wiki/Polyglot_(computing)">Polyglot</a> and/or <a class="reference external" href="https://en.wikipedia.org/wiki/GRPC">gRPC</a>) and connect to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="o">&lt;</span><span class="n">local</span> <span class="n">tunnel</span> <span class="n">port</span> <span class="n">number</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="useful-external-references">
+<h2>Useful External References<a class="headerlink" href="#useful-external-references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/serving/serving_basic">Serving a TensorFlow Model</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/serving/docker">TensorFlow Serving with Docker</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/serving/api_rest">RESTful API</a></p></li>
+</ul>
+</div>
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

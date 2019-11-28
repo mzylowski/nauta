@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Batch Inference Example &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Batch Inference Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/batch_inf_example.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batch-inference-example">
+<h1>Batch Inference Example<a class="headerlink" href="#batch-inference-example" title="Permalink to this headline">¶</a></h1>
+<p>For information about the stream inference testing, refer to <a class="reference internal" href="streaming_inference.html"><span class="doc">Stream Inference</span></a>.</p>
+<p>This section discusses the following topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#flow-example">Flow Example</a></p></li>
+<li><p><a class="reference external" href="#mnist-example">MNIST Example</a></p></li>
+<li><p><a class="reference external" href="#mnist-data-preprocessing">MNIST Data Preprocessing</a></p></li>
+<li><p><a class="reference external" href="#start-prediction">Start Prediction</a></p></li>
+<li><p><a class="reference external" href="#other-important-information">Other Important Information</a></p></li>
+<li><p><a class="reference external" href="#useful-references">Useful References</a></p></li>
+</ul>
+<div class="section" id="flow-example">
+<h2>Flow Example<a class="headerlink" href="#flow-example" title="Permalink to this headline">¶</a></h2>
+<p>An example of the general flow is shown below. These are the universal steps that you need to follow:</p>
+<ol class="simple">
+<li><p>Acquire the dataset and the trained model.</p></li>
+<li><p>Convert the dataset into <em>Serialized Protocol Buffers</em> (PBs). Refer to <a class="reference external" href="https://developers.google.com/protocol-buffers">Protocol Buffers</a> for additional PB information.</p></li>
+<li><p>Mount the Samba shared folder by invoking the <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code>command (see the example for further details).</p></li>
+<li><p>Copy the serialized PBs and the trained model to the just-mounted share.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">batch</span></code> command.</p></li>
+</ol>
+</div>
+<div class="section" id="mnist-example">
+<h2>MNIST Example<a class="headerlink" href="#mnist-example" title="Permalink to this headline">¶</a></h2>
+<p>You need to have preprocessed MNIST data for feeding the batch inference. You can generate example data executing the following steps:</p>
+</div>
+<div class="section" id="mnist-data-preprocessing">
+<h2>MNIST Data Preprocessing<a class="headerlink" href="#mnist-data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Create venv by executing the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="o">.</span><span class="n">venv</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install the required dependency in venv:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">-</span><span class="n">serving</span><span class="o">-</span><span class="n">api</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a directory with two subdirectories named input and output.</p></li>
+<li><p>Run the <code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code> (from nauta/applications/cli/example-python/package_examples) using just-generated venv:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">mnist_converter_pb</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>Results of conversion are stored in <code class="docutils literal notranslate"><span class="pre">conversion_out</span></code> directory under <code class="docutils literal notranslate"><span class="pre">work_dir</span></code> parameter. The default is: <code class="docutils literal notranslate"><span class="pre">/tmp/mnist_test/conversion_out</span></code>. Copy them to your input directory.</p>
+</li>
+</ol>
+<div class="section" id="parameters-of-mnist-converter-pb-py">
+<h3>Parameters of mnist_converter_pb.py<a class="headerlink" href="#parameters-of-mnist-converter-pb-py" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">work_dir</span></code> - Location where files related with conversion will be stored. Default: <code class="docutils literal notranslate"><span class="pre">/tmp/mnist_tests</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_tests</span></code> - Number of examples to convert.  Default: <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="start-prediction">
+<h2>Start Prediction<a class="headerlink" href="#start-prediction" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code>.</p></li>
+<li><p>Use the command printed by nctl mount. Replace &lt;NAUTA_FOLDER&gt; with ‘input’ and <MOUNTPOINT> with your input directory.</p></li>
+<li><p>Use the same command, but this time replace &lt;NAUTA_FOLDER&gt; with ‘output’ and <MOUNTPOINT> with your output directory.</p></li>
+<li><p>If you mounted wrong directories, use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">umount</span> <span class="pre">[name</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">mounted</span> <span class="pre">directory]</span></code>. You can run <code class="docutils literal notranslate"><span class="pre">mount</span></code> to check which directories have been mounted.</p></li>
+<li><p>Deactivate and delete python virtual environment. Run:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">deactivate</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">.</span><span class="n">venv</span><span class="o">/</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>Create model with a script <code class="docutils literal notranslate"><span class="pre">mnist_saved_model.py</span></code> to your input directory. Run(scroll right to see full contents):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">experiment</span> <span class="n">submit</span> <span class="n">mnist_saved_model</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">sfl</span> <span class="p">[</span><span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">directory</span> <span class="n">where</span> <span class="n">you</span> <span class="n">store</span> <span class="n">nauta</span><span class="p">]</span><span class="o">/</span><span class="n">nauta</span><span class="o">/</span><span class="n">applications</span><span class="o">/</span><span class="n">cli</span><span class="o">/</span><span class="n">example</span><span class="o">-</span><span class="n">python</span><span class="o">/</span><span class="n">package_examples</span> <span class="o">-</span><span class="n">n</span> <span class="p">[</span><span class="n">experiment</span> <span class="n">name</span> <span class="n">of</span> <span class="n">your</span> <span class="n">choice</span><span class="p">,</span> <span class="n">eg</span><span class="o">.</span> <span class="n">mn</span><span class="o">-</span><span class="n">model</span><span class="p">]</span> <span class="o">--</span> <span class="o">--</span><span class="n">training_iteration</span><span class="o">=</span><span class="mi">5</span> <span class="o">--</span><span class="n">model_version</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="p">[</span><span class="n">mn</span><span class="o">-</span><span class="n">model</span> <span class="o">-</span> <span class="ow">or</span> <span class="n">a</span> <span class="n">name</span> <span class="n">you</span> <span class="n">chose</span> <span class="n">before</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You can try out different numbers of iterations.
+Copy the directory with the name of your experiment from output folder to the input.</p>
+<ol class="simple">
+<li><p>Enter the following command (scroll right to see full contents):</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">predict</span> <span class="n">batch</span> <span class="o">--</span><span class="n">model</span><span class="o">-</span><span class="n">location</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">mn</span><span class="o">-</span><span class="n">model</span> <span class="o">--</span><span class="n">data</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">conversion_out</span> <span class="o">--</span><span class="n">model</span><span class="o">-</span><span class="n">name</span> <span class="n">mnist</span> <span class="o">-</span><span class="n">n</span> <span class="n">check</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>If you want to see the predictions in human-readable form, use the script below:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">tensorflow_serving.apis</span> <span class="kn">import</span> <span class="n">predict_pb2</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.pb&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pb_file</span><span class="p">:</span>
+            <span class="n">result_pb</span> <span class="o">=</span> <span class="n">pb_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">predict_pb2</span><span class="o">.</span><span class="n">PredictResponse</span><span class="p">()</span>
+            <span class="n">resp</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">result_pb</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s2">&quot;scores&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">float_val</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a result for each sample we will get an array of 10 elements presenting probabilities of each sample being a given digit. First element represents how likely it is that the picture represents “0”, the last one stands for “9”. The higher the number, the more likely it is that this sample is in fact that digit.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">0.0156935453414917</span><span class="p">,</span> <span class="mf">0.06918075680732727</span><span class="p">,</span> <span class="mf">0.023996423929929733</span><span class="p">,</span> <span class="mf">0.00025786852347664535</span><span class="p">,</span> <span class="mf">0.07656218856573105</span><span class="p">,</span> <span class="mf">0.05128718540072441</span><span class="p">,</span> <span class="mf">0.1812051236629486</span><span class="p">,</span> <span class="mf">0.02422264777123928</span><span class="p">,</span> <span class="mf">0.0640382319688797</span><span class="p">,</span> <span class="mf">0.49355611205101013</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In the example above, the highest value has the element of index 9, so the sample probably represented “9”.</p>
+</div>
+<div class="section" id="other-important-information">
+<h2>Other Important Information<a class="headerlink" href="#other-important-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="paths">
+<h3>Paths<a class="headerlink" href="#paths" title="Permalink to this headline">¶</a></h3>
+<p>Paths provided in locations such as, <code class="docutils literal notranslate"><span class="pre">--model-location</span></code> and <code class="docutils literal notranslate"><span class="pre">--data</span></code> need to point (for files/directory) from the container’s context, <em><strong>not</strong></em> from a user’s filesystem or mounts. These paths can be mapped using instructions from <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">mount</span></code>.</p>
+<p>For example, if you mounted Samba <code class="docutils literal notranslate"><span class="pre">/input</span></code> and copied the files there, you should pass: <code class="docutils literal notranslate"><span class="pre">/mnt/input/home/&lt;file&gt;</span></code>.</p>
+</div>
+<div class="section" id="model-name">
+<h3>Model Name<a class="headerlink" href="#model-name" title="Permalink to this headline">¶</a></h3>
+<p>The<code class="docutils literal notranslate"><span class="pre">--model-name</span></code> is optional, but it <em>must</em> match the model name provided during data preprocessing, since generated requests <em>must</em> define which servable they target.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">mnist_converter_pb.py</span></code> script, you can find
+<code class="docutils literal notranslate"><span class="pre">request.model_spec.name</span> <span class="pre">=</span> <span class="pre">'mnist'</span></code>. This saves the model name in requests, and that name <em>must</em> match a value passed as:
+<code class="docutils literal notranslate"><span class="pre">--model-name</span></code></p>
+<p>If not provided, it assumes that the model name is equal to last directory in model location:
+<code class="docutils literal notranslate"><span class="pre">/mnt/input/home/trained_mnist_model</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">trained_mnist_model</span></code></p>
+</div>
+</div>
+<div class="section" id="useful-references">
+<h2>Useful References<a class="headerlink" href="#useful-references" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/serving/serving_basic">Serving a TensorFlow Model</a></p></li>
+<li><p><a class="reference external" href="https://developers.google.com/protocol-buffers/docs/pythontutorial">Protocol Buffer Basics: Python</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tensorflow/serving/blob/master/tensorflow_serving/example/mnist_client.py">mnist_client.py Script</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/serving/docker">TensorFlow Serving with Docker</a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

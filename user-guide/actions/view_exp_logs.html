@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Viewing Experiment Logs and Results Data &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Viewing Experiment Logs and Results Data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/view_exp_logs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="viewing-experiment-logs-and-results-data">
+<h1>Viewing Experiment Logs and Results Data<a class="headerlink" href="#viewing-experiment-logs-and-results-data" title="Permalink to this headline">¶</a></h1>
+<p>Each experiment generates logs. This is the information generated during the run of the experiment and saved. If an experiment <em>did not</em> print out data during execution, the logs will be blank.</p>
+<p>Separate from logs, the results or output of an experiment can be found by mounting the user’s output folder or output-shared folder. A model file should write to the Nauta output folder in order to save any output files.</p>
+<p>Execute the following command to view logs from a given experiment.</p>
+<p><strong>Syntax:</strong> <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">logs</span> <span class="pre">[options]</span> <span class="pre">EXPERIMENT-NAME</span></code></p>
+<p><strong>Example:</strong> <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">logs</span> <span class="pre">mnist-tb</span></code></p>
+<p><strong>Result:</strong> The following result, displays an <em>example log</em> (where mnist-tb is shown in the experiment logs, this indicates the name of the experiment).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">38</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">2.3015756607055664</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.078125</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">44</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">100</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.13010963797569275</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.921875</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">49</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">200</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.07017017900943756</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.984375</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">11</span><span class="p">:</span><span class="mi">55</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">300</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.08880224078893661</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.984375</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">00</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Step</span> <span class="mi">400</span><span class="p">,</span> <span class="n">Loss</span><span class="p">:</span> <span class="mf">0.15115690231323242</span><span class="p">,</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">0.953125</span>
+<span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="n">T16</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mi">07</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span><span class="o">-</span><span class="n">master</span><span class="o">-</span><span class="mi">0</span> <span class="n">Validation</span> <span class="n">accuracy</span><span class="p">:</span> <span class="mf">0.980400025844574</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Logs generated with sub-millisecond frequency may appear out of order when displayed. This is casued by the 1ms resolution of the underlying logging solution.</p>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

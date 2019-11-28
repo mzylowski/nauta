@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Target Host Requirements &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Target Host Requirements</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/installation-and-configuration/Target_Host_Requirements/THR.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="target-host-requirements">
+<h1>Target Host Requirements<a class="headerlink" href="#target-host-requirements" title="Permalink to this headline">¶</a></h1>
+<p>For the <em>Target host</em>, install Nauta <strong>on bare metal only</strong> with Red Hat Enterprise Linux 7.5 (this can be preinstalled).</p>
+<ul class="simple">
+<li><p>Configured access to the master host over SSH.</p>
+<ul>
+<li><p>This is configured access from your <em>Installer Machine to your Target Host (master)</em>.</p></li>
+</ul>
+</li>
+<li><p>Full network connectivity between target hosts is required. In addition, Installer connectivity is only required to the master node.</p></li>
+</ul>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#red-hat-enterprise-linux">Red Hat Enterprise Linux 7.5</a></p></li>
+<li><p><a class="reference external" href="#valid-repositories">Valid Repositories</a></p></li>
+<li><p><a class="reference external" href="#repositories-list">Repositories List</a></p></li>
+</ul>
+<div class="section" id="red-hat-enterprise-linux">
+<h2>Red Hat Enterprise Linux<a class="headerlink" href="#red-hat-enterprise-linux" title="Permalink to this headline">¶</a></h2>
+<p>Red Hat Enterprise Linux 7.5 is required, as well as the following required packages:</p>
+<ul class="simple">
+<li><p>byacc</p></li>
+<li><p>cifs-utils</p></li>
+<li><p>ebtables</p></li>
+<li><p>ethtool</p></li>
+<li><p>gcc</p></li>
+<li><p>gcc-c++</p></li>
+<li><p>git</p></li>
+<li><p>iproute</p></li>
+<li><p>iptables &gt;= 1.4.21</p></li>
+<li><p>libcgroup</p></li>
+<li><p>libcgroup-devel</p></li>
+<li><p>libcgroup-tools</p></li>
+<li><p>libffi-devel</p></li>
+<li><p>libseccomp-devel</p></li>
+<li><p>libtool-ltdl-devel</p></li>
+<li><p>make</p></li>
+<li><p>nfs-utils</p></li>
+<li><p>openssh</p></li>
+<li><p>openssh-clients</p></li>
+<li><p>openssl</p></li>
+<li><p>openssl-devel</p></li>
+<li><p>policycoreutils-python</p></li>
+<li><p>python</p></li>
+<li><p>python-backports</p></li>
+<li><p>python-backports-ssl_match_hostname</p></li>
+<li><p>python-devel</p></li>
+<li><p>python-ipaddress</p></li>
+<li><p>python-setuptools</p></li>
+<li><p>rsync</p></li>
+<li><p>selinux-policy &gt;= 3.13.1-23</p></li>
+<li><p>selinux-policy-base &gt;= 3.13.1-102</p></li>
+<li><p>selinux-policy-targeted &gt;= 3.13.1-102</p></li>
+<li><p>socat</p></li>
+<li><p>systemd-libs</p></li>
+<li><p>util-linux</p></li>
+<li><p>vim</p></li>
+<li><p>wget</p></li>
+</ul>
+</div>
+<div class="section" id="valid-repositories">
+<h2>Valid Repositories<a class="headerlink" href="#valid-repositories" title="Permalink to this headline">¶</a></h2>
+<p>If the operating system is installed and configured with a valid repository that contains the required packages, an Administrator <em>does not</em> need to install the packages manually. However, if the repository <em>is not</em> valid, the Installer  attempts to install the package automatically. If this fails an error message is displayed.</p>
+</div>
+<div class="section" id="repositories-list">
+<h2>Repositories List<a class="headerlink" href="#repositories-list" title="Permalink to this headline">¶</a></h2>
+<p>Use the following command to check your repository list: <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">repolist</span> <span class="pre">all</span></code></p>
+<p>A list of <strong>required</strong> enabled repositories for RHEL 7.5, is:</p>
+<ul class="simple">
+<li><p>Extra Packages for Enterprise Linux 7 - x86_64</p></li>
+<li><p>Red Hat Enterprise Linux 7 Server - x86_64</p></li>
+<li><p>Red Hat Enterprise Linux 7 Server (High Availability) - x86_64</p></li>
+<li><p>Red Hat Enterprise Linux 7 Server (Optional) - x86_64</p></li>
+<li><p>Red Hat Enterprise Linux 7 Server (Supplementary) - x86_64</p></li>
+</ul>
+<p>A list of <strong>required</strong> enabled repositories for Centos 7.5, is:</p>
+<ul class="simple">
+<li><p>CentOS-7 - Base</p></li>
+<li><p>CentOS-7 - Extras</p></li>
+<li><p>CentOS-7 - Updates</p></li>
+<li><p>Extra Packages for Enterprise (epel)</p></li>
+</ul>
+</div>
+<div class="section" id="data-directory">
+<h2>Data directory<a class="headerlink" href="#data-directory" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">/data</span></code> directory must be created on master node before installation. This directory will contain persistent
+Kubernetes’ and Nauta’s data. Preferably you should mount a separate disk to this directory - size depends
+on your needs and number of users, 70Gi disk size is a reasonable default for a three node Nauta environment.</p>
+</div>
+<div class="section" id="next-steps-preparing-for-the-nauta-installation">
+<h2>Next Steps: Preparing for the Nauta Installation<a class="headerlink" href="#next-steps-preparing-for-the-nauta-installation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../Inventory_Tasks/IT.html"><span class="doc">Inventory File Configuration Tasks</span></a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

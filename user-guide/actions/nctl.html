@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to Build the Nauta Command Line Interface &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>How to Build the Nauta Command Line Interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/nctl.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-build-the-nauta-command-line-interface">
+<h1>How to Build the Nauta Command Line Interface<a class="headerlink" href="#how-to-build-the-nauta-command-line-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="build-requirements">
+<h2>Build Requirements<a class="headerlink" href="#build-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ubuntu-16-04-lts-and-ubuntu-18-04-lts">
+<h3>Ubuntu 16.04 LTS and Ubuntu 18.04 LTS<a class="headerlink" href="#ubuntu-16-04-lts-and-ubuntu-18-04-lts" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>python 3.6</p></li>
+<li><p>python3.6-dev</p></li>
+<li><p>python3.6-venv</p></li>
+<li><p>build-essential</p></li>
+<li><p>binutils</p></li>
+<li><p>curl</p></li>
+<li><p>git</p></li>
+</ul>
+<p>You can use the following command to install the required dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">add</span><span class="o">-</span><span class="n">apt</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">deadsnakes</span><span class="o">/</span><span class="n">ppa</span>
+<span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">.</span><span class="mi">6</span> <span class="n">python3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">venv</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">binutils</span> <span class="n">curl</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="macos-high-sierra-or-later-requirements">
+<h2>MacOS High Sierra (or later) Requirements<a class="headerlink" href="#macos-high-sierra-or-later-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>python 3.6</p></li>
+<li><p>python3-venv</p></li>
+<li><p>python3-dev</p></li>
+<li><p>binutils</p></li>
+<li><p>make</p></li>
+<li><p>curl</p></li>
+<li><p>git</p></li>
+</ul>
+<div class="section" id="proxy-settings">
+<h3>Proxy Settings<a class="headerlink" href="#proxy-settings" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you have the following settings: http_proxy, https_proxy, and no_proxy environment variables if you are behind proxy. The no_proxy must include: 127.0.0.1 and localhost.</p>
+</div>
+</div>
+<div class="section" id="building-nctl">
+<h2>Building nctl<a class="headerlink" href="#building-nctl" title="Permalink to this headline">¶</a></h2>
+<p>Make sure the development requirements above are met. In the applications/cli directory run: make build. As a result, artifacts are available in <code class="docutils literal notranslate"><span class="pre">dist</span></code> directory, including <code class="docutils literal notranslate"><span class="pre">nctl</span></code> binary.</p>
+<p>Should you need to rebuild nctl after any changes, you can invoke <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span> <span class="pre">build</span></code> (it cleans only the dist and build directories) or trigger <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">full_clean</span> <span class="pre">build</span></code> to recreate also <em>.venv</em> directory.</p>
+<p>If you want to create <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> package with nctl, invoke <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">nctl-build</span></code> from main directory in the repository.
+After a successful build, the tar.gz file can be found in applications/cli directory. The Package contains the nctl binary and all dependencies, such as Helm, docs, and example directories.</p>
+<div class="section" id="available-make-commands-and-targets">
+<h3>Available make Commands and Targets<a class="headerlink" href="#available-make-commands-and-targets" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> - Removes build artifacts only</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">full_clean</span></code> - Removes build artifacts and virtual env</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">build</span></code> - Builds cli app</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">pack</span></code> - Creates a tar.gz package with <code class="docutils literal notranslate"><span class="pre">nctl</span></code> artifacts</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">venv</span></code> - Creates <em>.venv</em> with all modules required by nctl</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,655 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>predict Command &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>predict Command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/predict.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="predict-command">
+<h1>predict Command<a class="headerlink" href="#predict-command" title="Permalink to this headline">¶</a></h1>
+<p>Use this command to start, stop, and manage prediction jobs. This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#batch-subcommand">batch Subcommand</a></p></li>
+<li><p><a class="reference external" href="#cancel-subcommand">cancel Subcommand</a></p></li>
+<li><p><a class="reference external" href="#launch-subcommand">launch Subcommand</a></p></li>
+<li><p><a class="reference external" href="#list-subcommand">list Subcommand</a></p></li>
+<li><p><a class="reference external" href="#stream-subcommand">stream Subcommand</a></p></li>
+</ul>
+<div class="section" id="batch-subcommand">
+<h2>batch Subcommand<a class="headerlink" href="#batch-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="synopsis">
+<h3>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p>Starts a new batch instance that will perform prediction on provided data. Uses a specified dataset to perform inference. Results are stored in an output file.</p>
+</div>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">batch</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-n, --name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of predict session.</td>
+</tr>
+<tr>
+<td align="left"><code>-m, --model-location</code> <br> <code>TEXT</code></td>
+<td align="left">Yes</td>
+<td align="left">Path to saved model that will be used for inference. Model must be located on one of the input or output system shares (e.g. /mnt/input/saved_model). Model content will be copied into an image.</td>
+</tr>
+<tr>
+<td align="left"><code>-l, --local_model_location PATH</code></td>
+<td align="left">Yes</td>
+<td align="left">Local path to saved model that will be used for inference. Model content will be copied into an image.</td>
+</tr>
+<tr>
+<td align="left"><code>-d, --data TEXT</code></td>
+<td align="left">Yes</td>
+<td align="left">Location of a folder with data that will be used to perform the batch inference. Value should point out the location from one the system's shared folder.</td>
+</tr>
+<tr>
+<td align="left"><code>-o, --output TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Location of a folder where outputs from inferences will be stored. Value should point out the location from one of the system's shared folder.</td>
+</tr>
+<tr>
+<td align="left"><code>-mn, --model-name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of a model passed as a servable name. By default it is the name of the directory in model's location.</td>
+</tr>
+<tr>
+<td align="left"><code>-tr, --tf-record</code></td>
+<td align="left">No</td>
+<td align="left">If given, the batch prediction accepts files in <code>TFRecord</code> formats. Otherwise files should be delivered in <code>protobuf</code> format.</td>
+</tr>
+<tr>
+<td align="left"><code>-rt, --runtime</code></td>
+<td align="left">No</td>
+<td align="left">Determine runtime for prediction. Supported runtimes are 'Tensorflow serving' (tfserving) and 'OpenVINO Model Server (ovms). Default runtime is 'tfserving'.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h3>
+<p>Description of a problem, if any occurs. Otherwise information that the predict job was submitted.</p>
+<p><strong>Note</strong>: Refer to <a class="reference internal" href="batch_inf_example.html"><span class="doc">Batch Inference Example</span></a> for a detailed example of this command.</p>
+</div>
+</div>
+<div class="section" id="cancel-subcommand">
+<h2>cancel Subcommand<a class="headerlink" href="#cancel-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Synopsis<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>This command <code class="docutils literal notranslate"><span class="pre">cancels</span></code> prediction instance(s) chosen based on criteria given as a parameter.</p>
+</div>
+<div class="section" id="id2">
+<h3>Syntax<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">cancel</span> <span class="pre">[options]</span> <span class="pre">[name]</span></code></p>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>NAME</code></td>
+<td align="left">No</td>
+<td align="left">Name of predict instance to be cancelled. The [name] argument value can be empty when <code>match</code> option is used.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id3">
+<h3>Options<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-m, --match TEXT</code></td>
+<td align="left">No</td>
+<td align="left">If given, the command searches for prediction instances matching the value of this option.</td>
+</tr>
+<tr>
+<td align="left"><code>-p, --purge</code></td>
+<td align="left">No</td>
+<td align="left">If given, then all information concerning all prediction instances, completed and currently running, is removed from the system.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The description of a problem; if, any problem occurs. Otherwise information that training job/jobs was/were cancelled successfully.</p>
+</div>
+</div>
+<div class="section" id="launch-subcommand">
+<h2>launch Subcommand<a class="headerlink" href="#launch-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Synopsis<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">launch</span></code> subcommand starts  a new prediction instance that can be used for performing prediction, classification and regression tasks on a trained model. The created prediction instance is for streaming prediction only.</p>
+</div>
+<div class="section" id="id6">
+<h3>Syntax<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">launch</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id7">
+<h3>Options<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-n, --name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">The name of this prediction instance.</td>
+</tr>
+<tr>
+<td align="left"><code>-m, --model-location</code> <br> <code>TEXT</code></td>
+<td align="left">Yes</td>
+<td align="left">Path to saved model that will be used for inference. Model must be located on one of the input or output system shares (e.g. /mnt/input/home/saved_model).</td>
+</tr>
+<tr>
+<td align="left"><code>-l, --local_model_location</code><br> <code>PATH</code></td>
+<td align="left">No</td>
+<td align="left">Local path to saved model that will be used for inference. Model content will be copied into an image.</td>
+</tr>
+<tr>
+<td align="left"><code>-mn, --model-name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of a model passed as a servable name. By default it is the name of directory in model's location.</td>
+</tr>
+<tr>
+<td align="left"><code>-rt, --runtime</code></td>
+<td align="left">No</td>
+<td align="left">Determine runtime for prediction. Supported runtimes are 'Tensorflow serving' (tfserving) and 'OpenVINO Model Server (ovms). Default runtime is 'tfserving'.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id8">
+<h3>Returns<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Prediction instance URL and authorization token, as well as information about the experiment  (name, model location, state).</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">nctl</span> <span class="n">predict</span> <span class="n">l</span> <span class="o">-</span><span class="n">n</span> <span class="n">test</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">experiment1</span>
+    
+    <span class="o">|</span> <span class="n">Prediction</span> <span class="n">instance</span>   <span class="o">|</span> <span class="n">Model</span> <span class="n">Location</span>               <span class="o">|</span> <span class="n">Status</span>   <span class="o">|</span>
+    <span class="o">|-----------------------+------------------------------+----------|</span>
+    <span class="o">|</span> <span class="n">test</span>                  <span class="o">|</span> <span class="o">/</span><span class="n">mnt</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">experiment1</span>  <span class="o">|</span> <span class="n">QUEUED</span>   <span class="o">|</span>
+
+    <span class="n">Prediction</span> <span class="n">instance</span> <span class="n">URL</span> <span class="p">(</span><span class="n">append</span> <span class="n">method</span> <span class="n">verb</span> <span class="n">manually</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="p">:</span><span class="n">predict</span><span class="p">):</span>
+    <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">8443</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">namespaces</span><span class="o">/</span><span class="n">jdoe</span><span class="o">/</span><span class="n">services</span><span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">proxy</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">home</span>
+
+    <span class="n">Authorize</span> <span class="k">with</span> <span class="n">following</span> <span class="n">header</span><span class="p">:</span>
+    <span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="n">abcdefghijklmnopqrst0123456789</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="list-subcommand">
+<h2>list Subcommand<a class="headerlink" href="#list-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Synopsis<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> subcommand displays a list of inference instances with some basic information regarding each of them. Results are
+sorted using a date of creation starting with the most recent, and filtered by optional criteria.</p>
+</div>
+<div class="section" id="id10">
+<h3>Syntax<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">list</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id11">
+<h3>Options<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-a, --all_users</code></td>
+<td align="left">No</td>
+<td align="left">Show all prediction instances, regardless of the owner.</td>
+</tr>
+<tr>
+<td align="left"><code>-n, --name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">A regular expression to narrow down list to prediction instances that match this expression.</td>
+</tr>
+<tr>
+<td align="left"><code>-s, --status [QUEUED, RUNNING, COMPLETE, CANCELLED, FAILED, CREATING]</code></td>
+<td align="left">No</td>
+<td align="left">A regular expression to filter list to prediction instances with matching status.</td>
+</tr>
+<tr>
+<td align="left"><code>-u, --uninitialized</code></td>
+<td align="left">No</td>
+<td align="left">List uninitialized prediction instances: for example, prediction instances without resources submitted for creation.</td>
+</tr>
+<tr>
+<td align="left"><code>-c/--count</code> <br> <code>INTEGER RANGE</code></td>
+<td align="left">No</td>
+<td align="left">If given, command displays c most-recent rows.</td>
+</tr>
+<tr>
+<td align="left"><code>-b, --brief</code></td>
+<td align="left">No</td>
+<td align="left">Print short version of the result table. Only 'name', 'submission date', 'owner' and 'state' columns will be printed.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>List of inference instances.</p>
+</div>
+</div>
+<div class="section" id="view-subcommand">
+<h2>view Subcommand<a class="headerlink" href="#view-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id13">
+<h3>Synopsis<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">view</span></code> subcommand displays basic details of an prediction instance, such as the name of an experiment, parameters, submission date, and so on.</p>
+</div>
+<div class="section" id="id14">
+<h3>Syntax<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">view</span> <span class="pre">[options]</span> <span class="pre">PREDICTION_INSTANCE_NAME</span></code></p>
+</div>
+<div class="section" id="id15">
+<h3>Arguments<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>PREDICTION_INSTANCE_NAME</code></td>
+<td align="left">Yes</td>
+<td align="left">Name of an predictions instance for which details will be displayed.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id16">
+<h3>Options<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-u, --username</code><br> <code>TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of the user who submitted this prediction instance. If not given, then only prediction instances of a current user are shown.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id17">
+<h3>Returns<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>Displays details of an prediction instance.</p>
+</div>
+<div class="section" id="id18">
+<h3>Example<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">view</span> <span class="pre">prediction-instance-2</span></code></p>
+<p>Displays details of an <code class="docutils literal notranslate"><span class="pre">prediction-instance-2</span></code> prediction instance.</p>
+</div>
+</div>
+<div class="section" id="stream-subcommand">
+<h2>stream Subcommand<a class="headerlink" href="#stream-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id19">
+<h3>Synopsis<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">stream</span></code> subcommand performs stream inference task on launched prediction instance.</p>
+</div>
+<div class="section" id="id20">
+<h3>Syntax<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">predict</span> <span class="pre">stream</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id21">
+<h3>Options<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-n, --name TEXT</code></td>
+<td align="left">Yes</td>
+<td align="left">Name of prediction session.</td>
+</tr>
+<tr>
+<td align="left"><code>-d, --data PATH</code></td>
+<td align="left">Yes</td>
+<td align="left">Path to JSON data file that will be streamed to prediction instance. Data must be formatted such that it is compatible with the SignatureDef specified within the model deployed in the selected prediction instance.</td>
+</tr>
+<tr>
+<td align="left"><code>-m, --method-verb [classify, regress, predict]</code></td>
+<td align="left">No</td>
+<td align="left">Method verb that will be used when performing inference. Predict verb is used by default.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

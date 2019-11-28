@@ -1,0 +1,229 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>View All User Activity &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>View All User Activity</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/view_user_act.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="view-all-user-activity">
+<h1>View All User Activity<a class="headerlink" href="#view-all-user-activity" title="Permalink to this headline">¶</a></h1>
+<p>The command <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">list</span></code> displays all current users and all of their experiments (with status). Furthermore, the command shows the following information:</p>
+<ul class="simple">
+<li><p><strong>Name:</strong> user name</p></li>
+<li><p><strong>Creation date:</strong> the date this user account was created</p></li>
+<li><p><strong>Date of last submitted job:</strong> experiment</p></li>
+<li><p><strong>Number of running jobs:</strong> experiments</p></li>
+<li><p><strong>Number of queued jobs:</strong> experiments submitted but not yet running</p></li>
+</ul>
+<p>Administrators <em>are not</em> listed and previously deleted users are not shown. To <em>create</em> a user account, refer to <a class="reference internal" href="create_user.html"><span class="doc">Creating a User Account</span></a> and to <em>delete</em> a user account, refer to <a class="reference internal" href="delete_user.html"><span class="doc">Deleting a User Account</span></a>.</p>
+<p>Enter the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">list</span></code></p>
+<p>Example results are show below (scroll right to see full contents).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="o">|</span> <span class="n">Name</span>    <span class="o">|</span> <span class="n">Creation</span> <span class="n">date</span>          <span class="o">|</span> <span class="n">Date</span> <span class="n">of</span> <span class="n">last</span> <span class="n">submitted</span> <span class="n">job</span>   <span class="o">|</span>   <span class="n">Number</span> <span class="n">of</span> <span class="n">running</span> <span class="n">jobs</span> <span class="o">|</span>   <span class="n">Number</span> <span class="n">of</span> <span class="n">queued</span> <span class="n">jobs</span> <span class="o">|</span>
+<span class="o">|---------+------------------------+------------------------------+--------------------------+-------------------------|</span>
+<span class="o">|</span> <span class="n">user1</span>   <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">12</span> <span class="mi">08</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">45</span> <span class="n">PM</span> <span class="o">|</span>  <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">02</span> <span class="mi">05</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">14</span> <span class="n">PM</span>      <span class="o">|</span>                        <span class="mi">1</span> <span class="o">|</span>                       <span class="mi">1</span> <span class="o">|</span> 
+<span class="o">|</span> <span class="n">user2</span>   <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">12</span> <span class="mi">09</span><span class="p">:</span><span class="mi">50</span><span class="p">:</span><span class="mi">50</span> <span class="n">PM</span> <span class="o">|</span>                              <span class="o">|</span>                        <span class="mi">0</span> <span class="o">|</span>                       <span class="mi">0</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">user3</span>   <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">12</span> <span class="mi">09</span><span class="p">:</span><span class="mi">51</span><span class="p">:</span><span class="mi">31</span> <span class="n">PM</span> <span class="o">|</span>                              <span class="o">|</span>                        <span class="mi">0</span> <span class="o">|</span>                       <span class="mi">0</span> <span class="o">|</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

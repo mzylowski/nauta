@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>template Command &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>template Command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/template.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="template-command">
+<h1>template Command<a class="headerlink" href="#template-command" title="Permalink to this headline">¶</a></h1>
+<p>The overall purpose of this command/subcommands is to manage template packs used by nctl application. This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#copy-subcommand">copy Subcommand</a></p></li>
+<li><p><a class="reference external" href="#install-subcommand">install Subcommand</a></p></li>
+<li><p><a class="reference external" href="#list-subcommand">list Subcommand</a></p></li>
+</ul>
+<div class="section" id="copy-subcommand">
+<h2>copy Subcommand<a class="headerlink" href="#copy-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="synopsis">
+<h3>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p>Copies a locally existing template pack to a new template pack. Once copied, you can change the description and the version of a newly created template pack, if desired.</p>
+</div>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">template</span> <span class="pre">copy</span> <span class="pre">[options]</span> <span class="pre">SRC_TEMPLATE_NAME</span> <span class="pre">DEST_TEMPLATE_NAME</span> </code></p>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>| Name | Required | Description |
+|:— |:— |:— |
+|<code class="docutils literal notranslate"><span class="pre">SRC_TEMPLATE_NAME</span></code> | Yes | This is the name of a template pack that will be copied. This pack must be available locally. Therefore, if a you want to make a copy of a remote template pack, you must first install it locally using the <code class="docutils literal notranslate"><span class="pre">template</span> <span class="pre">install</span> <span class="pre">command</span></code>. |
+|<code class="docutils literal notranslate"><span class="pre">DEST_TEMPLATE_NAME</span></code> | Yes | This is the name of the copied template pack. If a template pack with a given name exists, the Nauta application displays the information about it and completes its action. |</p>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>| Name | Required | Description |
+|:— |:— |:— |
+|<code class="docutils literal notranslate"><span class="pre">-d,</span> <span class="pre">--description</span> <span class="pre">TEXT</span></code> | No | Description of a newly created template pack. If not given, <code class="docutils literal notranslate"><span class="pre">nctl</span></code> asks for a descritpion during copying of the pack. The maximum length of a description is 255 characters; however, if the text is longer than this limit, superfluous characters are cut.|
+|<code class="docutils literal notranslate"><span class="pre">-ve,</span> <span class="pre">--version</span> <span class="pre">TEXT</span></code>| No | Version of a newly created template pack. If not given, the default <code class="docutils literal notranslate"><span class="pre">0.1.0</span></code> value is used as a version. |</p>
+</div>
+<div class="section" id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h3>
+<p>When a template pack is copied successfully, a confirmation message displays.
+If an error occurs during execution of this command, then the cause of the issue is displayed.</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">template</span> <span class="pre">copy</span> <span class="pre">-ve</span> <span class="pre">0.2.0</span> <span class="pre">existing-pack</span> <span class="pre">new-pack</span></code></p>
+<p>Creates a new template pack named <code class="docutils literal notranslate"><span class="pre">new-pack</span></code> based on a locally available template pack <code class="docutils literal notranslate"><span class="pre">existing-pack</span></code>. The version
+of a newly created pack is set to 0.2.0. You will be asked for a description during <em>making a copy</em> of a template pack.</p>
+</div>
+</div>
+<div class="section" id="install-subcommand">
+<h2>install Subcommand<a class="headerlink" href="#install-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-name-synopsis-install-a-synopsis">
+<h3><a name="synopsis_install"></a>Synopsis<a class="headerlink" href="#a-name-synopsis-install-a-synopsis" title="Permalink to this headline">¶</a></h3>
+<p>Installs locally a template pack with a given name. If template pack has been already installed, use of this subcommand
+updates the template to the version residing on a remote repository.</p>
+</div>
+<div class="section" id="a-name-syntax-install-a-syntax">
+<h3><a name="syntax_install"></a>Syntax<a class="headerlink" href="#a-name-syntax-install-a-syntax" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">install</span> <span class="pre">TEMPLATE_NAME</span></code></p>
+</div>
+<div class="section" id="a-name-arguments-install-a-arguments">
+<h3><a name="arguments_install"></a>Arguments<a class="headerlink" href="#a-name-arguments-install-a-arguments" title="Permalink to this headline">¶</a></h3>
+<p>| Name | Required | Description |
+|:— |:— |:— |
+|<code class="docutils literal notranslate"><span class="pre">TEMPLATE_NAME</span></code> | Yes | Name of a template pack which should be installed/updated. |</p>
+</div>
+<div class="section" id="a-name-returns-install-a-returns">
+<h3><a name="returns_install"> </a> Returns<a class="headerlink" href="#a-name-returns-install-a-returns" title="Permalink to this headline">¶</a></h3>
+<p>When an installation/update is successfully completed, a confirmation message displays.
+If an error occurs during execution of this command, then the cause of the issue is displayed.</p>
+</div>
+<div class="section" id="a-name-example-install-a-example">
+<h3><a name="example_install"> </a> Example<a class="headerlink" href="#a-name-example-install-a-example" title="Permalink to this headline">¶</a></h3>
+<p>The following command installs/upgrade template with the <code class="docutils literal notranslate"><span class="pre">template-name</span></code> name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">template</span> <span class="pre">install</span> <span class="pre">template-name</span></code></p>
+</div>
+</div>
+<div class="section" id="list-subcommand">
+<h2>list Subcommand<a class="headerlink" href="#list-subcommand" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#synopsis_list">Synopsis</a></p></li>
+<li><p><a class="reference external" href="#syntax_list">Syntax</a></p></li>
+<li><p><a class="reference external" href="#returns_list">Returns</a></p></li>
+<li><p><a class="reference external" href="#example_list">Example</a></p></li>
+</ul>
+<div class="section" id="a-name-synopsis-list-a-synopsis">
+<h3><a name="synopsis_list"></a> Synopsis<a class="headerlink" href="#a-name-synopsis-list-a-synopsis" title="Permalink to this headline">¶</a></h3>
+<p>Lists template packs. It displays information about packs that are available locally and on a remote repository.</p>
+</div>
+<div class="section" id="a-name-syntax-list-a-syntax">
+<h3><a name="syntax_list"> </a> Syntax<a class="headerlink" href="#a-name-syntax-list-a-syntax" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">template</span> <span class="pre">list</span></code></p>
+<div class="section" id="additional-remarks">
+<h4>Additional Remarks<a class="headerlink" href="#additional-remarks" title="Permalink to this headline">¶</a></h4>
+<p>Configuration of the template zoo is stored in the <code class="docutils literal notranslate"><span class="pre">NAUTA_HOME/config/zoo-repository.config</span></code> file. This file
+contains location of a template zoo repository (under the <code class="docutils literal notranslate"><span class="pre">model-zoo-address</span></code> key). Additionally, it can contain
+a Git access token also (under the <code class="docutils literal notranslate"><span class="pre">access-token</span></code> key). The access token is needed in case when a template zoo repository
+is private and credentials are needed to get access to it. If desired, you can modify both values in case you need to use a different repository with template packs.</p>
+</div>
+</div>
+<div class="section" id="a-name-returns-list-a-returns">
+<h3><a name="returns_list"></a>  Returns<a class="headerlink" href="#a-name-returns-list-a-returns" title="Permalink to this headline">¶</a></h3>
+<p>Displays a table with a list of available template packs. Each row contains, besides the name and the description of a template, also
+versions of remote and local template packs. If one of these versions is empty it indicates that this template pack
+does not have version of this type.</p>
+<p>If an error occurs during execution of this command, then the cause of the issue is displayed.</p>
+</div>
+<div class="section" id="a-name-example-list-a-example">
+<h3><a name="example_list"></a>  Example<a class="headerlink" href="#a-name-example-list-a-example" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">template</span> <span class="pre">list</span></code></p>
+<!-- language: lang-none --><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">|</span> <span class="n">Template</span> <span class="n">name</span>                     <span class="o">|</span> <span class="n">Template</span> <span class="n">description</span>                            <span class="o">|</span> <span class="n">Local</span> <span class="n">version</span>   <span class="o">|</span> <span class="n">Remote</span> <span class="n">version</span>   <span class="o">|</span>
+<span class="o">|-----------------------------------+-------------------------------------------------+-----------------+------------------|</span>
+<span class="o">|</span> <span class="n">jupyter</span>                           <span class="o">|</span> <span class="n">Pack</span> <span class="k">with</span> <span class="n">Jupyter</span> <span class="n">Notebook</span> <span class="k">for</span> <span class="n">purpose</span> <span class="n">of</span>       <span class="o">|</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>           <span class="o">|</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>            <span class="o">|</span>
+<span class="o">|</span>                                   <span class="o">|</span> <span class="n">interactive</span> <span class="n">sessions</span>                            <span class="o">|</span>                 <span class="o">|</span>                  <span class="o">|</span>
+<span class="o">|</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">py2</span>                       <span class="o">|</span> <span class="n">Pack</span> <span class="k">with</span> <span class="n">Jupyter</span> <span class="n">Notebook</span> <span class="k">for</span> <span class="n">purpose</span> <span class="n">of</span>       <span class="o">|</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>           <span class="o">|</span> <span class="mf">0.1</span><span class="o">.</span><span class="mi">0</span>            <span class="o">|</span>
+<span class="o">|</span>                                   <span class="o">|</span> <span class="n">interactive</span> <span class="n">sessions</span>                            <span class="o">|</span>                 <span class="o">|</span>                  <span class="o">|</span>
+<span class="o">|</span> <span class="n">tf</span><span class="o">-</span><span class="n">training</span><span class="o">-</span><span class="n">horovod</span>               <span class="o">|</span> <span class="n">A</span> <span class="n">Helm</span> <span class="n">chart</span> <span class="k">for</span> <span class="n">deploying</span> <span class="n">Horovod</span>              <span class="o">|</span> <span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>           <span class="o">|</span> <span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>            <span class="o">|</span>
+<span class="o">|</span> <span class="n">tf</span><span class="o">-</span><span class="n">training</span><span class="o">-</span><span class="n">horovod</span><span class="o">-</span><span class="n">py2</span>           <span class="o">|</span> <span class="n">A</span> <span class="n">Helm</span> <span class="n">chart</span> <span class="k">for</span> <span class="n">deploying</span> <span class="n">Horovod</span>              <span class="o">|</span> <span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>           <span class="o">|</span> <span class="mf">0.2</span><span class="o">.</span><span class="mi">1</span>            <span class="o">|</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

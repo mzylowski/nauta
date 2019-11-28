@@ -1,0 +1,778 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>experiment Command &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>experiment Command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/experiment.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="experiment-command">
+<h1>experiment Command<a class="headerlink" href="#experiment-command" title="Permalink to this headline">¶</a></h1>
+<p>The overall purpose of the command and subcommands is to submit and manage experiments. The following are the subcommands for the nctl experiment command.</p>
+<p>This section discuss the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#submit-subcommand">submit Subcommand</a></p></li>
+<li><p><a class="reference external" href="#list-subcommand">list Subcommand</a></p></li>
+<li><p><a class="reference external" href="#cancel-subcommand">cancel Subcommand</a></p></li>
+<li><p><a class="reference external" href="#view-subcommand">view Subcommand</a></p></li>
+<li><p><a class="reference external" href="#logs-subcommand">logs Subcommand</a></p></li>
+<li><p><a class="reference external" href="#interact-subcommand">interact Subcommand</a></p></li>
+</ul>
+<div class="section" id="submit-subcommand">
+<h2>submit Subcommand<a class="headerlink" href="#submit-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="synopsis">
+<h3>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">submit</span></code> subcommand submits training jobs. Use this command to submit single and multi-node training jobs (by passing –t parameter with a name of a multi-node pack), and many jobs at once (by passing –pr/-ps parameters).</p>
+</div>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">[options]</span> <span class="pre">SCRIPT-LOCATION</span> <span class="pre">[--</span> <span class="pre">script-parameters]</span></code></p>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>| Name | Required | Description |
+|:— |:— |:— |
+|<code class="docutils literal notranslate"><span class="pre">SCRIPT-LOCATION</span></code> | Yes | Location and name of a Python script with a description of training. |
+|<code class="docutils literal notranslate"><span class="pre">script-parameters</span></code> | No | String with a list of parameters that are passed to a training script. All such parameters should be added at the end of command after “–“ string. |</p>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>| Name | Required | Description |
+|:— |:— |:— |
+|<code class="docutils literal notranslate"><span class="pre">-sfl,</span> <span class="pre">--script-folder-location</span></code><br><code class="docutils literal notranslate"><span class="pre">[folder_name]</span> <span class="pre">PATH</span></code> | No |Location and name of a folder with additional files used    by a script, for example: other .py files, data, etc. If not given, then its content <em>will not</em> be copied into a the Docker image created by the <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">submit</span></code> command. <code class="docutils literal notranslate"><span class="pre">nctl</span></code> copies all content, preserving its structure, including subfolder(s). |
+|<code class="docutils literal notranslate"><span class="pre">-t,</span> <span class="pre">--template</span></code> <br><code class="docutils literal notranslate"><span class="pre">[template-name]</span> <span class="pre">TEXT</span></code>| No | Name of a template that will be used by <code class="docutils literal notranslate"><span class="pre">nctl</span></code> to create a description of a job to be submitted. If not given, a default template for single node TensorFlow training is used (tf-training). List of available templates can be obtained by issuing the <code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">template-list</span></code> command. |
+|<code class="docutils literal notranslate"><span class="pre">-n,</span> <span class="pre">--name</span> <span class="pre">TEXT</span></code>| No | Name for this experiment.|
+|<code class="docutils literal notranslate"><span class="pre">-p,</span> <span class="pre">--pack-param</span></code> <br> <code class="docutils literal notranslate"><span class="pre">&lt;TEXT</span> <span class="pre">TEXT&gt;…</span></code>| No |Additional pack parameter in format: <code class="docutils literal notranslate"><span class="pre">key</span> <span class="pre">value</span></code> or <code class="docutils literal notranslate"><span class="pre">key.subkey.subkey2</span> <span class="pre">value</span></code>. For lists use: <code class="docutils literal notranslate"><span class="pre">'key</span> <span class="pre">&quot;['val1',</span> <span class="pre">'val2']&quot;'</span></code> For maps use: <code class="docutils literal notranslate"><span class="pre">'key</span> <span class="pre">&quot;{'a':</span> <span class="pre">'b'}&quot;'</span></code>|
+|<code class="docutils literal notranslate"><span class="pre">-pr,</span> <span class="pre">--parameter-range</span></code> <br><code class="docutils literal notranslate"><span class="pre">TEXT...</span> <span class="pre">[definition]</span> <span class="pre">&lt;TEXT</span> <span class="pre">TEXT&gt;...</span></code> | No | If the parameter is given, <code class="docutils literal notranslate"><span class="pre">nctl</span></code> will start as many experiments as there is a combination of parameters passed in <code class="docutils literal notranslate"><span class="pre">-pr</span></code> options. <code class="docutils literal notranslate"><span class="pre">[param_name]</span></code> is a name of a parameter that is passed to a training script. <code class="docutils literal notranslate"><span class="pre">[definition]</span></code> <br> <br> Contains values of this parameter that are passed to different instance of experiments. <code class="docutils literal notranslate"><span class="pre">[definition]</span></code> can have two forms: <br> <br> range: <code class="docutils literal notranslate"><span class="pre">{x...y:step}</span></code> This form says that <code class="docutils literal notranslate"><span class="pre">nctl</span></code> will launch a number of experiments equal to a number of values between <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> (including both values) with step <code class="docutils literal notranslate"><span class="pre">step</span></code>. <br> <br> set of values: <code class="docutils literal notranslate"><span class="pre">{x,</span> <span class="pre">y,</span> <span class="pre">z}</span></code> This form says that <code class="docutils literal notranslate"><span class="pre">nctl</span></code> will launch number of experiments equal to a number of values given in this definition.|
+|<code class="docutils literal notranslate"><span class="pre">-ps,</span> <span class="pre">--parameter-set</span></code> <br><code class="docutils literal notranslate"><span class="pre">[definition]</span> <span class="pre">TEXT</span></code> | No | If this parameter is given, <code class="docutils literal notranslate"><span class="pre">nctl</span></code> will launch an experiment with a set of parameters defined in the <code class="docutils literal notranslate"><span class="pre">[definition]</span></code> argument. Optional. Format of the <code class="docutils literal notranslate"><span class="pre">[definition]</span></code> argument is as follows: <code class="docutils literal notranslate"><span class="pre">{[param1_name]:</span> <span class="pre">[param1_value],</span> <span class="pre">[param2_name]:</span> <span class="pre">[param2_value],</span> <span class="pre">...,</span> <span class="pre">[paramn_name]:[paramn_value]}</span></code>. <br>  <br> All parameters given in the <code class="docutils literal notranslate"><span class="pre">[definition]</span></code> argument will be passed to a training script under their names stated in this argument. If <code class="docutils literal notranslate"><span class="pre">ps</span></code> parameter is given more than once, <code class="docutils literal notranslate"><span class="pre">nctl</span></code> will start as many experiments as there is occurrences of this parameter in a call. |
+|<code class="docutils literal notranslate"><span class="pre">-e,</span> <span class="pre">--env</span> <span class="pre">TEXT</span></code> | No | Environment variable passed to training. You can pass as many environmental variables, as desired. Each variable should be in such case passed as a separate -e parameter.|
+|<code class="docutils literal notranslate"><span class="pre">-r,</span> <span class="pre">--requirements</span> <span class="pre">PATH</span></code> | No | Path to file with experiment’s pip requirements. Dependencies listed in this file will be automatically installed using pip. |
+|<code class="docutils literal notranslate"><span class="pre">-f,</span> <span class="pre">--force</span></code>| No | Ignore (most) confirmation prompts during command execution |
+|<code class="docutils literal notranslate"><span class="pre">-v,</span> <span class="pre">--verbose</span></code>| No | Set verbosity level: <br><code class="docutils literal notranslate"><span class="pre">-v</span></code> for INFO <br><code class="docutils literal notranslate"><span class="pre">-vv</span></code> for DEBUG |
+|<code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code> | No | Show help message and exit. |</p>
+<div class="section" id="additional-remarks">
+<h4>Additional Remarks<a class="headerlink" href="#additional-remarks" title="Permalink to this headline">¶</a></h4>
+<p>For both types of parameters - <code class="docutils literal notranslate"><span class="pre">-ps</span></code> and <code class="docutils literal notranslate"><span class="pre">-pr</span></code> - if parameter stated in their definitions
+is also given in a <code class="docutils literal notranslate"><span class="pre">[script_parameters]</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">nctl</span></code> command, then values taken from <code class="docutils literal notranslate"><span class="pre">-ps</span></code>
+and <code class="docutils literal notranslate"><span class="pre">-pr</span></code> are passed to a script.</p>
+<p>If a combination of both parameters is given, then <code class="docutils literal notranslate"><span class="pre">nctl</span></code> launches a number of experiments
+equal to combination of values passed in those parameters. For example, if the following
+combination of parameters is passed to <code class="docutils literal notranslate"><span class="pre">nctl</span></code> command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">-pr</span> <span class="pre">param1</span> <span class="pre">&quot;{0.1,</span> <span class="pre">0.2,</span> <span class="pre">0.3}&quot;</span> <span class="pre">-ps</span> <span class="pre">&quot;{param2:</span> <span class="pre">3,</span> <span class="pre">param4:</span> <span class="pre">5}&quot;</span> <span class="pre">-ps</span> <span class="pre">&quot;{param6:</span> <span class="pre">7}&quot;</span></code></p>
+<p>Then the following experiments will be launched:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`param1 = 0.1, param2 = 3, param4 = 5, param6 - not set`
+`param1 = 0.2, param2 = 3, param4 = 5, param6 - not set`
+`param1 = 0.3, param2 = 3, param4 = 5, param6 - not set`
+`param1 = 0.1, param2 = not set, param4 = not set, param6 - 7`
+`param1 = 0.2, param2 = not set, param4 = not set, param6 - 7`
+`param1 = 0.3, param2 = not set, param4 = not set, param6 - 7`
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h3>
+<p>This command returns a list of submitted experiments with their names and statuses. In case of problems during submission, the command displays message/messages describing the causes. Errors may cause some experiments <em>to not be</em> created and will be empty. If any error appears, then messages describing it are displayed with experiment’s names/statuses.</p>
+<p>If one or more of experiment <em>has not been</em> submitted successfully, then the command returns an exit code: <code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">0</span></code>. The exact  value of the code depends on the cause of error(s) that prevented submitting the experiment(s).</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">mnist_cnn.py</span> <span class="pre">-sfl</span> <span class="pre">/data</span> <span class="pre">--</span> <span class="pre">--data_dir=/app/data</span> <span class="pre">--num_gpus=0</span></code></p>
+<p>Starts a single node training job using <code class="docutils literal notranslate"><span class="pre">mnist_cnn.py</span></code> script located in a folder from which <code class="docutils literal notranslate"><span class="pre">nctl</span></code> command was issued. Content of the <code class="docutils literal notranslate"><span class="pre">/data</span></code> folder is copied into the Docker image (into the <code class="docutils literal notranslate"><span class="pre">/app</span></code> folder, which is a work directory of Docker images created using tf-training pack).</p>
+</div>
+</div>
+<div class="section" id="list-subcommand">
+<h2>list Subcommand<a class="headerlink" href="#list-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Synopsis<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> subcommand displays a list of all experiments with some basic information for each, regardless of the owner. Results are sorted using the date-of-creation of the experiment, starting with the most recent experiment.</p>
+</div>
+<div class="section" id="id2">
+<h3>Syntax<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id3">
+<h3>Options<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-a, --all_users</code></td>
+<td align="left">No</td>
+<td align="left">List contains experiments submitted by all users.</td>
+</tr>
+<tr>
+<td align="left"><code>-n, --name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">A regular expression to filter list to experiments that match this expression.</td>
+</tr>
+<tr>
+<td align="left"><code>-s, --status</code></td>
+<td align="left">No</td>
+<td align="left">QUEUED,  RUNNING,  COMPLETE, CANCELLED, FAILED, CREATING - Lists experiments based on indicated status.</td>
+</tr>
+<tr>
+<td align="left"><code>-u, --uninitialized</code></td>
+<td align="left">No</td>
+<td align="left">List uninitialized experiments, that is, experiments without resources submitted for creation.</td>
+</tr>
+<tr>
+<td align="left"><code>-c, --count</code> <br> <code>INTEGER RANGE</code></td>
+<td align="left">No</td>
+<td align="left">An integer, command displays c last rows.</td>
+</tr>
+<tr>
+<td align="left"><code>-b, --brief</code></td>
+<td align="left">No</td>
+<td align="left">Print short version of the result table. Only 'name', 'submission date', 'owner' and 'state' columns will be printed.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>List of experiments matching criteria given in command’s options. Each row contains the experiment name and additional data of each experiment, such parameters used for this certain training, time and date when it was submitted, name of a user which submitted this training and current status of an experiment. The example table below shows the results returned by this command (brief option is shown).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> 
+<span class="o">|</span> <span class="n">Experiment</span>                          <span class="o">|</span> <span class="n">Submission</span> <span class="n">date</span>        <span class="o">|</span> <span class="n">Owner</span> <span class="o">|</span> <span class="n">State</span>     <span class="o">|</span>
+<span class="o">|--------------+----------------------+---------+----------------------------------|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">single</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">tb</span>                <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">04</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">58</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">QUEUED</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span>                            <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">05</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">39</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">COMPLETE</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mnist</span><span class="o">-</span><span class="n">tb</span> <span class="mi">2</span><span class="o">-</span><span class="mi">1</span>                        <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">05</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">59</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">COMPLETE</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">test</span><span class="o">-</span><span class="n">experiment</span>                     <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">06</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">39</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">QUEUED</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">single</span><span class="o">-</span><span class="n">experiment</span>                   <span class="o">|</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">13</span> <span class="mi">01</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">59</span> <span class="n">PM</span> <span class="o">|</span> <span class="n">user1</span> <span class="o">|</span>  <span class="n">QUEUED</span>   <span class="o">|</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>The following command displays all experiments submitted by a current user.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span></code></p>
+<p>The following command displays all experiments submitted by a current user and with name starting with <code class="docutils literal notranslate"><span class="pre">train</span></code> word.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">list</span> <span class="pre">-n</span> <span class="pre">train</span></code></p>
+</div>
+</div>
+<div class="section" id="cancel-subcommand">
+<h2>cancel Subcommand<a class="headerlink" href="#cancel-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Synopsis<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">cancel</span></code> subcommand cancels training chosen based on provided parameters.</p>
+</div>
+<div class="section" id="id6">
+<h3>Syntax<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">cancel</span> <span class="pre">[options]</span> <span class="pre">NAME</span></code></p>
+</div>
+<div class="section" id="id7">
+<h3>Arguments<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>NAME</code></td>
+<td align="left">Yes</td>
+<td align="left">The name of an experiment/pod/status of a pod to be cancelled. If any such object is found, the command displays a question whether this object should be cancelled.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id8">
+<h3>Options<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-m, --match TEXT</code></td>
+<td align="left">No</td>
+<td align="left">If given, the command searches for experiments matching the value of this option. This option <em>cannot</em> be used along with the <code>NAME</code> argument.</td>
+</tr>
+<tr>
+<td align="left"><code>-p, --purge</code></td>
+<td align="left">No</td>
+<td align="left">If given, then all information concerning for identified experiments, completed and currently running, is removed from the system.</td>
+</tr>
+<tr>
+<td align="left"><code>-i, --pod-ids</code> <br> <code>TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Comma-separated pods IDs. If given, command matches pods by their IDs and deletes them.</td>
+</tr>
+<tr>
+<td align="left"><code>-s, --pod-status</code> <br> <code>TEXT</code></td>
+<td align="left">No</td>
+<td align="left">One of: 'PENDING', 'RUNNING', 'SUCCEEDED', 'FAILED', or 'UNKNOWN'. If given, the command searches pods by their status and deletes them.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id9">
+<h3>Returns<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>The description of a problem; if, any problem occurs. Otherwise, the displays information that training job/jobs was/were cancelled successfully.</p>
+</div>
+<div class="section" id="id10">
+<h3>Example<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">cancel</span> <span class="pre">t20180423121021851</span></code></p>
+</div>
+<div class="section" id="outcome">
+<h3>Outcome<a class="headerlink" href="#outcome" title="Permalink to this headline">¶</a></h3>
+<p>This cancels the experiment with <code class="docutils literal notranslate"><span class="pre">t20180423121021851</span></code> name, as shown in the example.</p>
+</div>
+</div>
+<div class="section" id="view-subcommand">
+<h2>view Subcommand<a class="headerlink" href="#view-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>Synopsis<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">view</span></code> subcommand displays  basic details of an experiment, such as the name of an experiment, parameters, submission date, and so on.</p>
+</div>
+<div class="section" id="id12">
+<h3>Syntax<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">view</span> <span class="pre">[options]</span> <span class="pre">EXPERIMENT-NAME</span></code></p>
+</div>
+<div class="section" id="id13">
+<h3>Arguments<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>EXPERIMENT-NAME</code></td>
+<td align="left">Yes</td>
+<td align="left">Name of an experiment for which details will be displayed.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id14">
+<h3>Options<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-tb, --tensorboard</code></td>
+<td align="left">No</td>
+<td align="left">If given, the command displays a TensorBoard with an experiment's data.</td>
+</tr>
+<tr>
+<td align="left"><code>-u, --username</code><br> <code>TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of the user who submitted this experiment. If not given, then only experiments of a current user are shown.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id15">
+<h3>Returns<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>Displays details of an experiment. If <code class="docutils literal notranslate"><span class="pre">--tb,</span> <span class="pre">--tensorboard</span></code> option is given then the command returns a link to TensorBoard’s instance with data from an experiment.</p>
+</div>
+<div class="section" id="id16">
+<h3>Example<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">view</span> <span class="pre">experiment-name-2</span> <span class="pre">-tb</span></code></p>
+<p>Displays details of an <code class="docutils literal notranslate"><span class="pre">experiment-name-2</span></code> experiment and exposes <code class="docutils literal notranslate"><span class="pre">tensorboard</span></code> instance with experiment’s data to a user.</p>
+</div>
+</div>
+<div class="section" id="logs-subcommand">
+<h2>logs Subcommand<a class="headerlink" href="#logs-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id17">
+<h3>Synopsis<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">logs</span></code> subcommand displays logs from experiments. Logs to be displayed are chosen based on parameters given in the command’s call.</p>
+</div>
+<div class="section" id="id18">
+<h3>Syntax<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">logs</span> <span class="pre">[options]</span> <span class="pre">EXPERIMENT-NAME</span></code></p>
+</div>
+<div class="section" id="id19">
+<h3>Arguments<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>EXPERIMENT-NAME</code></td>
+<td align="left">Yes</td>
+<td align="left">Name of an experiment for which logs are displayed.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id20">
+<h3>Options<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-s, --min-severity</code></td>
+<td align="left">No</td>
+<td align="left">Minimal severity of logs. Available choices are:<br> - CRITICAL - Displays only CRITICAL logs.<br> - ERROR - displays ERROR and CRITICAL logs.<br> - WARNING - Displays ERROR, CRITICAL and WARNING logs. <br> - INFO - displays ERROR, CRITICAL, WARNING and INFO.<br> - DEBUG - Displays ERROR, CRITICAL, WARNING, INFO and DEBUG.</td>
+</tr>
+<tr>
+<td align="left"><code>-sd, --start-date</code></td>
+<td align="left">No</td>
+<td align="left">Retrieve logs produced from this date (format ISO-8061 - yyyy-mm-ddThh:mm:ss).</td>
+</tr>
+<tr>
+<td align="left"><code>-ed, --end-date</code></td>
+<td align="left">No</td>
+<td align="left">retrieve logs produced until this date (format ISO-8061 - yyyy-mm-ddThh:mm:ss).</td>
+</tr>
+<tr>
+<td align="left"><code>-i, --pod-ids TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Comma-separated pods IDs. If given, then matches pods by their IDs and only logs from these pods from an experiment with <code>EXPERIMENT-NAME</code> name will be returned.</td>
+</tr>
+<tr>
+<td align="left"><code>- p, --pod-status TEXT</code></td>
+<td align="left">No</td>
+<td align="left">One of: 'PENDING', 'RUNNING', 'SUCCEEDED', 'FAILED', or 'UNKNOWN' - command returns logs with matching status from an experiment and matching EXPERIMENT-NAME.</td>
+</tr>
+<tr>
+<td align="left"><code>-m, --match TEXT</code></td>
+<td align="left">No</td>
+<td align="left">If given, command searches for logs from experiments matching the value of this option. This option cannot be used along with the NAME argument.</td>
+</tr>
+<tr>
+<td align="left"><code>-o, --output</code></td>
+<td align="left">No</td>
+<td align="left">If given, logs are stored in a file with a name derived from a name of an experiment.</td>
+</tr>
+<tr>
+<td align="left"><code>-pa, --pager</code></td>
+<td align="left">No</td>
+<td align="left">Display logs in interactive pager. Press <em>q</em> to exit the pager.</td>
+</tr>
+<tr>
+<td align="left"><code>-fl, --follow</code></td>
+<td align="left">No</td>
+<td align="left">Specify if logs should be streamed. Only logs from a single experiment can be streamed.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id21">
+<h3>Returns<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>Should issues arise, a message (or messages) with a description of their cause (or causes) displays. Otherwise, the logs are filtered based on command’s parameters.</p>
+</div>
+<div class="section" id="id22">
+<h3>Example<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">logs</span> <span class="pre">experiment-name-2</span> <span class="pre">--min-severity</span> <span class="pre">DEBUG</span></code></p>
+<p>Displays logs from <code class="docutils literal notranslate"><span class="pre">experiment-name-2</span></code> experiment with severity DEBUG and higher (<code class="docutils literal notranslate"><span class="pre">INFO</span></code>, <code class="docutils literal notranslate"><span class="pre">WARNING</span></code>, and so on).</p>
+</div>
+</div>
+<div class="section" id="interact-subcommand">
+<h2>interact Subcommand<a class="headerlink" href="#interact-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id23">
+<h3>Synopsis<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<p>The interact subcommand launches a local browser with Jupyter notebook. If script’s name is given as a parameter of a command, then this script is displayed in a notebook.</p>
+</div>
+<div class="section" id="id24">
+<h3>Syntax<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">interact</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id25">
+<h3>Options<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-n, --name TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of a Jupyter notebook's session. If session with a given name already exists, then a user is connected to this session.</td>
+</tr>
+<tr>
+<td align="left"><code>-fl, --filename TEXT</code></td>
+<td align="left">No</td>
+<td align="left">File with a notebook that should be opened in Jupyter notebook.</td>
+</tr>
+<tr>
+<td align="left"><code>-p, --pack-param &lt;TEXT TEXT&gt;...</code></td>
+<td align="left">No</td>
+<td align="left">Additional pack parameter in format: 'key value' or 'key.subkey.subkey2 value'.<br> For lists use: 'key "['val1', 'val2']"' <br>For maps use: 'key "{'a': 'b'}"'</td>
+</tr>
+<tr>
+<td align="left"><code>--no-launch</code></td>
+<td align="left">No</td>
+<td align="left">Run command without a web browser starting, only proxy tunnel is created.</td>
+</tr>
+<tr>
+<td align="left"><code>-pn, --port-number INTEGER RANGE</code></td>
+<td align="left">No</td>
+<td align="left">Port on which service will be exposed locally.</td>
+</tr>
+<tr>
+<td align="left"><code>-e, --env TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Environment variable passed to Jupyter instance. User can pass as many environmental variables as it is needed. Each variable should be in such case passed as a separate -e parameter.</td>
+</tr>
+<tr>
+<td align="left"><code>-t, --template</code> <br><code>[jupyter]</code></td>
+<td align="left">No</td>
+<td align="left">Name of a Jupyter notebook template used to create a deployment. Supported template for interact command is: jupyter.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id26">
+<h3>Returns<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Should issues arise, a message provides a description of possible causes. Otherwise, the command launches a default web browser with Jupyter notebook, and displays the address under which this session is provided.</p>
+</div>
+<div class="section" id="id27">
+<h3>Example<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">interact</span> <span class="pre">--filename</span> <span class="pre">training_script.py</span></code></p>
+<p>Launches in a default browser a Jupyter notebook with <code class="docutils literal notranslate"><span class="pre">training_script.py</span></code> script.</p>
+</div>
+</div>
+<div class="section" id="template-list-subcommand">
+<h2>template-list Subcommand<a class="headerlink" href="#template-list-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id28">
+<h3>Synopsis<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">template-list</span></code> subcommand returns a list of templates installed on a client machine. A template contains all details needed to deploy a training job on a cluster correctly.</p>
+</div>
+<div class="section" id="id29">
+<h3>Syntax<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">template-list</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id30">
+<h3>Options<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id31">
+<h3>Returns<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<p>The command returns a list of existing templates, or a <em>Lack of installed packs</em> message, if there <em>are no</em> templates installed.</p>
+</div>
+<div class="section" id="id32">
+<h3>Example<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">template-list</span></code></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

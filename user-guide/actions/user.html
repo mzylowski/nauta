@@ -1,0 +1,443 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>user Command &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>user Command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/user.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="user-command">
+<h1>user Command<a class="headerlink" href="#user-command" title="Permalink to this headline">¶</a></h1>
+<p>Use the user command to create, delete, and manage users. The following main topics are discussed in this section:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#create-subcommand">create Subcommand</a></p></li>
+<li><p><a class="reference external" href="#delete-subcommand">delete Subcommand</a></p></li>
+<li><p><a class="reference external" href="#list-subcommand">list Subcommand</a></p></li>
+</ul>
+<div class="section" id="create-subcommand">
+<h2>create Subcommand<a class="headerlink" href="#create-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="synopsis">
+<h3>Synopsis<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h3>
+<p>Creates and initializes a new Nauta user. This command <em>must be</em> executed when <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> used by <code class="docutils literal notranslate"><span class="pre">nctl</span></code> command entered by a Kubernetes administrator. If this command is executed by someone other than a Kubernetes administrator, it fails. By default this command saves a configuration of a newly created user to a file. The format of this file is compliant with a format of <code class="docutils literal notranslate"><span class="pre">kubectl</span></code>  configuration files. To create a User Account, refer to <a class="reference internal" href="create_user.html"><span class="doc">Creating a User Account</span></a>.</p>
+</div>
+<div class="section" id="syntax">
+<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">create</span> <span class="pre">[options]</span> <span class="pre">USERNAME</span></code></p>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>USERNAME</code></td>
+<td align="left">Yes</td>
+<td align="left">Name of a user that will be created. This value must a valid OS level user.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-lo, --list-only</code></td>
+<td align="left">No</td>
+<td align="left">If given, the content of the generated user's config file is displayed on the screen only. <br> If not given, the file with configuration is saved on disk.</td>
+</tr>
+<tr>
+<td align="left"><code>-fl, --filename</code> <br> <code>TEXT</code></td>
+<td align="left">No</td>
+<td align="left">Name of file where user's configuration will be stored. If not given, the <br> configuration is stored in the <code>config.&lt;username&gt;</code> file.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="additional-remarks">
+<h3>Additional Remarks<a class="headerlink" href="#additional-remarks" title="Permalink to this headline">¶</a></h3>
+<p>In case of any errors during saving of a file with a configuration, the command displays a content of the configuration file on the screen, even if <code class="docutils literal notranslate"><span class="pre">-l</span></code> option <em>was not</em> used.</p>
+</div>
+<div class="section" id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h3>
+<p>If any issues occur, a message is displayed describing their cause/causes. Otherwise a message is returned indicating success. If <code class="docutils literal notranslate"><span class="pre">--list-only</span></code> option was given, the command displays the contents of a configuration file.</p>
+</div>
+<div class="section" id="user-name-requirements">
+<h3>User Name Requirements<a class="headerlink" href="#user-name-requirements" title="Permalink to this headline">¶</a></h3>
+<p>A user name <em>must meet</em> the following requirements:</p>
+<ol class="simple">
+<li><p>Cannot be longer than 32-characters.</p></li>
+<li><p>Cannot be an empty string.</p></li>
+<li><p>Must conform to Kubernetes naming convention, can contain only lower case alphanumeric
+characters and “-“ and “.”</p></li>
+</ol>
+</div>
+<div class="section" id="user-name-limitations">
+<h3>User Name Limitations<a class="headerlink" href="#user-name-limitations" title="Permalink to this headline">¶</a></h3>
+<p>If an admin tries to create a user with a name that was used previously by a deleted user, it may happen that
+the <code class="docutils literal notranslate"><span class="pre">create</span></code> command displays information that the previous user is still being deleted, even if the previous
+user <em>is not</em> listed on a list of existing users.</p>
+<p>In this case, the operation of a creation of a new user should be postponed for a short period (3 minutes), until all user’s objects are removed. To <em>create</em> a user account, refer to <a class="reference internal" href="create_user.html"><span class="doc">Creating a User Account</span></a> and to <em>delete</em> a user account, refer to <a class="reference internal" href="delete_user.html"><span class="doc">Deleting a User Account</span></a>.</p>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">create</span> <span class="pre">jdoe</span></code></p>
+</div>
+<div class="section" id="outcome">
+<h3>Outcome<a class="headerlink" href="#outcome" title="Permalink to this headline">¶</a></h3>
+<p>This creates the user <code class="docutils literal notranslate"><span class="pre">jdoe</span></code>, as shown in the example.</p>
+</div>
+</div>
+<div class="section" id="delete-subcommand">
+<h2>delete Subcommand<a class="headerlink" href="#delete-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Synopsis<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>This command deletes a user with a given name. If option <code class="docutils literal notranslate"><span class="pre">-p</span></code>, <code class="docutils literal notranslate"><span class="pre">--purge</span></code> is used, it also removes all artifacts related to that removed user, such as the content of user’s folders and data of experiments and runs. To delete a User Account, refer to  <a class="reference internal" href="delete_user.html"><span class="doc">Deleting a User Account</span></a> for more information.</p>
+<p>Before removing a user, the commands requires a final confirmation. If user chooses <code class="docutils literal notranslate"><span class="pre">Yes</span></code>, the chosen user is deleted.<br />Deletion of a user may take a while to be fully completed. The command requires up to 60 seconds for a complete
+removal of user.</p>
+<p>If after this time a user <em>has not</em> been deleted completely, the command displays information that a
+user is still being deleted. In this case the user <em>will not</em> be listed on a list of existing users, but there is no
+possibility to create a user with the same name until the command completes and the user is deleted.</p>
+</div>
+<div class="section" id="id2">
+<h3>Syntax<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">delete</span> <span class="pre">[options]</span> <span class="pre">USERNAME</span></code></p>
+</div>
+<div class="section" id="id3">
+<h3>Arguments<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>USERNAME</code></td>
+<td align="left">Yes</td>
+<td align="left">The name of a user to be removed from the Nauta user accounts.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id4">
+<h3>Options<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-p, --purge</code></td>
+<td align="left">No</td>
+<td align="left">If set, the system also removes all logs generated by the user's experiments.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id5">
+<h3>Returns<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>A message regarding the command’s completion. If an issue occurs, a short description of the cause(s) displays.</p>
+</div>
+<div class="section" id="id6">
+<h3>Example<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">delete</span> <span class="pre">jdoe</span> <span class="pre">-p</span></code></p>
+<p>Removes <code class="docutils literal notranslate"><span class="pre">jdoe</span></code> user with all a user’s artifacts.</p>
+</div>
+<div class="section" id="id7">
+<h3>Outcome<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>This removes the created jdoe user along with all their artifacts.</p>
+</div>
+</div>
+<div class="section" id="list-subcommand">
+<h2>list Subcommand<a class="headerlink" href="#list-subcommand" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Synopsis<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Lists all currently configured users.</p>
+</div>
+<div class="section" id="id9">
+<h3>Syntax<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">list</span> <span class="pre">[options]</span></code></p>
+</div>
+<div class="section" id="id10">
+<h3>Arguments<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>None.</p>
+</div>
+<div class="section" id="id11">
+<h3>Options<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-c, --count</code> <br> <code>INTEGER RANGE</code></td>
+<td align="left">No</td>
+<td align="left">If given, the command displays c last rows.</td>
+</tr>
+<tr>
+<td align="left"><code>-f, --force</code></td>
+<td align="left">No</td>
+<td align="left">Ignore (most) confirmation prompts during command execution</td>
+</tr>
+<tr>
+<td align="left"><code>-v, --verbose</code></td>
+<td align="left">No</td>
+<td align="left">Set verbosity level: <br><code>-v</code> for INFO, <br><code>-vv</code> for DEBUG</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Displays help messaging information.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

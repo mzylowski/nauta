@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installation Process &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Installation Process</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/installation-and-configuration/Installation_Process/IP.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation-process">
+<h1>Installation Process<a class="headerlink" href="#installation-process" title="Permalink to this headline">¶</a></h1>
+<p>Before proceeding with this step, you <em>must</em> create an <em>Inventory</em> and <em>Configuration</em> file. If you are unsure how to do this, see the example instructions below.</p>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#creating-an-inventory-or-configuration-file">Creating an Inventory or Configuration File </a></p></li>
+<li><p><a class="reference external" href="#kernel-upgrade">Kernel Upgrade</a></p></li>
+<li><p><a class="reference external" href="#nauta-installation">Nauta Installation</a></p></li>
+<li><p><a class="reference external" href="#installation-script-options">Installation Script Options</a></p></li>
+<li><p><a class="reference external" href="#access-files-for-the-kubectl-client">Access Files for the kubectl Client</a></p></li>
+<li><p><a class="reference external" href="#upgrading-nauta-procedure">Upgrading Nauta Procedure</a></p></li>
+</ul>
+<div class="section" id="creating-an-inventory-or-configuration-file">
+<h2>Creating an Inventory or Configuration File<a class="headerlink" href="#creating-an-inventory-or-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>The Inventory file defines where your master and worker nodes reside, and how to access them. The Configuration file defines  your proxy settings, network quirks and filesystem preferences. Should you need to create an <em>Inventory</em> and/or <em>Configuration</em> the instructions are below.</p>
+<div class="section" id="inventory-file-creation">
+<h3>Inventory File Creation<a class="headerlink" href="#inventory-file-creation" title="Permalink to this headline">¶</a></h3>
+<p>To create Nauta’s <em>Inventory file</em>, do the following:</p>
+<ol class="simple">
+<li><p>Copy the Inventory file example information: <a class="reference internal" href="../Inventory_Tasks/IT.html"><span class="doc">Inventory File Information</span></a>.</p></li>
+<li><p>Modify the newly created Inventory file to suit your needs using your favorite text editor (vi for example).</p></li>
+</ol>
+</div>
+<div class="section" id="configuration-file-creation">
+<h3>Configuration File Creation<a class="headerlink" href="#configuration-file-creation" title="Permalink to this headline">¶</a></h3>
+<p>To modify Nauta’s Configuration file to define your proxy, network quirks and filesystem preferences. To create the configuration file:</p>
+<ol class="simple">
+<li><p>Copy the Configuration file example information: <a class="reference internal" href="../Configuration_Tasks_Variables/CTV.html"><span class="doc">Configuration File Information</span></a>.</p></li>
+<li><p>Modify the newly created Configuration file to suit your needs using your favorite text editor (vi for example).</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="kernel-upgrade">
+<h2>Kernel Upgrade<a class="headerlink" href="#kernel-upgrade" title="Permalink to this headline">¶</a></h2>
+<p>If you run Linux kernel prior to 4.* version it is recommended that you upgrade it on all nodes of a cluster before performing a platform installation.</p>
+<p>Running heavy training jobs on workers with the operating system kernel older than 4.* may lead to hanging the worker node.</p>
+<ul class="simple">
+<li><p>See <a class="reference external" href="https://bugzilla.redhat.com/show_bug.cgi?id=1507149">Red Hat Bugzilla – Bug 1507149</a> for more information.</p></li>
+</ul>
+<p>This may occur when a memory limit for a training job is set to a value close to the maximum amount of memory installed on this node. These problems are caused by errors in handling memory limits in older versions of the kernel.</p>
+<p>The following kernel was verified as a viable fix for this issue (see link below).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://elrepo.org/linux/kernel/el7/x86_64/RPMS/">Index of /linux/kernel/el7/x86_64/RPMS</a></p></li>
+</ul>
+<p>To install the new kernel refer to: <a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/kernel_administration_guide/ch-manually_upgrading_the_kernel">CHAPTER 5. MANUALLY UPGRADING THE KERNEL</a> in Red Hat’s Kernel Administration Guide.</p>
+<p><strong>Note:</strong> The above kernel <em>does not</em> include Red Hat’s optimizations and hardware drivers.</p>
+</div>
+<div class="section" id="nauta-installation">
+<h2>Nauta Installation<a class="headerlink" href="#nauta-installation" title="Permalink to this headline">¶</a></h2>
+<p>Before installing Nauta, ensure that you have met all the hardware and software requirements.</p>
+<div class="section" id="nauta-installation-procedure">
+<h3>Nauta Installation Procedure<a class="headerlink" href="#nauta-installation-procedure" title="Permalink to this headline">¶</a></h3>
+<p>To install Nauta, follow these steps:</p>
+<ol class="simple">
+<li><p>Set the following environment variables that point to the configuration and inventory file on the <em>Installer Machine</em>.</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>ENV_INVENTORY (mandatory):</strong> Inventory file location, for example:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">ENV_INVENTORY=&lt;absolute</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">inventory</span> <span class="pre">file&gt;</span></code></p>
+<ul class="simple">
+<li><p><strong>ENV_CONFIG (mandatory):</strong> Configuration file location, for example:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">ENV_CONFIG=&lt;absolute</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">config</span> <span class="pre">file&gt;</span></code></p>
+<ol class="simple">
+<li><p>Run the installation:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">./installer.sh</span> <span class="pre">install</span></code></p>
+</div>
+</div>
+<div class="section" id="installation-script-options">
+<h2>Installation Script Options<a class="headerlink" href="#installation-script-options" title="Permalink to this headline">¶</a></h2>
+<p>Invoke <code class="docutils literal notranslate"><span class="pre">./installer.sh</span></code> with one of the following options:</p>
+<ul class="simple">
+<li><p><strong>install:</strong> Use this option to install Kubernetes and Nauta as part of your installation</p></li>
+<li><p><strong>platform-install:</strong> Use this option to install <strong>Kubernetes only</strong></p></li>
+<li><p><strong>nauta-install:</strong> Use this option to install <strong>Nauta only</strong></p>
+<ul>
+<li><p><strong>Note:</strong> If you select this option, it is <em>assumed</em> that Kubernetes is already installed. In addition, this requires the same procedure for Nauta upgrades (see below).</p></li>
+</ul>
+</li>
+<li><p><strong>nauta-upgrade:</strong> Nauta installation upgrade (see <a class="reference internal" href="#"><span class="doc">Nauta Installation Process</span></a> for Nauta upgrade  procedures).</p></li>
+</ul>
+<div class="section" id="installation-output">
+<h3>Installation Output<a class="headerlink" href="#installation-output" title="Permalink to this headline">¶</a></h3>
+<p>Nauta is installed on cluster nodes in the following folders: <code class="docutils literal notranslate"><span class="pre">/opt/nauta</span></code>,<code class="docutils literal notranslate"><span class="pre">/usr/bin</span></code>, <code class="docutils literal notranslate"><span class="pre">/etc/nauta-cluster</span></code></p>
+</div>
+</div>
+<div class="section" id="access-files-for-the-kubectl-client">
+<h2>Access Files for the kubectl Client<a class="headerlink" href="#access-files-for-the-kubectl-client" title="Permalink to this headline">¶</a></h2>
+<p>On your <em>Installer Machine</em>, the following files are created in the Installation folder. These files are <em>access files</em> used to connect to the cluster using kubectl client.</p>
+<p>As an output of Kubernetes installation, files are created in the main installation directory:</p>
+<p><code class="docutils literal notranslate"><span class="pre">platform-admin.config</span> <span class="pre">-</span> <span class="pre">cluster</span> <span class="pre">admin</span> <span class="pre">config</span> <span class="pre">file</span></code></p>
+<p>As an output of the Nauta installation, files are created in main installation directory:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nauta-admin.config</span> <span class="pre">-</span> <span class="pre">NAUTA</span> <span class="pre">admin</span> <span class="pre">config</span> <span class="pre">file</span></code></p>
+</div>
+<div class="section" id="upgrading-nauta">
+<h2>Upgrading Nauta<a class="headerlink" href="#upgrading-nauta" title="Permalink to this headline">¶</a></h2>
+<p>As an admin, you may be required to upgrade Nauta to gain new features, implement new networking configurations, or stay up-to-date with current versions, and so on.</p>
+<div class="section" id="upgrading-nauta-procedure">
+<h3>Upgrading Nauta Procedure<a class="headerlink" href="#upgrading-nauta-procedure" title="Permalink to this headline">¶</a></h3>
+<p>To upgrade Nauta, do the following:</p>
+<ol class="simple">
+<li><p>Set the following environment variables that point to the configuration, inventory and configuration file on the <em>Installer Machine:</em></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>ENV_INVENTORY (mandatory):</strong> Inventory file location, for example:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">ENV_INVENTORY=&lt;absolute</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">inventory</span> <span class="pre">file&gt;</span></code></p>
+<ul class="simple">
+<li><p><strong>ENV_CONFIG (mandatory):</strong> Configuration file location, for example:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">ENV_CONFIG=&lt;absolute</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">config</span> <span class="pre">file&gt;</span></code></p>
+<ul class="simple">
+<li><p><strong>NAUTA_KUBECONFIG (mandatory):</strong> Nauta admin file location, for example:</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">NAUTA_KUBECONFIG=&lt;absolute</span> <span class="pre">path</span> <span class="pre">to</span> <span class="pre">nauta-admin.config</span> <span class="pre">file&gt;</span></code></p>
+<ol class="simple">
+<li><p>Call the installer with nauta-upgrade option:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">./installer.sh</span> <span class="pre">nauta-upgrade</span></code></p>
+<p><strong>Note:</strong> It is recommended that you <em>do not</em> use the cluster during an upgrade.</p>
+<p>After successful execution of platform upgrade you need to also upgrade users by running:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">upgrade</span></code></p>
+<p>This command can be run only by an administrator.</p>
+<p>This completes the Nauta Upgrade Process.</p>
+</div>
+</div>
+<div class="section" id="next-steps-user-management-tasks">
+<h2>Next Steps: User Management Tasks<a class="headerlink" href="#next-steps-user-management-tasks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../User_Management/UM.html"><span class="doc">User Management Tasks</span></a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

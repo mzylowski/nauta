@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controlling Packs Parameters &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Controlling Packs Parameters</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/advanced/packs.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controlling-packs-parameters">
+<h1>Controlling Packs Parameters<a class="headerlink" href="#controlling-packs-parameters" title="Permalink to this headline">¶</a></h1>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#pack-definition">Pack Definition</a></p></li>
+<li><p><a class="reference external" href="#modifying-values">Modifying Values</a></p></li>
+<li><p><a class="reference external" href="#experiment-resources">Experiment Resources</a></p></li>
+</ul>
+<div class="section" id="pack-definition">
+<h2>Pack Definition<a class="headerlink" href="#pack-definition" title="Permalink to this headline">¶</a></h2>
+<p>The packs are located in the <code class="docutils literal notranslate"><span class="pre">nctl_config</span></code> folder. Navigate to <code class="docutils literal notranslate"><span class="pre">.draft/packs/https-github.com-Azure-draft/packs</span></code> folder to list existing packs.</p>
+<p>The default pack used by <code class="docutils literal notranslate"><span class="pre">nctl_</span> <span class="pre">client</span></code> is <code class="docutils literal notranslate"><span class="pre">tf-training-single</span></code>. The pack consists of:</p>
+<ul class="simple">
+<li><p>Docker image specification <em>Dockerfile</em></p></li>
+<li><p>Helm deployment <em>charts</em> folder</p></li>
+</ul>
+<p>All the pack parameters that can be controlled by <em>nctl</em> are defined in the <code class="docutils literal notranslate"><span class="pre">charts/values.yaml</span></code> file.</p>
+<p>The example <code class="docutils literal notranslate"><span class="pre">values.yaml</span></code> file (shown below) is taken from <code class="docutils literal notranslate"><span class="pre">tf-training-multi</span></code> pack:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>	<span class="c1"># Default values for charts.</span>
+	<span class="c1"># This is a YAML-formatted file.</span>
+	<span class="c1"># Declare variables to be passed into your templates.</span>
+	
+	<span class="n">TensorBoardPort</span><span class="p">:</span> <span class="mi">8888</span>
+	<span class="n">TensorIPythonPort</span><span class="p">:</span> <span class="mi">6006</span>
+	
+	<span class="n">commandline</span><span class="p">:</span>
+	  <span class="n">args</span><span class="p">:</span>
+	    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">NAUTA</span><span class="o">.</span><span class="n">CommandLine</span> <span class="o">%</span><span class="p">}</span>
+	    <span class="o">-</span> <span class="p">{{</span> <span class="n">arg</span> <span class="p">}}</span>
+	    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
+	
+	<span class="n">image</span><span class="p">:</span>
+	  <span class="n">pullPolicy</span><span class="p">:</span> <span class="n">IfNotPresent</span>
+	  <span class="n">clusterRepository</span><span class="p">:</span> <span class="p">{{</span> <span class="n">NAUTA</span><span class="o">.</span><span class="n">ExperimentImage</span> <span class="p">}}</span>
+	
+	<span class="n">service</span><span class="p">:</span>
+	  <span class="nb">type</span><span class="p">:</span> <span class="n">ClusterIP</span>
+	
+	<span class="n">worker_resources</span><span class="p">:</span>
+	  <span class="n">requests</span><span class="p">:</span>
+	    <span class="n">cpu</span><span class="p">:</span> <span class="mi">76</span>
+	    <span class="n">memory</span><span class="p">:</span> <span class="mi">240</span><span class="n">Gi</span>
+	  <span class="n">limits</span><span class="p">:</span>
+	    <span class="n">cpu</span><span class="p">:</span> <span class="mi">76</span>
+	    <span class="n">memory</span><span class="p">:</span> <span class="mi">240</span><span class="n">Gi</span>
+	
+	<span class="n">worker_cpu</span><span class="p">:</span> <span class="n">null</span>
+	<span class="n">worker_memory</span><span class="p">:</span> <span class="n">null</span>
+	
+	<span class="n">ps_resources</span><span class="p">:</span>
+	  <span class="n">requests</span><span class="p">:</span>
+	    <span class="n">cpu</span><span class="p">:</span> <span class="mi">76</span>
+	    <span class="n">memory</span><span class="p">:</span> <span class="mi">240</span><span class="n">Gi</span>
+	  <span class="n">limits</span><span class="p">:</span>
+	    <span class="n">cpu</span><span class="p">:</span> <span class="mi">76</span>
+	    <span class="n">memory</span><span class="p">:</span> <span class="mi">240</span><span class="n">Gi</span>
+	
+	<span class="n">ps_cpu</span><span class="p">:</span> <span class="n">null</span>
+	<span class="n">ps_memory</span><span class="p">:</span> <span class="n">null</span>
+	
+	<span class="n">sidecar_resources</span><span class="p">:</span>
+	  <span class="n">requests</span><span class="p">:</span>
+	    <span class="n">cpu</span><span class="p">:</span> <span class="mf">0.01</span>
+	    <span class="n">memory</span><span class="p">:</span> <span class="mi">1</span><span class="n">Gi</span>
+	
+	<span class="n">sidecar_cpu</span><span class="p">:</span> <span class="n">null</span>
+	<span class="n">sidecar_memory</span><span class="p">:</span> <span class="n">null</span>
+	
+	<span class="n">experimentName</span><span class="p">:</span> <span class="p">{{</span> <span class="n">NAUTA</span><span class="o">.</span><span class="n">ExperimentName</span> <span class="p">}}</span> 
+	<span class="n">registryPort</span><span class="p">:</span> <span class="p">{{</span> <span class="n">NAUTA</span><span class="o">.</span><span class="n">RegistryPort</span> <span class="p">}}</span>
+	
+	<span class="n">workersCount</span><span class="p">:</span> <span class="mi">3</span>
+	<span class="n">psSidecarLoggingLevel</span><span class="p">:</span> <span class="s2">&quot;WARNING&quot;</span>
+	<span class="n">pServersCount</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modifying-values">
+<h2>Modifying Values<a class="headerlink" href="#modifying-values" title="Permalink to this headline">¶</a></h2>
+<p>The values can be modified directly by editing the <code class="docutils literal notranslate"><span class="pre">values.yml</span></code> file or by providing <em>-p</em>, <em>–pack_param</em> parameter to the selected <em>nctl</em> commands:</p>
+<ul class="simple">
+<li><p><em>nctl experiment submit</em></p></li>
+<li><p><em>nctl experiment interact</em></p></li>
+</ul>
+<p>The <em>-p</em> parameter can be provided multiple times.
+Format specification:</p>
+<ul class="simple">
+<li><p>‘key value’ or ‘key.subkey.subkey2 value’</p></li>
+<li><p>for lists: ‘key “[‘val1’, ‘val2’]”’</p></li>
+<li><p>for maps: ‘key “{‘a’: ‘b’}”’</p></li>
+</ul>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">experiment</span> <span class="pre">submit</span> <span class="pre">multinode.py</span> <span class="pre">-t</span> <span class="pre">tf-training-multi</span> <span class="pre">-p</span> <span class="pre">workersCount</span> <span class="pre">12</span> <span class="pre">-p</span> <span class="pre">pServersCount</span> <span class="pre">1</span></code></p>
+</div>
+</div>
+<div class="section" id="experiment-resources">
+<h2>Experiment Resources<a class="headerlink" href="#experiment-resources" title="Permalink to this headline">¶</a></h2>
+<p><em>nctl</em>, by default uses the following resource limits and requests for each built-in template:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Template</th>
+<th>CPU   Request</th>
+<th>CPU Limit</th>
+<th>Memory Request</th>
+<th>Memory Limit</th>
+<th>Physical CPU Cores Request</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jupyter</td>
+<td>38</td>
+<td>38</td>
+<td>120Gi</td>
+<td>120Gi</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tf-training-horovod</td>
+<td>76</td>
+<td>76</td>
+<td>240Gi</td>
+<td>240Gi</td>
+<td>20</td>
+</tr>
+<tr>
+<td>tf-training-multi</td>
+<td>76</td>
+<td>76</td>
+<td>240Gi</td>
+<td>240Gi</td>
+<td>-</td>
+</tr>
+<tr>
+<td>openvino-inference-batch</td>
+<td>38</td>
+<td>38</td>
+<td>120Gi</td>
+<td>120Gi</td>
+<td>-</td>
+</tr>
+<tr>
+<td>openvino-inference-stream</td>
+<td>38</td>
+<td>38</td>
+<td>120Gi</td>
+<td>120Gi</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tf-inference-batch</td>
+<td>38</td>
+<td>38</td>
+<td>120Gi</td>
+<td>120Gi</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tf-inference-stream</td>
+<td>38</td>
+<td>38</td>
+<td>120Gi</td>
+<td>120Gi</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tf-training-single</td>
+<td>38</td>
+<td>38</td>
+<td>120Gi</td>
+<td>120Gi</td>
+<td>-</td>
+</tr>
+</tbody>
+</table><p>It is recommended to keep requests and limits on the same values. In addition, the requested limits never should be larger than resources available on node.</p>
+<p><strong>Note:</strong> You can use <code class="docutils literal notranslate"><span class="pre">cpu</span></code> and <code class="docutils literal notranslate"><span class="pre">memory</span></code> pack parameters when you want to change both requests and limits, for example, by using the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nctl</span> <span class="n">experiment</span> <span class="n">submit</span> <span class="n">multinode</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">p</span> <span class="n">cpu</span> <span class="mi">2</span> <span class="o">-</span><span class="n">p</span> <span class="n">memory</span> <span class="mi">4</span><span class="n">Gi</span>
+</pre></div>
+</div>
+<p>Will submit an experiment with CPU requests and limits set to 2, and memory requests and limits set to 4Gi.</p>
+<p>To change these defaults, following parameters should be adjusted (using methods described in Modifying values section):</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Template</th>
+<th>Resource Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jupyter</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory</td>
+</tr>
+<tr>
+<td>tf-training-horovod</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory<br> - cpus<br> - processesPerNode</td>
+</tr>
+<tr>
+<td>tf-training-multi</td>
+<td>- worker_resources.requests.cpu<br> - worker_resources.requests.memory<br> - worker_resources.limits.cpu<br> - worker_resources.limits.memory<br> - ps_resources.requests.cpu<br> - ps_resources.requests.memory<br> - ps_resources.limits.cpu<br> - ps_resources.limits.memory</td>
+</tr>
+<tr>
+<td>openvino-inference-batch</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory</td>
+</tr>
+<tr>
+<td>openvino-inference-stream</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory</td>
+</tr>
+<tr>
+<td>tf-inference-batch</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory</td>
+</tr>
+<tr>
+<td>tf-inference-stream</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory</td>
+</tr>
+<tr>
+<td>tf-training-single</td>
+<td>- resources.requests.cpu<br> - resources.requests.memory<br> - resources.limits.cpu<br> - resources.limits.memory</td>
+</tr>
+</tbody>
+</table></div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

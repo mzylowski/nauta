@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to Build the Nauta Package &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user-guide/README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>How to Build the Nauta Package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/installation-and-configuration/How_to_Build_Nauta/HBN.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-build-the-nauta-package">
+<h1>How to Build the Nauta Package<a class="headerlink" href="#how-to-build-the-nauta-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="nauta-requirements">
+<h2>Nauta Requirements<a class="headerlink" href="#nauta-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Before building Nauta, ensure that <em>your system meets</em> the following requirements listed below: hardware, operating system, and proxy settings.</p>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#how-to-clone-the-nauta-repository">How to Clone the Nauta Repository</a></p></li>
+<li><p><a class="reference external" href="#hardware-requirements">Hardware Requirements</a></p></li>
+<li><p><a class="reference external" href="#overall-operating-system-requirements">Overall Operating System Requirements</a></p></li>
+<li><p><a class="reference external" href="#build">Build</a></p></li>
+<li><p><a class="reference external" href="#output-of-the-build">Output of the Build</a></p></li>
+</ul>
+</div>
+<div class="section" id="how-to-clone-the-nauta-repository">
+<h2>How to Clone the Nauta Repository<a class="headerlink" href="#how-to-clone-the-nauta-repository" title="Permalink to this headline">¶</a></h2>
+<p>Execute the following commands from the command line:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">--recursive</span> <span class="pre">https://github.com/IntelAI/nauta.git</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">nauta</span></code></p></li>
+</ul>
+<p><strong>Note:</strong> For full installation information, refer to the Installation Nauta Installation Procedures section of the <a class="reference internal" href="../README.html"><span class="doc">Nauta Installation, Configuration, and Administration Guide</span></a></p>
+<div class="section" id="hardware-requirements">
+<h3>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Part of Nauta’s build process involves the compilation of TensorFlow. Therefore, your build server <em>must meet</em> all TensorFlow build requirements. In particular, your CPU <em>must have</em> support for AVX and SSE instructions. To make sure required flags are available on a CPU, call <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/proc/cpuinfo</span></code>. In flags field, instruction sets <code class="docutils literal notranslate"><span class="pre">avx,</span> <span class="pre">sse,</span> <span class="pre">sse2,</span> <span class="pre">ssse3,</span> <span class="pre">sse4_1,</span> <span class="pre">sse4_2</span></code> should be listed.</p>
+<p><strong>Note:</strong> For SSE information, refer to:  <a class="reference external" href="https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">Streaming SIMD Extensions</a> and for AVX information, refer to: <a class="reference external" href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">Advanced Vector Extensions</a>.</p>
+<div class="section" id="hardware-configuration-requirements">
+<h4>Hardware Configuration Requirements<a class="headerlink" href="#hardware-configuration-requirements" title="Permalink to this headline">¶</a></h4>
+<p>For the build server, <em><strong>you must</strong></em> have at least 12 GB of RAM and at least 100GB of space for temporary containers, registries, and so on. The size of the final <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> file is ~5GB.</p>
+</div>
+</div>
+<div class="section" id="overall-operating-system-requirements">
+<h3>Overall Operating System Requirements<a class="headerlink" href="#overall-operating-system-requirements" title="Permalink to this headline">¶</a></h3>
+<p>To make your Nauta build successful, <em><strong>you must</strong></em> set your proxies, ensure you have internet connection and ensure the required packages are installed as shown below.</p>
+</div>
+<div class="section" id="proxy-setting-requirements">
+<h3>Proxy Setting Requirements<a class="headerlink" href="#proxy-setting-requirements" title="Permalink to this headline">¶</a></h3>
+<p>Set <code class="docutils literal notranslate"><span class="pre">http_proxy</span></code>, <code class="docutils literal notranslate"><span class="pre">https_proxy</span></code> and <code class="docutils literal notranslate"><span class="pre">no_proxy</span></code> environment variables, if you are behind a proxy. <code class="docutils literal notranslate"><span class="pre">no_proxy</span></code> should include the following: <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> and <code class="docutils literal notranslate"><span class="pre">localhost</span></code>.</p>
+<p>If proxy issues occur during the build process, as a workaround it is recommended that you configure a transparent proxy (for example, a Redsocks-based solution).</p>
+<p><strong>Note:</strong> Docker <em>should be</em> configured to download images from the internet, follow: <a class="reference external" href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">official Docker instructions</a> for more details.</p>
+</div>
+<div class="section" id="internet-connection">
+<h3>Internet Connection<a class="headerlink" href="#internet-connection" title="Permalink to this headline">¶</a></h3>
+<p>To build the Nauta package, you need an internet connection so that you can untar the tarball, configure your proxy settings, DNS settings, and so on.</p>
+</div>
+<div class="section" id="required-packages-ubuntu-16-04-lts-or-18-04-lts">
+<h3>Required Packages: Ubuntu 16.04 LTS or 18.04 LTS<a class="headerlink" href="#required-packages-ubuntu-16-04-lts-or-18-04-lts" title="Permalink to this headline">¶</a></h3>
+<p>When building Nauta within these versions of Ubuntu (currently, the <em>only validated</em> build environment), the following packages <em><strong>must be</strong></em> installed first:</p>
+<ul class="simple">
+<li><p>binutils</p></li>
+<li><p>build-essential</p></li>
+<li><p>docker</p></li>
+<li><p>make</p></li>
+<li><p>pigz</p></li>
+<li><p>python3-venv</p></li>
+<li><p>python3-dev</p></li>
+<li><p>virtualenv</p></li>
+<li><p>git</p></li>
+</ul>
+<p>To install the required packages, invoke:</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python3-venv</span> <span class="pre">python3-dev</span> <span class="pre">virtualenv</span> <span class="pre">binutils</span> <span class="pre">build-essential</span> <span class="pre">make</span> <span class="pre">pigz</span> <span class="pre">git</span></code></p>
+</div>
+<div class="section" id="docker-community-edition-information">
+<h3>Docker Community Edition Information<a class="headerlink" href="#docker-community-edition-information" title="Permalink to this headline">¶</a></h3>
+<p>To install Docker Community Edition (CE), follow: <a class="reference external" href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">official Docker instructions</a>.</p>
+<p>The build process requires access to the <code class="docutils literal notranslate"><span class="pre">docker</span></code> command. Remember to add your user to the <code class="docutils literal notranslate"><span class="pre">docker</span></code> group by running: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">docker</span> <span class="pre">[user]</span></code> if the user <em>has not</em> been previously added.</p>
+<p>For more information, refer to the <a class="reference external" href="https://docs.docker.com/install/linux/linux-postinstall">Post-install Docker guide</a>.</p>
+<p><strong>Note:</strong> During the Nauta build process, TensorFlow is checked by the Horovod installer inside its Docker container.</p>
+</div>
+</div>
+<div class="section" id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>From the main directory of Nauta repository invoke:</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">k8s-installer-build</span></code></p>
+<div class="section" id="build-logs">
+<h3>Build Logs<a class="headerlink" href="#build-logs" title="Permalink to this headline">¶</a></h3>
+<p>Logs from the build process are saved to a file and persists if build fails. By default, it is <code class="docutils literal notranslate"><span class="pre">k8s_installer_build.log</span></code> in <code class="docutils literal notranslate"><span class="pre">tools/.workspace</span></code> directory. The Log file path can be controlled through <code class="docutils literal notranslate"><span class="pre">K8S_INSTALLER_BUILD_LOG_PATH</span></code> environment variable.</p>
+<p>In addition, it is also possible to clean temporary data if any error during build process occurs by invoking:</p>
+<p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">k8s-installer-clean</span></code></p>
+<p><strong>Note:</strong> The command shown above is automatically invoked when build process finishes with success.</p>
+</div>
+</div>
+<div class="section" id="output-of-the-build">
+<h2>Output of the Build<a class="headerlink" href="#output-of-the-build" title="Permalink to this headline">¶</a></h2>
+<p>A successful build produces a compressed tarball. The tarball’s name and software version appears as follows: <code class="docutils literal notranslate"><span class="pre">nauta-{version}-{build-id}.tar.gz</span></code> (for example: <code class="docutils literal notranslate"><span class="pre">nauta-1.0.0-190110100005.tar.gz</span></code>), This is located in the <code class="docutils literal notranslate"><span class="pre">tools/.workspace</span></code> directory.</p>
+<p>The tarball contains, among other things, docs, images, config files, and ansible playbooks. See <a class="reference external" href="https://docs.ansible.com/ansible/latest/cli/ansible-playbook.html">ansible-playbook</a> for more information. To complete the installation of Nauta, follow the rest of this installation guide with a prepared <code class="docutils literal notranslate"><span class="pre">tar.gz</span></code> artifact.</p>
+<p><strong>Note:</strong> This guide explains how to build the Nauta application, but to interact with an installed Nauta platform, the <code class="docutils literal notranslate"><span class="pre">nctl</span></code> client is also required. For more information on installing the client, refer to the chapter <em>Client Installation and Configuration</em> in section <em>How to Build Nauta CLI</em> in the <a class="reference internal" href="../../user-guide/actions/nctl.html"><span class="doc">Nauta User Guide</span></a>.</p>
+</div>
+<div class="section" id="next-steps-nauta-installer-system-requirements">
+<h2>Next Steps: Nauta Installer System Requirements<a class="headerlink" href="#next-steps-nauta-installer-system-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../Installer_System_Requirements/ISR.html"><span class="doc">Installer System Requirements</span></a></p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

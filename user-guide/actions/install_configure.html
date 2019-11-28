@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Client Installation and Configuration &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Client Installation and Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/install_configure.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="client-installation-and-configuration">
+<h1>Client Installation and Configuration<a class="headerlink" href="#client-installation-and-configuration" title="Permalink to this headline">¶</a></h1>
+<p>This section provides instructions for installing and configuring Nauta to run on your client system, and discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#supported-operating-systems">Supported Operating Systems</a></p></li>
+<li><p><a class="reference external" href="#required-software-packages">Required Software Packages</a></p></li>
+<li><p><a class="reference external" href="#installation">Installation</a></p></li>
+<li><p><a class="reference external" href="#setting-variables-permanently">Setting Variables Permanently</a></p></li>
+</ul>
+<p>For instructions to install and configure Nauta to run on the host server, refer to the
+<a class="reference internal" href="../../installation-and-configuration/README.html"><span class="doc">Nauta Installation, Configuration, and Administration Guide</span></a>.</p>
+<div class="section" id="supported-operating-systems">
+<h2>Supported Operating Systems<a class="headerlink" href="#supported-operating-systems" title="Permalink to this headline">¶</a></h2>
+<p>This release of the Nauta client software has been validated on the following operating systems and versions:</p>
+<ul class="simple">
+<li><p>Ubuntu (16.04, 18.04)</p></li>
+<li><p>RedHat 7.5</p></li>
+<li><p>macOS High Sierra (10.13)</p></li>
+</ul>
+</div>
+<div class="section" id="required-software-packages">
+<h2>Required Software Packages<a class="headerlink" href="#required-software-packages" title="Permalink to this headline">¶</a></h2>
+<p>The following software <em>must</em> be installed on the client system before installing Nauta client:</p>
+<ul class="simple">
+<li><p>kubectl version 1.10 or later, refer to: <a class="reference external" href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl">Install Kubectl</a></p></li>
+<li><p>git version 1.8.3.1 or later</p></li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>To install the Nauta client software package, do the following:</p>
+<ol class="simple">
+<li><p>Download and install the two required software packages listed above, preferably in the order given.</p></li>
+<li><p>Build the Nauta client software package for your operating system (<a class="reference internal" href="nctl.html"><span class="doc">Nauta CLI build instructions</span></a>). There is no installation utility. You can unpack this package and place the unpacked files in any location you prefer. Take note of the path.</p></li>
+<li><p>Set KUBECONFIG environment variable to the Kubernetes configuration file provided by your Nauta administrator. The <code class="docutils literal notranslate"><span class="pre">&lt;PATH&gt;</span></code> is located wherever your <em>config</em> file is stored.</p>
+<ul class="simple">
+<li><p>For <strong>macOS/Ubuntu</strong>, enter: <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">KUBECONFIG=&lt;PATH&gt;/&lt;USERNAME&gt;.config</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Optional:</strong> Add the package <code class="docutils literal notranslate"><span class="pre">nctl</span></code> to your terminal PATH. <code class="docutils literal notranslate"><span class="pre">NCTL_HOME</span></code> should be the path to the nctl application folder:</p>
+<ul class="simple">
+<li><p>For <strong>macOS/Ubuntu</strong>, enter: <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">PATH=$PATH:NCTL_HOME</span></code></p></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="setting-variables-permanently">
+<h2>Setting Variables Permanently<a class="headerlink" href="#setting-variables-permanently" title="Permalink to this headline">¶</a></h2>
+<p>Should you want to permanently set the variables, you can add the variables to your:</p>
+<ul class="simple">
+<li><p>.bashrc</p></li>
+<li><p>.bash_profile</p></li>
+</ul>
+<p>Alternatively, you may want to set the PATH and KUBECONFIG variables in the  <em>Environment Variables</em> window. This is accessed by opening the Control Panel &gt; System and Security &gt; System &gt; Advanced system settings, and accessing Environment variables. This is an administrator function only.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

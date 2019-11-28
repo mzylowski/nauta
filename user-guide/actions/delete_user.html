@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Deleting a User Account &mdash; Nauta 1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/white_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Product Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#nauta-user-guide">Nauta User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html">Nauta Installation, Configuration, and Administration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-hardware-requirement-overview">Nauta Hardware Requirement Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation-and-configuration/README.html#nauta-installation-procedures">Nauta Installation Procedures</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Nauta</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Deleting a User Account</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/user-guide/actions/delete_user.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="deleting-a-user-account">
+<h1>Deleting a User Account<a class="headerlink" href="#deleting-a-user-account" title="Permalink to this headline">¶</a></h1>
+<p>Only an Administrator can delete user accounts and deleting a user removes that user’s account from the Nauta software; therefore, that user <em>will not</em> be able to log in to the system. This will halt and remove all experiments and pods; however, all artifacts related to that user’s account, such as the users input and output folders and all data related to past experiments they have submitted remain. To create a User Account, refer to <a class="reference internal" href="create_user.html"><span class="doc">Creating a User Account</span></a>.</p>
+<p>This section discusses the following main topics:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#removing-a-user">Removing a User</a></p></li>
+<li><p><a class="reference external" href="#purging-process">Using the Purging Command</a></p></li>
+</ul>
+<div class="section" id="removing-a-user">
+<h2>Removing a User<a class="headerlink" href="#removing-a-user" title="Permalink to this headline">¶</a></h2>
+<p>To remove a user:</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">delete</span> <span class="pre">&lt;user-name&gt;</span></code></p>
+<p>This command asks for confirmation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">continue?</span> <span class="pre">[y/N]:</span> <span class="pre">press</span> <span class="pre">y</span> <span class="pre">to</span> <span class="pre">confirm</span> <span class="pre">deletion.</span></code></p>
+<div class="section" id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
+<p>The command may take up to 30 seconds to delete the user and you may receive the message: <em>User is still being deleted</em>. Check the status of the user in a while. Recheck, as desired.</p>
+</div>
+</div>
+<div class="section" id="purging-process">
+<h2>Purging Process<a class="headerlink" href="#purging-process" title="Permalink to this headline">¶</a></h2>
+<p>To permanently remove (<em>Purge</em>) all artifacts associated with the user, including all data related to past experiments submitted by that user (but excluding the contents of the user’s input and output folders):</p>
+<p><code class="docutils literal notranslate"><span class="pre">nctl</span> <span class="pre">user</span> <span class="pre">delete</span> <span class="pre">&lt;user-name&gt;</span> <span class="pre">--purge</span></code></p>
+<p>This command asks for confirmation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Do</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">continue?</span> <span class="pre">[y/N]:</span> <span class="pre">press</span> <span class="pre">y</span> <span class="pre">to</span> <span class="pre">confirm</span> <span class="pre">deletion.</span></code></p>
+<div class="section" id="id1">
+<h3>Limitations<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The Nauta <code class="docutils literal notranslate"><span class="pre">user</span> <span class="pre">delete</span></code> command may take up to 30 seconds to delete the user. A new user with the same user name <em>cannot</em> be created until after the delete command confirms that the first user with the same name has been deleted.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="return-to-start-of-document">
+<h2>Return to Start of Document<a class="headerlink" href="#return-to-start-of-document" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../README.html"><span class="doc">README</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Intel Corporation
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
