@@ -7,7 +7,7 @@ access Gitea's UI with admin rights using the procedure described below.
 
 ## Accessing Gitea console
 
-- Get gitea admin credentials:
+- Getdasassdasd gitea admin credentials:
 ```bash
 # export KUBECONFIG=<path to your admin's KUBECONFIG file>
 $ kubectl get secret -n nauta -o jsonpath={.data.name} nauta-gitea-admin-secret | base64 --decode
